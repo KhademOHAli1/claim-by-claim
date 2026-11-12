@@ -1,6 +1,12 @@
 'use client';
 
-import { useEffect, useMemo, useRef, useState } from 'react';
+import {
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  useSyncExternalStore,
+} from 'react';
 import {
   ArrowUpRight,
   BookOpen,
@@ -39,6 +45,11 @@ import {
   TooltipTrigger,
 } from '@/components/ui/tooltip';
 import Workspace from './components/Workspace';
+import MobileWorkspace, {
+  mobileMediaQuery,
+  type MobilePanel,
+  type PlayerSize,
+} from './components/MobileWorkspace';
 import rawData from './data/case.json';
 import rawSourceLocations from './data/source-locations.json';
 import type {
@@ -246,6 +257,20 @@ function createCues(): Cue[] {
 }
 const cues = createCues();
 
+function subscribeToMobileViewport(notify: () => void) {
+  const viewport = window.matchMedia(mobileMediaQuery);
+  viewport.addEventListener('change', notify);
+  return () => viewport.removeEventListener('change', notify);
+}
+
+function mobileViewport() {
+  return window.matchMedia(mobileMediaQuery).matches;
+}
+
+const desktopSnapshot = () => false;
+
+type MobileInspection = { claim: Claim; cue?: Cue };
+
 type Overlay =
   'method' | 'registry' | 'correction' | { source: CaseSource } | null;
 
@@ -256,6 +281,7 @@ function Dialog({
   claim,
   correctionUrl,
   resetLayout,
+  mobile,
 }: {
   overlay: Overlay;
   close: () => void;
@@ -263,9 +289,11 @@ function Dialog({
   claim: Claim;
   correctionUrl: string;
   resetLayout: () => void;
+  mobile: boolean;
 }) {
   const [query, setQuery] = useState('');
   const [kind, setKind] = useState('All types');
+  const opener = useRef<HTMLElement | null>(null);
   const source = typeof overlay === 'object' && overlay ? overlay.source : null;
   const locations = source ? (sourceLocations[source.id] ?? []) : [];
   const results = data.sources.filter(
@@ -291,7 +319,15 @@ function Dialog({
     >
       <DialogContent
         showCloseButton={false}
-        className={`modal ${overlay === 'correction' ? 'correction-modal' : ''}`}
+        className={`modal${overlay === 'correction' ? ' correction-modal' : ''}${mobile ? ' mobile-evidence-dialog' : ''}`}
+        onOpenAutoFocus={mobile ? () => {
+          opener.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+        } : undefined}
+        onCloseAutoFocus={mobile ? (event) => {
+          if (!opener.current?.isConnected) return;
+          event.preventDefault();
+          opener.current.focus({ preventScroll: true });
+        } : undefined}
       >
         <div className="modal-top">
           <DialogTitle>{title}</DialogTitle>
@@ -579,9 +615,15 @@ function Dialog({
 }
 
 export default function App() {
+  const isMobile = useSyncExternalStore(
+    subscribeToMobileViewport,
+    mobileViewport,
+    desktopSnapshot,
+  );
   const video = useRef<HTMLVideoElement>(null);
   const seekBar = useRef<HTMLInputElement>(null);
   const transcript = useRef<HTMLDivElement>(null);
+  const inlineFinding = useRef<HTMLDivElement>(null);
   const manualClaim = useRef<string | null>(null);
   const [currentTime, setCurrentTime] = useState(0);
   const [selectedId, setSelectedId] = useState(data.claims[0].id);
@@ -596,19 +638,42 @@ export default function App() {
   const [copied, setCopied] = useState(false);
   const [videoError, setVideoError] = useState('');
   const [resetToken, setResetToken] = useState(0);
+  const [playerSize, setPlayerSize] = useState<PlayerSize>('balanced');
+  const [mobilePanel, setMobilePanel] = useState<MobilePanel | null>(
+    'transcript',
+  );
+  const [mobileInspection, setMobileInspection] =
+    useState<MobileInspection | null>(null);
   useEffect(() => {
     seekBar.current?.style.setProperty(
       '--progress',
       `${(currentTime / data.video.durationSeconds) * 100}%`,
     );
-  }, [currentTime]);
+  }, [currentTime, isMobile]);
   const selected =
     data.claims.find((claim) => claim.id === selectedId) ?? data.claims[0];
-  const index = data.claims.findIndex((claim) => claim.id === selected.id);
-  const activeCue = cues.find(
-    (cue) => currentTime >= cue.start - 0.04 && currentTime < cue.end + 0.08,
-  );
-  const activeSources = selected.sourceIds
+  const displayed = isMobile ? mobileInspection?.claim ?? selected : selected;
+  const index = data.claims.findIndex((claim) => claim.id === displayed.id);
+  const inlineCue =
+    isMobile && playerSize === 'compact' && mobilePanel === 'transcript'
+      ? mobileInspection?.cue
+      : undefined;
+  const activeCue =
+    (isMobile && cues.find((cue) => currentTime >= cue.start && currentTime < cue.end)) ||
+    cues.find((cue) => currentTime >= cue.start - 0.04 && currentTime < cue.end + 0.08);
+  const liveClaim =
+    currentTime >= selected.start - 0.15 && currentTime < selected.end + 0.15
+      ? selected
+      : null;
+  const spokenWord =
+    isMobile && playerSize === 'expanded'
+      ? activeCue?.words.reduce(
+          (current, word, index) => (word.start <= currentTime ? index : current),
+          -1,
+        ) ?? -1
+      : -1;
+  const captionStart = Math.floor(Math.max(0, spokenWord) / 10) * 10;
+  const activeSources = displayed.sourceIds
     .map((id) => sourcesById.get(id))
     .filter((source): source is CaseSource => !!source);
   const counts = useMemo(
@@ -632,6 +697,46 @@ export default function App() {
   function selectClaim(claim: Claim) {
     seek(claim.start, claim);
     window.history.replaceState(null, '', `#${claim.id}`);
+  }
+  function changeMobilePanel(panel: MobilePanel | null) {
+    setMobilePanel(panel);
+    if (panel === 'finding' || panel === 'evidence') {
+      setMobileInspection((inspection) => inspection ?? { claim: selected });
+    } else if (!panel || playerSize !== 'compact' || !mobileInspection?.cue) {
+      setMobileInspection(null);
+    }
+  }
+  function resizePlayer(size: PlayerSize) {
+    setPlayerSize(size);
+    if (inlineCue && size !== 'compact') {
+      setMobilePanel('finding');
+    } else if (size === 'expanded' && mobilePanel === 'transcript') {
+      setMobilePanel(null);
+    } else if (size !== 'expanded' && mobilePanel === null) {
+      setMobilePanel('transcript');
+    }
+  }
+  function inspectCue(cue: Cue) {
+    if (inlineCue?.id === cue.id) {
+      setMobileInspection(null);
+      return;
+    }
+    const claim = cue.claims.find(({ id }) => id === selectedId) ?? cue.claims[0];
+    setMobileInspection({ claim, cue });
+    if (playerSize === 'compact') setFollowing(false);
+    else setMobilePanel('finding');
+  }
+  function inspectLiveClaim() {
+    setMobileInspection({ claim: selected });
+    setMobilePanel('finding');
+  }
+  function navigateFinding(claim: Claim) {
+    selectClaim(claim);
+    if (isMobile) setMobileInspection({ claim });
+  }
+  function toggleFollowing() {
+    if (isMobile && !following) setMobileInspection(null);
+    setFollowing(!following);
   }
   function synchronize(time: number) {
     setCurrentTime(time);
@@ -665,14 +770,21 @@ export default function App() {
       const target = data.claims.find(
         (claim) => `#${claim.id}` === window.location.hash,
       );
-      if (target) selectClaim(target);
+      if (target) {
+        setMobileInspection(null);
+        selectClaim(target);
+      }
     };
     window.addEventListener('hashchange', hash);
     hash();
     return () => window.removeEventListener('hashchange', hash);
   }, []);
   useEffect(() => {
-    if (!following || !transcript.current) return;
+    if (
+      !following ||
+      !transcript.current ||
+      (isMobile && mobilePanel !== 'transcript')
+    ) return;
     const id = mode === 'claims' ? selectedId : activeCue?.id;
     const row = id
       ? transcript.current.querySelector<HTMLElement>(`[data-row="${id}"]`)
@@ -694,7 +806,12 @@ export default function App() {
             : 'smooth',
         });
     }
-  }, [selectedId, activeCue?.id, following, mode]);
+  }, [selectedId, activeCue?.id, following, mode, isMobile, mobilePanel, playerSize]);
+  useEffect(() => {
+    if (inlineCue) {
+      inlineFinding.current?.querySelector('h2')?.scrollIntoView({ block: 'nearest' });
+    }
+  }, [inlineCue]);
 
   const matchingClaims = data.claims.filter(
     (claim) =>
@@ -708,23 +825,140 @@ export default function App() {
   );
   async function copyLink() {
     const url = new URL(window.location.href);
-    url.hash = selected.id;
+    url.hash = displayed.id;
     try {
       await navigator.clipboard.writeText(url.toString());
       setCopied(true);
       window.setTimeout(() => setCopied(false), 2000);
     } catch {
-      window.history.replaceState(null, '', `#${selected.id}`);
+      window.history.replaceState(null, '', `#${displayed.id}`);
       setCopied(false);
     }
   }
   const correctionQuery = new URLSearchParams({
     template: 'correction.yml',
-    title: `[Correction] ${selected.id}: ${titles[selected.id]}`,
-    claim: selected.id,
-    timestamp: formatTime(selected.start),
+    title: `[Correction] ${displayed.id}: ${titles[displayed.id]}`,
+    claim: displayed.id,
+    timestamp: formatTime(displayed.start),
   });
   const correctionUrl = `${repository}/issues/new?${correctionQuery}`;
+
+  function renderFinding(inline = false) {
+    return (
+      <section
+        className="panel finding-panel"
+        aria-label="Selected claim fact check"
+      >
+        {!inline && <div className="claim-tools">
+          <span className="claim-position">Claim {index + 1} of 47</span>
+          <Button
+            variant="ghost"
+            className="icon-button"
+            disabled={index === 0}
+            aria-label="Previous claim"
+            onClick={() => navigateFinding(data.claims[index - 1])}
+          >
+            <ChevronLeft size={17} />
+          </Button>
+          <Button
+            variant="ghost"
+            className="icon-button"
+            disabled={index === data.claims.length - 1}
+            aria-label="Next claim"
+            onClick={() => navigateFinding(data.claims[index + 1])}
+          >
+            <ChevronRight size={17} />
+          </Button>
+          <span className="control-spacer" />
+          <Button
+            variant="ghost"
+            className="claim-time"
+            onClick={() => navigateFinding(displayed)}
+          >
+            {formatTime(displayed.start)}
+          </Button>
+          <Button
+            variant="ghost"
+            className="icon-button"
+            aria-label={copied ? 'Claim link copied' : 'Copy link to claim'}
+            onClick={copyLink}
+          >
+            {copied ? <Check size={14} /> : <Link2 size={14} />}
+          </Button>
+        </div>}
+        <div className="finding-scroll" key={displayed.id}>
+          <div className="finding-meta">
+            <Badge claim={displayed} />
+            <ConfidenceSignal claim={displayed} />
+          </div>
+          <h2>{titles[displayed.id]}</h2>
+          <p className="finding-summary">{displayed.finding}</p>
+          {isMobile && mobileInspection?.cue && mobileInspection.cue.claims.length > 1 && (
+            <details className="mobile-related-claims">
+              <summary>Other claims in this passage</summary>
+              {mobileInspection.cue.claims.filter((claim) => claim.id !== displayed.id).map((claim) => (
+                <Button
+                  key={claim.id}
+                  variant="ghost"
+                  onClick={() => setMobileInspection({ ...mobileInspection, claim })}
+                >
+                  {titles[claim.id]} <Badge claim={claim} small />
+                </Button>
+              ))}
+            </details>
+          )}
+          <div className="finding-scope">
+            <span className="eyebrow">What we assessed</span>
+            <p>{displayed.scope}</p>
+          </div>
+          <div className="finding-analysis-grid">
+            <div>
+              <span className="eyebrow">Basis of assessment</span>
+              <p>{displayed.confidenceReason}</p>
+            </div>
+            <div>
+              <span className="eyebrow">Counterevidence & limits</span>
+              <p>{displayed.counterevidence}</p>
+            </div>
+          </div>
+          <details className="finding-details">
+            <summary>
+              What evidence could change this finding?{' '}
+              <ChevronRight size={15} />
+            </summary>
+            <div>
+              <p>
+                <strong>Open question:</strong> {displayed.unresolved}
+              </p>
+              <p>
+                <strong>Next decisive check:</strong> {displayed.nextTest}
+              </p>
+            </div>
+          </details>
+        </div>
+        <div className="finding-actions">
+          {isMobile && activeSources.length > 0 && (
+            <Button
+              variant="ghost"
+              className="mobile-finding-sources"
+              onClick={() => changeMobilePanel('evidence')}
+            >
+              View {activeSources.length} {activeSources.length === 1 ? 'source' : 'sources'}
+              <ChevronRight size={15} />
+            </Button>
+          )}
+          <Button
+            variant="ghost"
+            className="correction-trigger"
+            aria-haspopup="dialog"
+            onClick={() => setOverlay('correction')}
+          >
+            Did we make a mistake?
+          </Button>
+        </div>
+      </section>
+    );
+  }
 
   const panes = {
     video: (
@@ -747,7 +981,12 @@ export default function App() {
                 'The video could not load. Please reload or check your connection.',
               )
             }
-            onLoadedMetadata={() => {
+            onLoadedMetadata={(event) => {
+              if (currentTime > 0) {
+                event.currentTarget.currentTime = currentTime;
+                if (playing) void event.currentTarget.play().catch(() => setPlaying(false));
+                return;
+              }
               const claim = data.claims.find(
                 (claim) => claim.id === window.location.hash.slice(1),
               );
@@ -812,7 +1051,7 @@ export default function App() {
             </Button>
             <Button
               variant="ghost"
-              className="icon-button"
+              className="icon-button video-fullscreen"
               aria-label="Full screen video"
               onClick={() => {
                 if (video.current?.requestFullscreen)
@@ -858,7 +1097,9 @@ export default function App() {
             onValueChange={(value) => setMode(value as 'transcript' | 'claims')}
           >
             <TabsList className="tabs" aria-label="Transcript view">
-              <TabsTrigger value="transcript">Transcript</TabsTrigger>
+              <TabsTrigger value="transcript">
+                {isMobile ? 'All lines' : 'Transcript'}
+              </TabsTrigger>
               <TabsTrigger value="claims">
                 Claims <span>47</span>
               </TabsTrigger>
@@ -876,12 +1117,12 @@ export default function App() {
             </Button>
             <Button
               variant="ghost"
-              className={`follow-button ${following ? 'on' : ''}`}
-              onClick={() => setFollowing(!following)}
+              className={`follow-button ${following ? 'on' : ''} ${isMobile ? 'mobile-resume' : ''}`}
+              onClick={toggleFollowing}
               aria-pressed={following}
             >
               <span className="follow-dot" />
-              {following ? 'Following' : 'Follow video'}
+              {following ? 'Following' : isMobile ? 'Jump to current time' : 'Follow video'}
             </Button>
           </div>
         </div>
@@ -919,6 +1160,12 @@ export default function App() {
           className="transcript-scroll"
           ref={transcript}
           onWheel={() => setFollowing(false)}
+          onTouchMove={isMobile ? () => setFollowing(false) : undefined}
+          onKeyDown={isMobile ? (event) => {
+            if (event.target === event.currentTarget && ['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', 'Home', 'End'].includes(event.key)) {
+              setFollowing(false);
+            }
+          } : undefined}
           tabIndex={0}
           aria-label={
             mode === 'claims' ? 'Claim list' : 'Scrollable transcript'
@@ -949,6 +1196,7 @@ export default function App() {
                     <Button
                       variant="ghost"
                       className="cue-main"
+                      aria-current={isMobile && active ? 'time' : undefined}
                       onClick={() => {
                         const claim = cue.claims[0];
                         seek(cue.start, claim);
@@ -985,6 +1233,28 @@ export default function App() {
                         ))}
                       </span>
                     </Button>
+                    {isMobile && cue.claims.length > 0 && (
+                      <div className="mobile-claim-links">
+                        <Button
+                          variant="ghost"
+                          aria-expanded={playerSize === 'compact' ? inlineCue?.id === cue.id : undefined}
+                          onClick={() => inspectCue(cue)}
+                        >
+                          {cue.claims.every((claim) => claim.verdict === cue.claims[0].verdict) && (
+                            <Badge claim={cue.claims[0]} small />
+                          )}
+                          {inlineCue?.id === cue.id
+                            ? 'Close fact check'
+                            : cue.claims.length > 1 ? `${cue.claims.length} fact checks` : 'Fact check'}
+                          <ChevronRight size={14} aria-hidden="true" />
+                        </Button>
+                      </div>
+                    )}
+                    {inlineCue?.id === cue.id && (
+                      <div className="mobile-inline-finding" ref={inlineFinding}>
+                        {renderFinding(true)}
+                      </div>
+                    )}
                   </div>
                 );
               })
@@ -994,7 +1264,13 @@ export default function App() {
                   key={claim.id}
                   data-row={claim.id}
                   className={`claim-list-row ${selected.id === claim.id ? 'active' : ''}`}
-                  onClick={() => selectClaim(claim)}
+                  onClick={() => {
+                    selectClaim(claim);
+                    if (isMobile) {
+                      setMobileInspection({ claim });
+                      setMobilePanel('finding');
+                    }
+                  }}
                 >
                   <div>
                     <span className="cue-time">{formatTime(claim.start)}</span>
@@ -1015,101 +1291,15 @@ export default function App() {
         </div>
       </section>
     ),
-    finding: (
-      <section
-        className="panel finding-panel"
-        aria-label="Selected claim fact check"
-      >
-        <div className="claim-tools">
-          <span className="claim-position">Claim {index + 1} of 47</span>
-          <Button
-            variant="ghost"
-            className="icon-button"
-            disabled={index === 0}
-            aria-label="Previous claim"
-            onClick={() => selectClaim(data.claims[index - 1])}
-          >
-            <ChevronLeft size={17} />
-          </Button>
-          <Button
-            variant="ghost"
-            className="icon-button"
-            disabled={index === data.claims.length - 1}
-            aria-label="Next claim"
-            onClick={() => selectClaim(data.claims[index + 1])}
-          >
-            <ChevronRight size={17} />
-          </Button>
-          <span className="control-spacer" />
-          <Button
-            variant="ghost"
-            className="claim-time"
-            onClick={() => selectClaim(selected)}
-          >
-            {formatTime(selected.start)}
-          </Button>
-          <Button
-            variant="ghost"
-            className="icon-button"
-            aria-label={copied ? 'Claim link copied' : 'Copy link to claim'}
-            onClick={copyLink}
-          >
-            {copied ? <Check size={14} /> : <Link2 size={14} />}
-          </Button>
-        </div>
-        <div className="finding-scroll" key={selected.id}>
-          <div className="finding-meta">
-            <Badge claim={selected} />
-            <ConfidenceSignal claim={selected} />
-          </div>
-          <h2>{titles[selected.id]}</h2>
-          <p className="finding-summary">{selected.finding}</p>
-          <div className="finding-scope">
-            <span className="eyebrow">What we assessed</span>
-            <p>{selected.scope}</p>
-          </div>
-          <div className="finding-analysis-grid">
-            <div>
-              <span className="eyebrow">Basis of assessment</span>
-              <p>{selected.confidenceReason}</p>
-            </div>
-            <div>
-              <span className="eyebrow">Counterevidence & limits</span>
-              <p>{selected.counterevidence}</p>
-            </div>
-          </div>
-          <details className="finding-details">
-            <summary>
-              What evidence could change this finding?{' '}
-              <ChevronRight size={15} />
-            </summary>
-            <div>
-              <p>
-                <strong>Open question:</strong> {selected.unresolved}
-              </p>
-              <p>
-                <strong>Next decisive check:</strong> {selected.nextTest}
-              </p>
-            </div>
-          </details>
-        </div>
-        <div className="finding-actions">
-          <Button
-            variant="ghost"
-            className="correction-trigger"
-            aria-haspopup="dialog"
-            onClick={() => setOverlay('correction')}
-          >
-            Did we make a mistake?
-          </Button>
-        </div>
-      </section>
-    ),
+    finding: inlineCue ? null : renderFinding(),
     evidence: (
       <section
         className="panel evidence-panel"
         aria-label="Evidence for selected claim"
       >
+        {isMobile && (
+          <h2 className="mobile-evidence-title">{titles[displayed.id]}</h2>
+        )}
         <div className="evidence-scroll">
           {activeSources.map((source) => (
             <Button
@@ -1151,7 +1341,7 @@ export default function App() {
       <a className="skip-link" href="#explore">
         Skip to the fact check
       </a>
-      <header className="site-header">
+      <header className={`site-header${isMobile ? ' is-mobile-workspace' : ''}`}>
         <a
           className="brand"
           href="#"
@@ -1165,7 +1355,14 @@ export default function App() {
             <Button
               variant="ghost"
               className="overall-assessment"
-              onClick={() => selectClaim(data.claims[0])}
+              aria-label={isMobile ? 'Contains factual errors' : undefined}
+              onClick={() => {
+                selectClaim(data.claims[0]);
+                if (isMobile) {
+                  setMobileInspection({ claim: data.claims[0] });
+                  setMobilePanel('finding');
+                }
+              }}
             >
               <CircleAlert size={15} />
               <strong>Contains factual errors</strong>
@@ -1195,10 +1392,49 @@ export default function App() {
           </a>
         </nav>
       </header>
-      <main id="explore" aria-label="Synchronized video fact check">
-        <Workspace panes={panes} resetToken={resetToken} />
+      <main
+        id="explore"
+        className={isMobile ? 'is-mobile-workspace' : undefined}
+        aria-label="Synchronized video fact check"
+      >
+        {isMobile ? (
+          <MobileWorkspace
+            panes={panes}
+            playerSize={playerSize}
+            onPlayerSizeChange={resizePlayer}
+            panel={mobilePanel}
+            onPanelChange={changeMobilePanel}
+            currentClaim={liveClaim && (
+              <Button
+                variant="ghost"
+                className="mobile-live-claim"
+                aria-label={`Read fact check: ${titles[liveClaim.id]}`}
+                onClick={inspectLiveClaim}
+              >
+                <Badge claim={liveClaim} small />
+                <strong>{titles[liveClaim.id]}</strong>
+                <span>Read fact check <ChevronRight size={13} aria-hidden="true" /></span>
+              </Button>
+            )}
+            caption={(activeCue || liveClaim) && (
+              <>
+                {liveClaim && <Badge claim={liveClaim} small />}
+                {activeCue && (
+                  <span className="mobile-caption-text">
+                    {activeCue.words.slice(captionStart, captionStart + 10).map((word, index) => (
+                      <span
+                        key={captionStart + index}
+                        className={spokenWord === captionStart + index ? 'spoken-word' : undefined}
+                      >{word.text}{' '}</span>
+                    ))}
+                  </span>
+                )}
+              </>
+            )}
+          />
+        ) : <Workspace panes={panes} resetToken={resetToken} />}
       </main>
-      <footer className="site-footer">
+      <footer className={`site-footer${isMobile ? ' is-mobile-workspace' : ''}`}>
         <span>
           Reviewed 12 Nov 2026 <span className="footer-separator">·</span>{' '}
           Unproven does not mean false.
@@ -1208,8 +1444,9 @@ export default function App() {
         overlay={overlay}
         close={() => setOverlay(null)}
         openSource={(source) => setOverlay({ source })}
-        claim={selected}
+        claim={displayed}
         correctionUrl={correctionUrl}
+        mobile={isMobile}
         resetLayout={() => {
           setResetToken((value) => value + 1);
           setOverlay(null);
