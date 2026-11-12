@@ -7,7 +7,7 @@
  * checkout without those working files it validates the committed public data
  * and deterministically regenerates captions from its transcript.
  *
- * Run: node scripts/build-content.mjs [--check]
+ * Run: bun scripts/build-content.mjs [--check]
  */
 import { readFile, writeFile, access } from 'node:fs/promises';
 import { dirname, resolve, join } from 'node:path';

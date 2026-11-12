@@ -1,4 +1,4 @@
-import test from 'node:test';
+import { onTestFinished, test } from 'bun:test';
 import assert from 'node:assert/strict';
 import { execFile } from 'node:child_process';
 import { mkdtemp, mkdir, readFile, rm, symlink, truncate, writeFile } from 'node:fs/promises';
@@ -11,9 +11,9 @@ import { prepare } from './prepare.mjs';
 const execute = promisify(execFile);
 const cf = fileURLToPath(new URL('../node_modules/cf/bin/cf', import.meta.url));
 
-async function project(t) {
+async function project() {
   const root = await mkdtemp(join(tmpdir(), 'claim-by-claim-export-'));
-  t.after(() => rm(root, { recursive: true, force: true }));
+  onTestFinished(() => rm(root, { recursive: true, force: true }));
   await mkdir(join(root, 'out', 'media'), { recursive: true });
   await writeFile(join(root, 'out', 'index.html'), '<!doctype html><title>Export fixture</title>');
   await writeFile(join(root, 'out', '404.html'), '<!doctype html><title>Not found</title>');
@@ -21,8 +21,8 @@ async function project(t) {
   return root;
 }
 
-test('official cf consumer validates the combined static export and media Worker', async (t) => {
-  const root = await project(t);
+test('official cf consumer validates the combined static export and media Worker', async () => {
+  const root = await project();
   const result = await prepare({ projectRoot: root, accountId: undefined });
   assert.equal(result.assets, 3);
   const output = join(root, '.cloudflare', 'output', 'v0');
@@ -44,20 +44,20 @@ test('official cf consumer validates the combined static export and media Worker
   }));
 });
 
-test('a missing Next export fails before touching previous output', async (t) => {
-  const root = await project(t);
+test('a missing Next export fails before touching previous output', async () => {
+  const root = await project();
   await rm(join(root, 'out', 'index.html'));
   await assert.rejects(prepare({ projectRoot: root }), /ENOENT/);
 });
 
-test('oversize source media is rejected before it is copied', async (t) => {
-  const root = await project(t);
+test('oversize source media is rejected before it is copied', async () => {
+  const root = await project();
   await truncate(join(root, 'out', 'media', 'source.mp4'), 25 * 1024 * 1024 + 1);
   await assert.rejects(prepare({ projectRoot: root }), /25 MiB/);
 });
 
-test('symlinks cannot pull files outside the static export into a deployment', async (t) => {
-  const root = await project(t);
+test('symlinks cannot pull files outside the static export into a deployment', async () => {
+  const root = await project();
   await writeFile(join(root, 'outside.txt'), 'not a public asset');
   await symlink(join(root, 'outside.txt'), join(root, 'out', 'outside-link.txt'));
   await assert.rejects(prepare({ projectRoot: root }), /symlink/);

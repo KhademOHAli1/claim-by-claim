@@ -1,23 +1,22 @@
 # Cloudflare deployment
 
-The application uses React and the Next.js App Router with a static export. Next.js produces the application with its normal `next build`; a small Cloudflare Worker adds HTTP byte ranges for the video. Deployment uses the `cf` CLI and its prebuilt Build Output format.
+The application uses React and the Next.js App Router with a static export. Next.js builds the static export with webpack under Bun; a small Cloudflare Worker adds HTTP byte ranges for the video. Deployment uses the `cf` CLI and its prebuilt Build Output format.
 
 ## Build and validate
 
-Use the Node version in `.nvmrc`, install from the npm lockfile, then build:
+Use the Bun version pinned in `package.json` and install from `bun.lock`.
 
 ```sh
-nvm use
-npm ci
-npm run build
-node --test deploy/worker.test.mjs deploy/prepare.test.mjs
-node deploy/prepare.mjs
-npx cf deploy --prebuilt --dry-run
+bun install --frozen-lockfile
+bun run build
+bun run test:worker
+bun run deploy:prepare
+bun run deploy:check
 ```
 
 The Next.js configuration must use `output: 'export'`. Its build produces `out/`, including HTML, client JavaScript and public media. Server-only Next.js features are outside this deployment model. See [Next.js static exports](https://nextjs.org/docs/app/guides/static-exports).
 
-`deploy/prepare.mjs` packages the existing export and compiles the standalone media Worker by stripping TypeScript types with Node. It has no Vite or framework-adapter requirement. It rejects missing exports, symlinks and assets larger than 25 MiB before replacing generated deployment output.
+`deploy/prepare.mjs` packages the existing export and compiles the standalone media Worker with Bun’s TypeScript transpiler. It has no Vite or framework-adapter requirement. It rejects missing exports, symlinks and assets larger than 25 MiB before replacing generated deployment output.
 
 ## Build Output layout
 
@@ -56,13 +55,20 @@ The generated Worker configuration is:
 
 The layout and schemas are checked against the installed cf toolchain. The artifact test invokes the actual CLI dry run and includes a negative control that must reject an invalid Worker configuration. Pin the CLI through the lockfile because Build Output v0 is a beta format. See [prebuilt deployment](https://developers.cloudflare.com/cf/projects/#deploy-a-prebuilt-build) and the [official Build Output utilities](https://github.com/cloudflare/workers-sdk/tree/main/packages/build-output-utils).
 
+## Cloudflare Workers Builds
+
+Production tracks the GitHub `main` branch. Set `SKIP_DEPENDENCY_INSTALL=1` as a build variable so the build command performs a frozen install. Workers Builds reads the Bun version from `packageManager`.
+
+- Build command: `bun install --frozen-lockfile && bun run build && bun run deploy:prepare`
+- Deploy command: `bun run deploy`
+
 ## Authenticate and deploy
 
 Authenticate the CLI with browser OAuth:
 
 ```sh
-npx cf auth login
-npx cf deploy --prebuilt
+bun --bun cf auth login
+bun run deploy
 ```
 
 For unattended deployment, supply a suitably scoped `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` through the CI secret store. Credentials do not belong in source or generated assets. A connected Cloudflare application session is separate from local CLI authentication. See [cf authentication](https://developers.cloudflare.com/cf/get-started/) and [CI credentials](https://developers.cloudflare.com/cf/ci/).

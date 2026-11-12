@@ -1,5 +1,4 @@
 import { cp, lstat, mkdir, mkdtemp, readFile, readdir, rename, rm, writeFile } from 'node:fs/promises';
-import { stripTypeScriptTypes } from 'node:module';
 import { join, relative, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
@@ -40,7 +39,7 @@ export async function prepare({
   // Refuse an incomplete Next export before replacing any previous build.
   await readFile(join(assets, 'index.html'));
   const inspected = await inspectAssets(assets);
-  const compiledWorker = stripTypeScriptTypes(await readFile(workerSource, 'utf8'), { mode: 'strip' });
+  const compiledWorker = new Bun.Transpiler({ loader: 'ts' }).transformSync(await Bun.file(workerSource).text());
 
   const outputParent = join(root, '.cloudflare', 'output');
   const output = join(outputParent, 'v0');
@@ -86,5 +85,5 @@ export async function prepare({
 if (process.argv[1] && pathToFileURL(resolve(process.argv[1])).href === import.meta.url) {
   const result = await prepare();
   console.log(`Prepared ${relative(projectDirectory, result.directory)} with ${result.assets} assets (${result.bytes} bytes).`);
-  console.log('Validate with: cf deploy --prebuilt --dry-run');
+  console.log('Validate with: bun run deploy:check');
 }

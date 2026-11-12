@@ -6,15 +6,14 @@ Read the [methodology](docs/methodology.md) and browse the [evidence register](e
 
 ## Run locally
 
-Use the Node version in [`.nvmrc`](.nvmrc) and install from the npm lockfile.
+Use the Bun version pinned in [`package.json`](package.json) and install from [`bun.lock`](bun.lock).
 
 ```sh
-nvm use
-npm ci
-npm run dev
+bun install --frozen-lockfile
+bun run dev
 ```
 
-Open [the local site](http://127.0.0.1:5173/). Run `npm run check:content` to validate the public review data, captions, and evidence preview manifest.
+Open [the local site](http://127.0.0.1:5173/). Run `bun run check:content` to validate the public review data, captions, and evidence preview manifest.
 
 Drag a pane by its title to move it. Drag the divider between panes to resize them. The site saves the layout in your browser. Open **Method → Reset layout** to restore the original arrangement.
 
@@ -23,12 +22,12 @@ Drag a pane by its title to move it. Drag the divider between panes to resize th
 Next.js exports the site to `out/`. The Cloudflare package includes a Worker that serves video byte ranges for seeking and playback.
 
 ```sh
-npm run build
-npm run deploy:prepare
-npm run deploy:check
+bun run build
+bun run deploy:prepare
+bun run deploy:check
 ```
 
-Authenticate the Cloudflare CLI with `npx cf auth login` and run `npm run deploy` to publish the prepared build. See the [deployment guide](DEPLOYMENT.md) for authentication, configuration, and post-deployment verification.
+Authenticate the Cloudflare CLI with `bun --bun cf auth login` and run `bun run deploy` to publish the prepared build. See the [deployment guide](DEPLOYMENT.md) for authentication, configuration, and post-deployment verification.
 
 ## Corrections
 
