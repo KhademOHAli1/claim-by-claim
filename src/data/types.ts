@@ -51,6 +51,10 @@ export interface CaseSource {
   usageLimitWords?: number;
 }
 
+export type SourceLocation = { label: string; url?: string } & (
+  { kind: 'anchor' | 'text'; value: string } | { kind: 'pdf'; value: number }
+);
+
 export interface Claim {
   id: string;
   start: number;

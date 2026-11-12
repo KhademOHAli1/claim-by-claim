@@ -103,7 +103,10 @@ test('sources have type, preview, qualifications and original/versioned links', 
     .poll(() => image.evaluate((img: HTMLImageElement) => img.naturalWidth))
     .toBeGreaterThan(100);
   await expect(
-    page.getByRole('link', { name: /Open original source/ }),
+    page.getByRole('link', { name: 'Original Schedule A, winery entry' }),
+  ).toHaveAttribute('href', /disclosures-clerk\.house\.gov.*\.pdf#page=1$/);
+  await expect(
+    page.getByRole('link', { name: 'Open full source' }),
   ).toHaveAttribute('href', /disclosures-clerk.house.gov/);
   await expect(
     page.getByRole('link', { name: /Versioned document copy/ }),
@@ -128,6 +131,28 @@ test('sources have type, preview, qualifications and original/versioned links', 
   );
   await expect(page.locator('.source-explainer')).toContainText('donor');
   await expect(page.locator('.document-preview')).toHaveCount(0);
+
+  for (const [id, label, hash] of [
+    [
+      'S003',
+      'Refugee and arrival account',
+      '#:~:text=four%20years%20in%20a%20refugee%20camp',
+    ],
+    ['S034', 'Subd. 1 · examination requirements', '#stat.171.13.1'],
+    [
+      'S020',
+      'Reported settlement · syndicated copy',
+      '#:~:text=reached%20a%20settlement%20with%20Mynett%20and%20Hailer',
+    ],
+  ] as const) {
+    await page.keyboard.press('Escape');
+    await page.getByRole('button', { name: 'Sources', exact: true }).click();
+    await page.getByLabel('Search evidence').fill(id);
+    await page.locator('.registry-row').click();
+    const link = page.getByRole('link', { name: label, exact: true });
+    const href = await link.getAttribute('href');
+    expect(new URL(href!).hash).toBe(hash);
+  }
 });
 
 test('deep links, honest verdict definitions and correction links remain available', async ({
@@ -168,7 +193,10 @@ test('deep links, honest verdict definitions and correction links remain availab
   expect(form.searchParams.get('timestamp')).toBe('00:56');
   await expect(
     dialog.getByRole('link', { name: 'Start a pull request' }),
-  ).toHaveAttribute('href', 'https://github.com/KhademOHAli1/claim-by-claim/compare');
+  ).toHaveAttribute(
+    'href',
+    'https://github.com/KhademOHAli1/claim-by-claim/compare',
+  );
   await page.keyboard.press('Escape');
   await expect(page.locator('[data-slot="tabs-list"]')).toBeVisible();
   await expect(page.locator('[data-slot="button"]').first()).toBeVisible();
@@ -226,7 +254,14 @@ test('panes resize and dock without recreating the video, and layout survives re
   await expect
     .poll(async () => (await videoPane.boundingBox())?.x ?? 0)
     .toBeGreaterThan(200);
-  await page.getByRole('button', { name: 'Reset layout' }).click();
+  await expect(
+    page.locator('.site-header').getByRole('button', { name: 'Reset layout' }),
+  ).toHaveCount(0);
+  await page.getByRole('button', { name: 'Method', exact: true }).click();
+  await page
+    .getByRole('dialog')
+    .getByRole('button', { name: 'Reset layout' })
+    .click();
   await expect
     .poll(async () => (await videoPane.boundingBox())?.x ?? 0)
     .toBeCloseTo(initial.x);

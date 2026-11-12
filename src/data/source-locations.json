@@ -1,0 +1,449 @@
+{
+  "S001": [
+    {
+      "label": "Federal search and investigation",
+      "kind": "text",
+      "value": "A predawn raid on Democratic Representative"
+    },
+    {
+      "label": "Citizenship chronology",
+      "kind": "text",
+      "value": "She became a naturalized citizen in 2000"
+    }
+  ],
+  "S002": [
+    {
+      "label": "Docket coverage date",
+      "kind": "text",
+      "value": "This docket was last retrieved"
+    },
+    {
+      "label": "Sealed return-of-property motion",
+      "kind": "text",
+      "value": "SEALED MOTION for Return of Property"
+    }
+  ],
+  "S003": [
+    {
+      "label": "Refugee and arrival account",
+      "kind": "text",
+      "value": "four years in a refugee camp"
+    }
+  ],
+  "S004": [
+    {
+      "label": "Arrival and citizenship · PDF page 714",
+      "kind": "pdf",
+      "value": 714
+    }
+  ],
+  "S005": [
+    {
+      "label": "Listed birth date",
+      "kind": "anchor",
+      "value": "ctl00_Main_ListView_bio_ctrl0_Label_birth"
+    },
+    {
+      "label": "Birth-year correction note",
+      "kind": "text",
+      "value": "Her birth year is correct"
+    }
+  ],
+  "S006": [
+    {
+      "label": "Military service account",
+      "kind": "text",
+      "value": "Life in Somalia"
+    },
+    {
+      "label": "U.S. resettlement account",
+      "kind": "text",
+      "value": "Life in Minnesota"
+    },
+    {
+      "label": "Reported age at death",
+      "kind": "text",
+      "value": "He was 67."
+    }
+  ],
+  "S007": [
+    {
+      "label": "Reported Isaaq death toll · note 18",
+      "kind": "anchor",
+      "value": "P259_64611"
+    }
+  ],
+  "S008": [
+    {
+      "label": "Derivative citizenship · § 1432",
+      "kind": "text",
+      "value": "The naturalization of the surviving parent"
+    },
+    {
+      "label": "Adult application · § 1445(b)",
+      "kind": "text",
+      "value": "No person shall file a valid application"
+    }
+  ],
+  "S009": [
+    {
+      "label": "USCIS cover letter · PDF page 3",
+      "kind": "pdf",
+      "value": 3
+    },
+    {
+      "label": "No-record certificate · PDF page 4",
+      "kind": "pdf",
+      "value": 4
+    }
+  ],
+  "S010": [
+    {
+      "label": "Donor identity assumption · PDF page 32",
+      "kind": "pdf",
+      "value": 32
+    }
+  ],
+  "S011": [
+    {
+      "label": "Somali names",
+      "kind": "anchor",
+      "value": "somalia-names"
+    },
+    {
+      "label": "Change of name",
+      "kind": "anchor",
+      "value": "change-of-name"
+    },
+    {
+      "label": "Birth certificate guidance",
+      "kind": "anchor",
+      "value": "birth-certificates"
+    }
+  ],
+  "S012": [
+    {
+      "label": "Marriage chronology",
+      "kind": "text",
+      "value": "married Ahmed Nur Said Elmi"
+    },
+    {
+      "label": "Limits of the investigation",
+      "kind": "text",
+      "value": "whether they are family or not"
+    }
+  ],
+  "S013": [
+    {
+      "label": "Tax returns and accounting payment",
+      "kind": "pdf",
+      "value": 6
+    },
+    {
+      "label": "Accounting findings",
+      "kind": "pdf",
+      "value": 10
+    },
+    {
+      "label": "Civil order and reimbursement",
+      "kind": "pdf",
+      "value": 13
+    }
+  ],
+  "S014": [
+    {
+      "label": "Scope of the state inquiry",
+      "kind": "text",
+      "value": "outside the scope of its probe"
+    },
+    {
+      "label": "Accounting review",
+      "kind": "text",
+      "value": "something needed to be corrected/amended"
+    },
+    {
+      "label": "Lawyer's account of correction",
+      "kind": "text",
+      "value": "a correction/amendment to the tax returns"
+    }
+  ],
+  "S015": [
+    {
+      "label": "Original Schedule A, winery entry",
+      "kind": "pdf",
+      "value": 1
+    }
+  ],
+  "S016": [
+    {
+      "label": "Amended Schedule A, winery entry",
+      "kind": "pdf",
+      "value": 1
+    }
+  ],
+  "S017": [
+    {
+      "label": "2025 Schedule A, winery entry",
+      "kind": "pdf",
+      "value": 1
+    }
+  ],
+  "S018": [
+    {
+      "label": "Committee request for records",
+      "kind": "pdf",
+      "value": 1
+    },
+    {
+      "label": "Civil case citation and footnote 8",
+      "kind": "pdf",
+      "value": 2
+    }
+  ],
+  "S019": [
+    {
+      "label": "Reported civil complaint",
+      "kind": "text",
+      "value": "has not been previously reported"
+    },
+    {
+      "label": "The principals' denial",
+      "kind": "text",
+      "value": "they defrauded Mohd"
+    },
+    {
+      "label": "Reported wine production",
+      "kind": "text",
+      "value": "eStCru did produce a line of wines"
+    }
+  ],
+  "S020": [
+    {
+      "label": "Reported settlement · syndicated copy",
+      "kind": "text",
+      "value": "reached a settlement with Mynett and Hailer",
+      "url": "https://www.newsfromthestates.com/article/uber-wage-theft-and-alleged-fraud-2024-review"
+    }
+  ],
+  "S021": [
+    {
+      "label": "Unverified housing transcript at 17:06",
+      "kind": "text",
+      "value": "rents her residences in DC and Minneapolis",
+      "url": "https://politiquote.gigafact.org/quotes/ilhan-omar-90cec5/i-have-a-toyota-camry-thats-from-2016-788607/"
+    }
+  ],
+  "S022": [
+    {
+      "label": "Omar's congratulatory post",
+      "kind": "text",
+      "value": "post congratulating Walz"
+    }
+  ],
+  "S023": [
+    {
+      "label": "Vice-presidential opponent",
+      "kind": "text",
+      "value": "V.P. Opponent"
+    },
+    {
+      "label": "Electoral certificates and votes",
+      "kind": "text",
+      "value": "Electoral College Certificates and Votes by State"
+    }
+  ],
+  "S024": [
+    {
+      "label": "Reported dismissal recommendation",
+      "kind": "text",
+      "value": "board voted 5-1 to recommend"
+    }
+  ],
+  "S025": [
+    {
+      "label": "Reported statement on the inquiry",
+      "kind": "text",
+      "value": "confirmed her office is handling the probe"
+    }
+  ],
+  "S026": [
+    {
+      "label": "Abstract · sample result",
+      "kind": "text",
+      "value": "IQ of 68"
+    }
+  ],
+  "S027": [
+    {
+      "label": "Somalia estimate · printed p. 141",
+      "kind": "pdf",
+      "value": 142
+    },
+    {
+      "label": "Extrapolation caveat · printed p. 142",
+      "kind": "pdf",
+      "value": 143
+    }
+  ],
+  "S028": [
+    {
+      "label": "Statement on national IQ datasets",
+      "kind": "anchor",
+      "value": "iq-datasets"
+    }
+  ],
+  "S029": [
+    {
+      "label": "Discussion · permission and prescription",
+      "kind": "text",
+      "value": "it does not prescribe it"
+    }
+  ],
+  "S030": [
+    {
+      "label": "Abstract · sample and main finding",
+      "kind": "anchor",
+      "value": "abstract1"
+    },
+    {
+      "label": "Results",
+      "kind": "anchor",
+      "value": "S9"
+    },
+    {
+      "label": "Discussion",
+      "kind": "anchor",
+      "value": "S10"
+    }
+  ],
+  "S031": [
+    {
+      "label": "Publisher abstract",
+      "kind": "anchor",
+      "value": "Abs1"
+    },
+    {
+      "label": "Note 32 · matrix test estimates",
+      "kind": "anchor",
+      "value": "Fn32"
+    }
+  ],
+  "S032": [
+    {
+      "label": "Identity, residency and testing · p. 1",
+      "kind": "pdf",
+      "value": 1
+    }
+  ],
+  "S033": [
+    {
+      "label": "Fee rules · p. 1",
+      "kind": "pdf",
+      "value": 1
+    },
+    {
+      "label": "Permit and tests · p. 2",
+      "kind": "pdf",
+      "value": 2
+    }
+  ],
+  "S034": [
+    {
+      "label": "Subd. 1 · examination requirements",
+      "kind": "anchor",
+      "value": "stat.171.13.1"
+    },
+    {
+      "label": "Subd. 1a · out-of-jurisdiction waiver",
+      "kind": "anchor",
+      "value": "stat.171.13.1a"
+    },
+    {
+      "label": "Subd. 2 · renewal examinations",
+      "kind": "anchor",
+      "value": "stat.171.13.2"
+    }
+  ],
+  "S035": [
+    {
+      "label": "Subd. 1 · adult instruction permits",
+      "kind": "anchor",
+      "value": "stat.171.05.1"
+    },
+    {
+      "label": "Subd. 1a · minimum permit period",
+      "kind": "anchor",
+      "value": "stat.171.05.1a"
+    },
+    {
+      "label": "Subd. 2 · permits for minors",
+      "kind": "anchor",
+      "value": "stat.171.05.2"
+    }
+  ],
+  "S036": [
+    {
+      "label": "Subd. 2 · fees",
+      "kind": "anchor",
+      "value": "stat.171.06.2"
+    },
+    {
+      "label": "Subd. 2c · specified veteran exemption",
+      "kind": "anchor",
+      "value": "stat.171.06.2c"
+    },
+    {
+      "label": "Subd. 3 · application requirements",
+      "kind": "anchor",
+      "value": "stat.171.06.3"
+    }
+  ],
+  "S037": [
+    {
+      "label": "Subsection (a) · unlawful procurement",
+      "kind": "anchor",
+      "value": "a"
+    },
+    {
+      "label": "Subsection (b) and statutory penalties",
+      "kind": "anchor",
+      "value": "b"
+    }
+  ],
+  "S038": [
+    {
+      "label": "Subsection (a) · document fraud",
+      "kind": "anchor",
+      "value": "a"
+    },
+    {
+      "label": "Subsection (a) · statutory penalties",
+      "kind": "text",
+      "value": "15 years (in the case of"
+    }
+  ],
+  "S039": [
+    {
+      "label": "Article I § 2 · House qualifications",
+      "kind": "anchor",
+      "value": "1-2"
+    },
+    {
+      "label": "Article I § 5 · House procedures",
+      "kind": "anchor",
+      "value": "1-5"
+    },
+    {
+      "label": "Article I § 7 · enactment",
+      "kind": "anchor",
+      "value": "1-7"
+    }
+  ],
+  "S040": [
+    {
+      "label": "How Are Laws Made?",
+      "kind": "text",
+      "value": "How Are Laws Made?"
+    }
+  ]
+}

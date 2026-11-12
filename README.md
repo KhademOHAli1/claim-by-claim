@@ -16,7 +16,7 @@ npm run dev
 
 Open [the local site](http://127.0.0.1:5173/). Run `npm run check:content` to validate the public review data, captions, and evidence preview manifest.
 
-Drag a pane by its title to move it. Drag the divider between panes to resize them. The site saves the layout in your browser. Use **Reset layout** to restore the original arrangement.
+Drag a pane by its title to move it. Drag the divider between panes to resize them. The site saves the layout in your browser. Open **Method → Reset layout** to restore the original arrangement.
 
 ## Build and deploy
 

@@ -19,6 +19,7 @@ const workspaceRoot = resolve(siteRoot, '..');
 const publicRoot = join(siteRoot, 'public');
 const outputPath = join(siteRoot, 'src/data/case.json');
 const captionsPath = join(publicRoot, 'transcript.vtt');
+const locationsPath = join(siteRoot, 'src/data/source-locations.json');
 const checkOnly = process.argv.includes('--check');
 const inputPaths = {
   claims: join(workspaceRoot, 'work/factcheck/analysis/resolved-claims.json'),
@@ -229,6 +230,37 @@ function captionsFromTranscript(segments) {
 }
 
 validatePublicData(data);
+const sourceLocations = await readJSON(locationsPath);
+for (const [id, locations] of Object.entries(sourceLocations)) {
+  const source = data.sources.find((record) => record.id === id);
+  assert(source, `Jump targets refer to unknown source ${id}.`);
+  assert(Array.isArray(locations) && locations.length >= 1 && locations.length <= 3, `Expected one to three jump targets for ${id}.`);
+  const labels = new Set();
+  const isPdf = /\.pdf$/i.test(new URL(source.url).pathname);
+  for (const { label, kind, value, url } of locations) {
+    assert(typeof label === 'string' && label.trim() && !labels.has(label), `Invalid jump target label for ${id}.`);
+    labels.add(label);
+    if (url !== undefined) {
+      const target = new URL(url);
+      assert(target.protocol === 'https:' && !target.username && !target.password && !target.hash && !['localhost', '127.0.0.1'].includes(target.hostname), `Unsafe jump target URL for ${id}.`);
+    }
+    if (kind === 'pdf') {
+      assert(isPdf && Number.isSafeInteger(value) && value > 0, `Invalid PDF page for ${id}.`);
+    } else {
+      assert(!isPdf && ['anchor', 'text'].includes(kind) && typeof value === 'string' && value.trim() && value.length <= 180, `Invalid web jump target for ${id}.`);
+      if (kind === 'text') {
+        assert(value.trim().split(/\s+/).length <= 8, `Text target is too long for ${id}.`);
+      }
+    }
+  }
+  if (source.usageLimitWords) {
+    const words = [
+      source.title, source.type, source.pinpoint, source.establishes, source.limits,
+      ...locations.flatMap(({ label, kind, value }) => kind === 'text' ? [label, value] : [label]),
+    ].join(' ').trim().split(/\s+/).length;
+    assert(words <= source.usageLimitWords, `Jump targets exceed the short-summary allowance for ${id}.`);
+  }
+}
 await access(join(publicRoot, 'video-poster.jpg'));
 const jsonOutput = JSON.stringify(data, null, 2) + '\n';
 const vttOutput = captionsFromTranscript(data.transcript.segments);

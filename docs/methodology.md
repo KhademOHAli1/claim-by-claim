@@ -29,4 +29,6 @@ Confidence describes the assessment within its stated scope. Unproven does not m
 
 Original source links are the primary citations. The repository preserves versioned copies of selected public documents, labeled excerpts, and citation records for other material. Hashes identify the stored file versions. See [evidence retention and limits](../evidence/README.md).
 
+Source records link to cited passages, sections, and PDF pages where a jump is available. Text highlights depend on the browser and the wording on the publisher's page. Use the **Where to look** reference if a jump opens at the start of the source.
+
 Use [the public correction form](https://github.com/KhademOHAli1/claim-by-claim/issues/new?template=correction.yml) to identify an affected entry, propose a change, and provide public evidence. For a confirmed correction, update the relevant transcript, assessment, or source record and link the issue in the change so readers can trace it.

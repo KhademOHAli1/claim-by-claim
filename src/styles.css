@@ -1252,6 +1252,19 @@ button {
 .source-actions .text-link {
   font-size: 10px;
 }
+.source-jumps {
+  margin-bottom: 16px;
+}
+.source-jumps ul {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  margin: 5px 0 0;
+}
+.method-layout-actions {
+  margin-top: 16px;
+}
 @media (max-height: 750px) {
   .finding-analysis-grid {
     gap: 13px;

@@ -9,7 +9,6 @@ import {
   ChevronRight,
   CircleAlert,
   CircleHelp,
-  Code2,
   FileText,
   GitBranch,
   Link2,
@@ -41,10 +40,12 @@ import {
 } from '@/components/ui/tooltip';
 import Workspace from './components/Workspace';
 import rawData from './data/case.json';
+import rawSourceLocations from './data/source-locations.json';
 import type {
   CaseData,
   CaseSource,
   Claim,
+  SourceLocation,
   TranscriptWord,
   VerdictStatus,
 } from './data/types';
@@ -52,6 +53,21 @@ import type {
 const data = rawData as CaseData;
 const repository = 'https://github.com/KhademOHAli1/claim-by-claim';
 const sourcesById = new Map(data.sources.map((source) => [source.id, source]));
+const sourceLocations = rawSourceLocations as Record<string, SourceLocation[]>;
+
+function sourceLocationUrl(original: string, location: SourceLocation) {
+  const url = new URL(location.url ?? original);
+  if (location.kind === 'pdf') url.hash = `page=${location.value}`;
+  else {
+    const value = encodeURIComponent(location.value);
+    url.hash =
+      location.kind === 'text'
+        ? `:~:text=${value.replace(/-/g, '%2D')}`
+        : value;
+  }
+  return url.href;
+}
+
 const titles: Record<string, string> = {
   C001: 'Are these all federal findings?',
   C002: 'A claim of political neutrality',
@@ -239,16 +255,19 @@ function Dialog({
   openSource,
   claim,
   correctionUrl,
+  resetLayout,
 }: {
   overlay: Overlay;
   close: () => void;
   openSource: (source: CaseSource) => void;
   claim: Claim;
   correctionUrl: string;
+  resetLayout: () => void;
 }) {
   const [query, setQuery] = useState('');
   const [kind, setKind] = useState('All types');
   const source = typeof overlay === 'object' && overlay ? overlay.source : null;
+  const locations = source ? (sourceLocations[source.id] ?? []) : [];
   const results = data.sources.filter(
     (item) =>
       `${item.id} ${item.evidenceId} ${item.title} ${item.type} ${item.url}`
@@ -296,6 +315,25 @@ function Dialog({
               {new URL(source.url).hostname.replace(/^www\./, '')}{' '}
               <span>·</span> {source.published}
             </div>
+            {locations.length > 0 && (
+              <nav className="source-jumps" aria-label="Cited source locations">
+                <span className="eyebrow">Open at the citation</span>
+                <ul>
+                  {locations.map((location, index) => (
+                    <li key={location.label}>
+                      <a
+                        className={index === 0 ? 'primary-button' : 'text-link'}
+                        href={sourceLocationUrl(source.url, location)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {location.label} <ArrowUpRight size={13} />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            )}
             {source.preview.kind === 'image' && source.preview.src ? (
               <figure className="document-preview">
                 <img src={source.preview.src} alt={source.preview.caption} />
@@ -335,12 +373,13 @@ function Dialog({
             </div>
             <div className="source-actions">
               <a
-                className="primary-button"
+                className={locations.length ? 'text-link' : 'primary-button'}
                 href={source.url}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Open original source <ArrowUpRight size={17} />
+                {locations.length ? 'Open full source' : 'Open original source'}{' '}
+                <ArrowUpRight size={13} />
               </a>
               <a
                 className="text-link"
@@ -527,6 +566,11 @@ function Dialog({
             >
               Read the method and contribute <ArrowUpRight size={15} />
             </a>
+            <div className="method-layout-actions">
+              <Button variant="outline" size="sm" onClick={resetLayout}>
+                <RotateCcw size={14} /> Reset layout
+              </Button>
+            </div>
           </>
         )}
       </DialogContent>
@@ -1141,19 +1185,6 @@ export default function App() {
           <Button variant="ghost" onClick={() => setOverlay('method')}>
             <CircleHelp size={14} /> Method
           </Button>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <Button
-                variant="ghost"
-                className="reset-layout"
-                onClick={() => setResetToken((value) => value + 1)}
-                aria-label="Reset layout"
-              >
-                <RotateCcw size={14} />
-              </Button>
-            </TooltipTrigger>
-            <TooltipContent>Reset pane positions and sizes</TooltipContent>
-          </Tooltip>
           <a
             className="github-button"
             href={repository}
@@ -1161,7 +1192,7 @@ export default function App() {
             rel="noopener noreferrer"
             aria-label="View source code on GitHub"
           >
-            <Code2 size={16} />
+            <img src="/github-mark.svg" width={16} height={16} alt="" />
           </a>
         </nav>
       </header>
@@ -1180,6 +1211,10 @@ export default function App() {
         openSource={(source) => setOverlay({ source })}
         claim={selected}
         correctionUrl={correctionUrl}
+        resetLayout={() => {
+          setResetToken((value) => value + 1);
+          setOverlay(null);
+        }}
       />
     </TooltipProvider>
   );
