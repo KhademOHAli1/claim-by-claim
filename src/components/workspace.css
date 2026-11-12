@@ -3,28 +3,28 @@
   inset: 0;
   min-width: 0;
   min-height: 0;
-  --flexlayout-color-background: #101113;
-  --flexlayout-color-tab-content: #181a1a;
-  --flexlayout-color-tabset-background: #212322;
-  --flexlayout-color-tabset-divider-line: #353833;
-  --flexlayout-color-tab-selected: #e1e4dc;
-  --flexlayout-color-tab-selected-background: #212322;
-  --flexlayout-color-tab-unselected: #a8aea4;
-  --flexlayout-color-splitter: #101113;
-  --flexlayout-color-splitter-hover: #607a66;
-  --flexlayout-color-splitter-handle: #484d47;
+  --flexlayout-color-background: var(--canvas);
+  --flexlayout-color-tab-content: var(--surface);
+  --flexlayout-color-tabset-background: var(--chrome);
+  --flexlayout-color-tabset-divider-line: var(--divider);
+  --flexlayout-color-tab-selected: var(--foreground);
+  --flexlayout-color-tab-selected-background: var(--chrome);
+  --flexlayout-color-tab-unselected: var(--muted-text);
+  --flexlayout-color-splitter: var(--canvas);
+  --flexlayout-color-splitter-hover: #7087a4;
+  --flexlayout-color-splitter-handle: #58677b;
   --flexlayout-splitter-size: 5px;
   --flexlayout-splitter-active-size: 9px;
   --flexlayout-splitter-handle-visibility: visible;
-  --flexlayout-color-focus: #a0c39c;
-  --flexlayout-color-icon: #9ba59a;
-  --flexlayout-color-drag1: #a0c39c;
-  --flexlayout-color-drag1-background: #91ae8b25;
+  --flexlayout-color-focus: var(--accent);
+  --flexlayout-color-icon: var(--muted-text);
+  --flexlayout-color-drag1: var(--accent);
+  --flexlayout-color-drag1-background: #a9c2eb2b;
   --flexlayout-font-size: 12px;
 }
 
 .dock-workspace .flexlayout__tabset {
-  border: 1px solid #343732;
+  border: 1px solid var(--divider);
 }
 .dock-workspace .flexlayout__tabset_tabbar_outer {
   min-height: 29px;
@@ -37,7 +37,7 @@
   cursor: grabbing;
 }
 .dock-workspace .flexlayout__tab_button_leading {
-  color: #858e83;
+  color: var(--muted-text);
 }
 .dock-workspace .dock-title {
   font-weight: 550;
