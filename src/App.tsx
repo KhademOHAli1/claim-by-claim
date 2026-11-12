@@ -1095,12 +1095,11 @@ export default function App() {
         </div>
         <div className="finding-actions">
           <Button
-            variant="outline"
+            variant="ghost"
             className="correction-trigger"
             aria-haspopup="dialog"
             onClick={() => setOverlay('correction')}
           >
-            <GitBranch size={14} />
             Did we make a mistake?
           </Button>
         </div>
