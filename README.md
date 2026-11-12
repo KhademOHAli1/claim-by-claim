@@ -1,5 +1,7 @@
 # Claim by Claim
 
+[Open the production site](https://claim-by-claim.khademohali.me/).
+
 An interactive review of a submitted video about Ilhan Omar. The site connects playback and a timecoded transcript to 47 scoped assessments and 40 source records. The review reflects the evidence inspected through November 12, 2026. The transcript is provisional.
 
 Read the [methodology](docs/methodology.md) and browse the [evidence register](evidence/registry.json) and [retained documents](evidence/README.md).

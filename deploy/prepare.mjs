@@ -1,9 +1,9 @@
 import { cp, lstat, mkdir, mkdtemp, readFile, readdir, rename, rm, writeFile } from 'node:fs/promises';
 import { join, relative, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { compileMediaWorker } from './compile-media-worker.mjs';
 
 const projectDirectory = fileURLToPath(new URL('../', import.meta.url));
-const workerSource = fileURLToPath(new URL('./worker.ts', import.meta.url));
 const assetLimit = 25 * 1024 * 1024;
 
 async function inspectAssets(directory) {
@@ -39,7 +39,7 @@ export async function prepare({
   // Refuse an incomplete Next export before replacing any previous build.
   await readFile(join(assets, 'index.html'));
   const inspected = await inspectAssets(assets);
-  const compiledWorker = new Bun.Transpiler({ loader: 'ts' }).transformSync(await Bun.file(workerSource).text());
+  const compiledWorker = await compileMediaWorker(join(assets, 'media', 'source.mp4'));
 
   const outputParent = join(root, '.cloudflare', 'output');
   const output = join(outputParent, 'v0');

@@ -31,7 +31,15 @@ test('official cf consumer validates the combined static export and media Worker
   assert.equal(config.env.ASSETS.type, 'assets');
   assert.deepEqual(config.assets.runWorkerFirst, ['/media/*']);
   const { default: worker } = await import(pathToFileURL(join(output, 'workers', 'default', 'bundle', 'worker.js')));
-  assert.equal(typeof worker.fetch, 'function');
+  const asset = new Response('video fixture', { headers: { 'Content-Type': 'video/mp4' } });
+  assert.equal(asset.headers.get('Content-Length'), null);
+  const response = await worker.fetch(new Request('https://example.test/media/source.mp4', {
+    headers: { Range: 'bytes=0-1' },
+  }), { ASSETS: { fetch: async () => asset } });
+  assert.equal(response.status, 206);
+  assert.equal(response.headers.get('Content-Range'), 'bytes 0-1/13');
+  assert.equal(response.headers.get('Content-Length'), '2');
+  assert.equal(await response.text(), 'vi');
   // A nonzero exit rejects this promise. This checks the actual CLI consumer,
   // rather than reimplementing its evolving beta output schema in the test.
   await execute(process.execPath, [cf, 'deploy', '--prebuilt', '--dry-run'], {

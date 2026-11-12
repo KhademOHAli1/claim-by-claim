@@ -1,16 +1,14 @@
 import { stat, writeFile } from 'node:fs/promises';
+import { compileMediaWorker } from './compile-media-worker.mjs';
 
 const output = new URL('../out/', import.meta.url);
 
-for (const path of ['index.html', 'media/source.mp4']) {
-  const file = await stat(new URL(path, output));
-  if (!file.isFile() || file.size === 0) {
-    throw new Error(`Expected a nonempty Next.js export file at out/${path}.`);
-  }
+const index = await stat(new URL('index.html', output));
+if (!index.isFile() || index.size === 0) {
+  throw new Error('Expected a nonempty Next.js export file at out/index.html.');
 }
 
-const workerSource = await Bun.file(new URL('./worker.ts', import.meta.url)).text();
-const worker = new Bun.Transpiler({ loader: 'ts' }).transformSync(workerSource);
+const worker = await compileMediaWorker(new URL('media/source.mp4', output), { requireVideo: true });
 const routes = { version: 1, include: ['/media/*'], exclude: [] };
 
 await writeFile(new URL('_worker.js', output), worker);
