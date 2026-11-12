@@ -1,4 +1,4 @@
-import { onTestFinished, test } from 'bun:test';
+import { onTestFinished, spyOn, test } from 'bun:test';
 import assert from 'node:assert/strict';
 import { execFile } from 'node:child_process';
 import { mkdtemp, mkdir, readFile, rm, symlink, truncate, writeFile } from 'node:fs/promises';
@@ -29,13 +29,19 @@ test('official cf consumer validates the combined static export and media Worker
   assert.equal(await readFile(join(output, 'workers', 'default', 'assets', 'media', 'source.mp4'), 'utf8'), 'video fixture');
   const config = JSON.parse(await readFile(join(output, 'workers', 'default', 'worker.config.json'), 'utf8'));
   assert.equal(config.env.ASSETS.type, 'assets');
-  assert.deepEqual(config.assets.runWorkerFirst, ['/media/*']);
+  assert.equal(config.assets.runWorkerFirst, true);
   const { default: worker } = await import(pathToFileURL(join(output, 'workers', 'default', 'bundle', 'worker.js')));
   const asset = new Response('video fixture', { headers: { 'Content-Type': 'video/mp4' } });
   assert.equal(asset.headers.get('Content-Length'), null);
-  const response = await worker.fetch(new Request('https://example.test/media/source.mp4', {
-    headers: { Range: 'bytes=0-1' },
-  }), { ASSETS: { fetch: async () => asset } });
+  const clock = spyOn(Date, 'now').mockReturnValue(Date.parse('2026-12-03T22:24:39.999Z'));
+  let response;
+  try {
+    response = await worker.fetch(new Request('https://example.test/media/source.mp4', {
+      headers: { Range: 'bytes=0-1' },
+    }), { ASSETS: { fetch: async () => asset } });
+  } finally {
+    clock.mockRestore();
+  }
   assert.equal(response.status, 206);
   assert.equal(response.headers.get('Content-Range'), 'bytes 0-1/13');
   assert.equal(response.headers.get('Content-Length'), '2');

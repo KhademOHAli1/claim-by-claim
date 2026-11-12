@@ -1,9 +1,17 @@
-import { test } from 'bun:test';
+import { beforeEach, onTestFinished, spyOn, test } from 'bun:test';
 import assert from 'node:assert/strict';
 import worker from './worker.ts';
 
 const bytes = new TextEncoder().encode('0123456789abcdefghijklmnopqrstuvwxyz');
 const url = 'https://example.test/media/source.mp4';
+const cutoff = Date.parse('2026-12-03T22:24:40.000Z');
+let clock;
+
+beforeEach(() => {
+  clock = spyOn(Date, 'now').mockReturnValue(cutoff - 1);
+  onTestFinished(() => clock.mockRestore());
+});
+
 const metadata = {
   'Content-Type': 'video/mp4',
   'Content-Length': String(bytes.length),
@@ -41,6 +49,33 @@ async function request(range, options = {}, setup = {}) {
   const response = await worker.fetch(new Request(url, { ...options, headers }), env);
   return { response, state };
 }
+
+test('the cutoff serves the site until the scheduled instant and then blocks all assets', async () => {
+  const { env, state } = fixture({ headers: { 'Content-Type': 'text/html; charset=utf-8' } });
+  const homepage = new Request('https://example.test/');
+  const live = await worker.fetch(homepage, env);
+  assert.equal(live.status, 200);
+  assert.equal(live.headers.get('Sunset'), 'Thu, 03 Dec 2026 22:24:40 GMT');
+  assert.deepEqual(new Uint8Array(await live.arrayBuffer()), bytes);
+
+  clock.mockReturnValue(cutoff);
+  const gone = await worker.fetch(homepage, env);
+  assert.equal(gone.status, 410);
+  assert.equal(gone.headers.get('Cache-Control'), 'no-store');
+
+  clock.mockReturnValue(cutoff + 1);
+  const staticAsset = await worker.fetch(new Request('https://example.test/_next/static/site.css', {
+    method: 'HEAD',
+  }), env);
+  assert.equal(staticAsset.status, 410);
+  assert.equal(staticAsset.body, null);
+  const media = await worker.fetch(new Request(url, {
+    headers: { Range: 'bytes=0-1', 'If-None-Match': '"test-asset"' },
+  }), env);
+  assert.equal(media.status, 410);
+  assert.equal(media.headers.get('Content-Range'), null);
+  assert.deepEqual(state.requests, [homepage]);
+});
 
 test('full GET preserves content, validators and cache policy', async () => {
   const { response, state } = await request();

@@ -62,7 +62,7 @@ export async function prepare({
       assets: {
         htmlHandling: 'auto-trailing-slash',
         notFoundHandling: '404-page',
-        runWorkerFirst: ['/media/*'],
+        runWorkerFirst: true,
       },
       manifest: {
         type: 'complete',

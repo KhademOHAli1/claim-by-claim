@@ -1,6 +1,8 @@
-/** Byte-range support for the media assets served by this static site. */
+/** Enforce the publication cutoff and serve byte ranges for the source video. */
 declare const SOURCE_VIDEO_SIZE: number;
 const packagedVideoSize = typeof SOURCE_VIDEO_SIZE === 'number' ? SOURCE_VIDEO_SIZE : NaN;
+const offlineAt = Date.parse('2026-12-03T22:24:40.000Z');
+const sunset = new Date(offlineAt).toUTCString();
 
 interface Env {
   ASSETS: { fetch(request: Request): Promise<Response> };
@@ -102,8 +104,21 @@ function withKnownLength(body: ReadableStream<Uint8Array>, length: number): Read
 
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
+    if (Date.now() >= offlineAt) {
+      return new Response(request.method === 'HEAD' ? null : 'This website is no longer available.\n', {
+        status: 410,
+        headers: { 'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'no-store' },
+      });
+    }
+
     const path = new URL(request.url).pathname;
-    if (!path.startsWith('/media/')) return env.ASSETS.fetch(request);
+    if (!path.startsWith('/media/')) {
+      const asset = await env.ASSETS.fetch(request);
+      if (asset.status !== 200 || !asset.headers.get('Content-Type')?.startsWith('text/html')) return asset;
+      const response = new Response(asset.body, asset);
+      response.headers.set('Sunset', sunset);
+      return response;
+    }
     if (request.method !== 'GET' && request.method !== 'HEAD') {
       return new Response(null, { status: 405, headers: { Allow: 'GET, HEAD', 'Content-Length': '0' } });
     }

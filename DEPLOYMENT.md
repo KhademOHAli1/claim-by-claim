@@ -1,10 +1,10 @@
 # Cloudflare deployment
 
-The application uses React and the Next.js App Router with a static export. Next.js builds the static export with webpack under Bun. A small Cloudflare Worker adds HTTP byte ranges for the video.
+The application uses React and the Next.js App Router with a static export. Next.js builds the static export with webpack under Bun. A small Cloudflare Worker enforces the publication cutoff and adds HTTP byte ranges for the video.
 
 ## Cloudflare Pages
 
-Use `bun run build:pages` to build `out/` with a Pages advanced-mode Worker for `/media/*`. For a Git-connected project, use the `main` production branch, output directory `out`, and set `BUN_VERSION` to the version pinned in `package.json`. Use `bun install --frozen-lockfile && bun run build:pages` as the build command and set `SKIP_DEPENDENCY_INSTALL=1`.
+Use `bun run build:pages` to build `out/` with a Pages advanced-mode Worker on every route. For a Git-connected project, use the `main` production branch, output directory `out`, and set `BUN_VERSION` to the version pinned in `package.json`. Use `bun install --frozen-lockfile && bun run build:pages` as the build command and set `SKIP_DEPENDENCY_INSTALL=1`. In **Settings → Runtime**, choose **Fail closed** so Pages cannot fall back to serving static files if the Functions quota is exhausted. See [Pages routing](https://developers.cloudflare.com/pages/functions/routing/#fail-open--closed).
 
 Add `claim-by-claim.khademohali.me` under the project's **Custom domains** in Cloudflare. In the IONOS DNS zone for `khademohali.me`, point the `claim-by-claim` CNAME to the Pages project's assigned `pages.dev` hostname. Check HTTPS and the video response using the verification steps below. See [Cloudflare Pages custom domains](https://developers.cloudflare.com/pages/configuration/custom-domains/#add-a-custom-subdomain).
 
@@ -47,7 +47,7 @@ The generated Worker configuration is:
   "assets": {
     "htmlHandling": "auto-trailing-slash",
     "notFoundHandling": "404-page",
-    "runWorkerFirst": ["/media/*"]
+    "runWorkerFirst": true
   },
   "manifest": {
     "type": "complete",
@@ -81,9 +81,13 @@ For unattended deployment, supply a suitably scoped `CLOUDFLARE_API_TOKEN` and `
 
 An account Workers subdomain or a custom domain is required for public access. A Workers subdomain produces `https://claim-by-claim.<account-subdomain>.workers.dev/`. Report the actual URL only after deployment and verification.
 
+## Publication cutoff
+
+The current deployment stops serving the site at `2026-12-03T22:24:40Z`. Cloudflare checks the clock before serving HTML, media, or any other asset. Successful HTML responses advertise the deadline in the `Sunset` header; from the cutoff onward, the Worker returns HTTP 410 without reading the asset. To reschedule the cutoff, change `offlineAt` in `deploy/worker.ts`, update the corresponding test date, and redeploy. The timer does not change the GitHub repository or previously deployed immutable preview URLs.
+
 ## Video ranges
 
-Workers Static Assets currently returns a full `200` response when given a `Range` request. Safari video playback can require byte-range support, so `/media/*` runs `deploy/worker.ts` first. Other paths use normal asset routing. See [Static Assets limitations](https://developers.cloudflare.com/workers/static-assets/billing-and-limitations/).
+Workers Static Assets currently returns a full `200` response when given a `Range` request. Safari video playback can require byte-range support, so the Worker handles ranges on `/media/*`. Before the publication cutoff, other paths use normal asset routing. See [Static Assets limitations](https://developers.cloudflare.com/workers/static-assets/billing-and-limitations/).
 
 The Worker streams a single closed, open-ended or suffix byte range. It returns `206` with exact `Content-Range` and `Content-Length`, cancels unread source data, and retains asset validators and cache policy. Invalid, multipart and unsatisfiable ranges receive `416`. `HEAD` returns full-resource metadata without a body. Normal conditional responses take precedence, and `If-Range` requires a strong matching validator. Both builds record the length of the exported MP4 for use when the asset response omits `Content-Length`. Unknown-length or encoded representations fall back to full-file delivery.
 

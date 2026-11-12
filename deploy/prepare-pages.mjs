@@ -9,8 +9,8 @@ if (!index.isFile() || index.size === 0) {
 }
 
 const worker = await compileMediaWorker(new URL('media/source.mp4', output), { requireVideo: true });
-const routes = { version: 1, include: ['/media/*'], exclude: [] };
+const routes = { version: 1, include: ['/*'], exclude: [] };
 
 await writeFile(new URL('_worker.js', output), worker);
 await writeFile(new URL('_routes.json', output), `${JSON.stringify(routes, null, 2)}\n`);
-console.log('Prepared out/ for Cloudflare Pages with a Worker for /media/*.');
+console.log('Prepared out/ for Cloudflare Pages with a Worker for all routes.');
