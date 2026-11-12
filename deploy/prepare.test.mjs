@@ -30,6 +30,8 @@ test('official cf consumer validates the combined static export and media Worker
   const config = JSON.parse(await readFile(join(output, 'workers', 'default', 'worker.config.json'), 'utf8'));
   assert.equal(config.env.ASSETS.type, 'assets');
   assert.equal(config.assets.runWorkerFirst, true);
+  assert.equal(config.workersDev, true);
+  assert.equal(config.previewUrls, false);
   const { default: worker } = await import(pathToFileURL(join(output, 'workers', 'default', 'bundle', 'worker.js')));
   const asset = new Response('video fixture', { headers: { 'Content-Type': 'video/mp4' } });
   assert.equal(asset.headers.get('Content-Length'), null);

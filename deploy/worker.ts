@@ -1,6 +1,8 @@
-/** Enforce the publication cutoff and serve byte ranges for the source video. */
+/** Redirect the legacy host, enforce the cutoff, and serve video byte ranges. */
 declare const SOURCE_VIDEO_SIZE: number;
 const packagedVideoSize = typeof SOURCE_VIDEO_SIZE === 'number' ? SOURCE_VIDEO_SIZE : NaN;
+const legacyHostname = 'claim-by-claim.alikhadem425.workers.dev';
+const canonicalOrigin = 'https://claim-by-claim.khademohali.me';
 const offlineAt = Date.parse('2026-12-03T22:24:40.000Z');
 const sunset = new Date(offlineAt).toUTCString();
 
@@ -104,6 +106,14 @@ function withKnownLength(body: ReadableStream<Uint8Array>, length: number): Read
 
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
+    const url = new URL(request.url);
+    if (url.hostname === legacyHostname) {
+      const target = new URL(canonicalOrigin);
+      target.pathname = url.pathname;
+      target.search = url.search;
+      return Response.redirect(target, 308);
+    }
+
     if (Date.now() >= offlineAt) {
       return new Response(request.method === 'HEAD' ? null : 'This website is no longer available.\n', {
         status: 410,
@@ -111,7 +121,7 @@ export default {
       });
     }
 
-    const path = new URL(request.url).pathname;
+    const path = url.pathname;
     if (!path.startsWith('/media/')) {
       const asset = await env.ASSETS.fetch(request);
       if (asset.status !== 200 || !asset.headers.get('Content-Type')?.startsWith('text/html')) return asset;

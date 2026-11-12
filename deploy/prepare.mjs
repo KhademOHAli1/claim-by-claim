@@ -58,6 +58,8 @@ export async function prepare({
     const workerConfig = {
       name: 'claim-by-claim',
       compatibilityDate: '2026-11-12',
+      workersDev: true,
+      previewUrls: false,
       env: { ASSETS: { type: 'assets' } },
       assets: {
         htmlHandling: 'auto-trailing-slash',

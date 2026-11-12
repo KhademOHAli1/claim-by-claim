@@ -43,6 +43,8 @@ The generated Worker configuration is:
 {
   "name": "claim-by-claim",
   "compatibilityDate": "2026-11-12",
+  "workersDev": true,
+  "previewUrls": false,
   "env": { "ASSETS": { "type": "assets" } },
   "assets": {
     "htmlHandling": "auto-trailing-slash",
@@ -79,11 +81,15 @@ bun run deploy
 
 For unattended deployment, supply a suitably scoped `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` through the CI secret store. Credentials do not belong in source or generated assets. A connected Cloudflare application session is separate from local CLI authentication. See [cf authentication](https://developers.cloudflare.com/cf/get-started/) and [CI credentials](https://developers.cloudflare.com/cf/ci/).
 
-An account Workers subdomain or a custom domain is required for public access. A Workers subdomain produces `https://claim-by-claim.<account-subdomain>.workers.dev/`. Report the actual URL only after deployment and verification.
+## Public URLs
+
+`https://claim-by-claim.khademohali.me/` is the canonical site. The legacy `claim-by-claim.alikhadem425.workers.dev` hostname permanently redirects to it. Standalone Worker Version URLs are disabled so older Worker versions do not serve separate copies.
+
+Configure a Cloudflare [Bulk Redirect](https://developers.cloudflare.com/pages/how-to/redirect-to-custom-domain/) from the scheme-less `claim-by-claim.pages.dev` source to the canonical HTTPS URL. Enable subdomain matching to cover deployment URLs, and preserve the path and query string. Keep the source limited to this project to avoid redirects on unrelated sites.
 
 ## Publication cutoff
 
-The current deployment stops serving the site at `2026-12-03T22:24:40Z`. Cloudflare checks the clock before serving HTML, media, or any other asset. Successful HTML responses advertise the deadline in the `Sunset` header; from the cutoff onward, the Worker returns HTTP 410 without reading the asset. To reschedule the cutoff, change `offlineAt` in `deploy/worker.ts`, update the corresponding test date, and redeploy. The timer does not change the GitHub repository or previously deployed immutable preview URLs.
+The current deployment stops serving the site at `2026-12-03T22:24:40Z`. Cloudflare checks the clock before serving HTML, media, or any other asset. Successful HTML responses advertise the deadline in the `Sunset` header; from the cutoff onward, the Worker returns HTTP 410 without reading the asset. Legacy redirects still point to the canonical URL. To reschedule the cutoff, change `offlineAt` in `deploy/worker.ts`, update the corresponding test date, and redeploy. The timer does not change the GitHub repository.
 
 ## Video ranges
 

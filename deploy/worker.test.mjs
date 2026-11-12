@@ -50,9 +50,24 @@ async function request(range, options = {}, setup = {}) {
   return { response, state };
 }
 
+test('legacy links redirect to the canonical origin before and after the cutoff', async () => {
+  const { env, state } = fixture();
+  for (const [time, path] of [
+    [cutoff - 1, '/media/source.mp4?claim=12&seek=42'],
+    [cutoff, '//other.example/media/source.mp4?claim=12&seek=42'],
+  ]) {
+    clock.mockReturnValue(time);
+    const request = new Request(`https://claim-by-claim.alikhadem425.workers.dev${path}`);
+    const response = await worker.fetch(request, env);
+    assert.equal(response.status, 308);
+    assert.equal(response.headers.get('Location'), `https://claim-by-claim.khademohali.me${path}`);
+  }
+  assert.deepEqual(state.requests, []);
+});
+
 test('the cutoff serves the site until the scheduled instant and then blocks all assets', async () => {
   const { env, state } = fixture({ headers: { 'Content-Type': 'text/html; charset=utf-8' } });
-  const homepage = new Request('https://example.test/');
+  const homepage = new Request('https://claim-by-claim.khademohali.me/');
   const live = await worker.fetch(homepage, env);
   assert.equal(live.status, 200);
   assert.equal(live.headers.get('Sunset'), 'Thu, 03 Dec 2026 22:24:40 GMT');
