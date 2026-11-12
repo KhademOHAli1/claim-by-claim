@@ -1,6 +1,11 @@
 'use client';
 
 import { useId, type ReactNode } from 'react';
+import {
+  SegmentedControl,
+  SegmentedControlItem,
+} from '@ui-sdk/react/segmented-control';
+import { Toolbar, ToolbarButton } from '@ui-sdk/react/toolbar';
 import { Maximize2, Minimize2, Rows2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import './mobile-workspace.css';
@@ -48,21 +53,25 @@ export default function MobileWorkspace({
       data-player-size={playerSize}
       data-panel={panel ?? 'closed'}
     >
-      <div className="mobile-player-sizes" role="group" aria-label="Player size">
+      <SegmentedControl<PlayerSize>
+        className="mobile-player-sizes"
+        aria-label="Player size"
+        value={playerSize}
+        onValueChange={(size) => {
+          if (size !== null) onPlayerSizeChange(size);
+        }}
+      >
         {playerSizes.map(({ value, label, Icon }) => (
-          <Button
+          <SegmentedControlItem
             key={value}
-            type="button"
-            variant="ghost"
-            aria-pressed={playerSize === value}
-            aria-controls={`${id}-player`}
-            onClick={() => onPlayerSizeChange(value)}
+            value={value}
+            render={<Button variant="ghost" aria-controls={`${id}-player`} />}
           >
             <Icon aria-hidden="true" />
             {label}
-          </Button>
+          </SegmentedControlItem>
         ))}
-      </div>
+      </SegmentedControl>
       <div className="mobile-playback" id={`${id}-player`}>
         <div className="mobile-player">
           {panes.video}
@@ -74,12 +83,11 @@ export default function MobileWorkspace({
           <div className="mobile-caption">{caption}</div>
         )}
       </div>
-      <nav className="mobile-panel-controls" aria-label="Claim information">
+      <Toolbar className="mobile-panel-controls" aria-label="Claim information">
         {panels.map(({ value, label }) => (
-          <Button
+          <ToolbarButton
             key={value}
-            type="button"
-            variant="ghost"
+            render={<Button variant="ghost" />}
             aria-pressed={panel === value}
             aria-controls={`${id}-${value}`}
             onClick={() =>
@@ -89,9 +97,9 @@ export default function MobileWorkspace({
             }
           >
             {label}
-          </Button>
+          </ToolbarButton>
         ))}
-      </nav>
+      </Toolbar>
       {panels.map(({ value }) => (
         <div
           key={value}

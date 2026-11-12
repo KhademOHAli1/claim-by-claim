@@ -18,6 +18,8 @@
     "deploy:check": "bun --bun cf deploy --prebuilt --dry-run"
   },
   "dependencies": {
+    "@ui-sdk/core": "0.1.0-beta.1",
+    "@ui-sdk/react": "0.1.0-beta.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cn": "^0.5.2",

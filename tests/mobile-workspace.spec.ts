@@ -14,10 +14,10 @@ test('changing mobile player size preserves the playing video and its position',
   const workspace = page.locator('.mobile-workspace');
   const video = workspace.locator('video');
   const stage = workspace.locator('.video-stage');
-  const sizeButton = (name: string) =>
-    workspace.getByRole('button', { name, exact: true });
+  const sizeOption = (name: string) =>
+    workspace.getByRole('radio', { name, exact: true });
   const transcriptButton = workspace
-    .getByRole('navigation', { name: 'Claim information' })
+    .getByRole('toolbar', { name: 'Claim information' })
     .getByRole('button', { name: 'Transcript' });
 
   await expect(workspace).toHaveAttribute('data-player-size', 'balanced');
@@ -33,16 +33,16 @@ test('changing mobile player size preserves the playing video and its position',
   await expect.poll(currentTime).toBeGreaterThan(0.2);
 
   const initialTime = await currentTime();
-  await sizeButton('Compact').tap();
+  await sizeOption('Compact').tap();
   await expect(workspace).toHaveAttribute('data-player-size', 'compact');
   await expect.poll(async () => (await stage.boundingBox())!.height).toBeLessThan(balancedHeight);
-  await sizeButton('Expanded').tap();
+  await sizeOption('Expanded').tap();
   await expect(workspace).toHaveAttribute('data-player-size', 'expanded');
   await expect(workspace).toHaveAttribute('data-panel', 'closed');
   await expect.poll(async () => (await stage.boundingBox())!.height).toBeGreaterThan(balancedHeight);
   await transcriptButton.tap();
   await expect(transcript).toBeVisible();
-  await sizeButton('Balanced').tap();
+  await sizeOption('Balanced').tap();
   await expect(workspace).toHaveAttribute('data-player-size', 'balanced');
   await expect(workspace.locator('video')).toHaveCount(1);
   expect(
@@ -52,12 +52,47 @@ test('changing mobile player size preserves the playing video and its position',
   expect(await video.evaluate((element: HTMLVideoElement) => element.paused)).toBe(false);
 });
 
+test('mobile player size and claim panels work with the keyboard', async ({
+  page,
+}) => {
+  await page.goto('/');
+  const workspace = page.locator('.mobile-workspace');
+  const sizes = workspace.getByRole('radiogroup', { name: 'Player size' });
+  const balanced = sizes.getByRole('radio', { name: 'Balanced' });
+  const compact = sizes.getByRole('radio', { name: 'Compact' });
+  const expanded = sizes.getByRole('radio', { name: 'Expanded' });
+  await expect(balanced).toBeChecked();
+  await balanced.focus();
+  await page.keyboard.press('ArrowLeft');
+  await expect(compact).toBeFocused();
+  await expect(compact).toBeChecked();
+  await page.keyboard.press('ArrowRight');
+  await page.keyboard.press('ArrowRight');
+  await expect(expanded).toBeFocused();
+  await expect(expanded).toBeChecked();
+  await expect(workspace).toHaveAttribute('data-player-size', 'expanded');
+
+  const panels = workspace.getByRole('toolbar', { name: 'Claim information' });
+  const transcript = panels.getByRole('button', { name: 'Transcript', exact: true });
+  const factCheck = panels.getByRole('button', { name: 'Fact check', exact: true });
+  await transcript.focus();
+  await page.keyboard.press('ArrowRight');
+  await expect(factCheck).toBeFocused();
+  await expect(workspace).toHaveAttribute('data-panel', 'closed');
+  await page.keyboard.press('Enter');
+  await expect(factCheck).toHaveAttribute('aria-pressed', 'true');
+  await expect(workspace).toHaveAttribute('data-panel', 'finding');
+  await page.keyboard.press('Space');
+  await expect(factCheck).toHaveAttribute('aria-pressed', 'false');
+  await expect(workspace).toHaveAttribute('data-panel', 'closed');
+});
+
 test('compact transcript holds the inspected claim and opens the exact source page', async ({
   page,
 }) => {
   await page.goto('/#C003');
   const workspace = page.locator('.mobile-workspace');
-  await workspace.getByRole('button', { name: 'Compact', exact: true }).tap();
+  await workspace.getByRole('radio', { name: 'Compact', exact: true }).tap();
   const cue = workspace.locator('.transcript-cue').filter({ hasText: 'She is not an American citizen' });
   await expect(cue).toHaveClass(/\bactive\b/);
   await cue.getByRole('button', { name: /2 fact checks/i }).tap();
@@ -86,7 +121,7 @@ test('touch scrolling pauses transcript follow, and the layout fits a 320px scre
   await page.setViewportSize({ width: 320, height: 667 });
   await page.goto('/#C017');
   const workspace = page.locator('.mobile-workspace');
-  await workspace.getByRole('button', { name: 'Compact', exact: true }).tap();
+  await workspace.getByRole('radio', { name: 'Compact', exact: true }).tap();
   const transcript = workspace.getByRole('region', { name: 'Transcript and claims' });
   await expect(transcript).toBeVisible();
   const scroller = workspace.locator('.transcript-scroll');

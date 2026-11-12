@@ -108,7 +108,7 @@ main.is-mobile-workspace {
   height: 14px;
 }
 
-.mobile-workspace .mobile-player-sizes button[aria-pressed='true'] {
+.mobile-workspace .mobile-player-sizes button[data-checked] {
   border-bottom-color: var(--accent);
   color: var(--foreground);
 }
