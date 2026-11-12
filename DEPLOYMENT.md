@@ -1,6 +1,12 @@
 # Cloudflare deployment
 
-The application uses React and the Next.js App Router with a static export. Next.js builds the static export with webpack under Bun; a small Cloudflare Worker adds HTTP byte ranges for the video. Deployment uses the `cf` CLI and its prebuilt Build Output format.
+The application uses React and the Next.js App Router with a static export. Next.js builds the static export with webpack under Bun. A small Cloudflare Worker adds HTTP byte ranges for the video.
+
+## Cloudflare Pages
+
+Use `bun run build:pages` to build `out/` with a Pages advanced-mode Worker for `/media/*`. For a Git-connected project, use the `main` production branch, output directory `out`, and set `BUN_VERSION` to the version pinned in `package.json`. Use `bun install --frozen-lockfile && bun run build:pages` as the build command and set `SKIP_DEPENDENCY_INSTALL=1`.
+
+Add `claim-by-claim.khademohali.me` under the project's **Custom domains** in Cloudflare. In the IONOS DNS zone for `khademohali.me`, point the `claim-by-claim` CNAME to the Pages project's assigned `pages.dev` hostname. Check HTTPS and the video response using the verification steps below. See [Cloudflare Pages custom domains](https://developers.cloudflare.com/pages/configuration/custom-domains/#add-a-custom-subdomain).
 
 ## Build and validate
 
@@ -57,7 +63,7 @@ The layout and schemas are checked against the installed cf toolchain. The artif
 
 ## Cloudflare Workers Builds
 
-Production tracks the GitHub `main` branch. Set `SKIP_DEPENDENCY_INSTALL=1` as a build variable so the build command performs a frozen install. Workers Builds reads the Bun version from `packageManager`.
+The standalone Workers deployment tracks the GitHub `main` branch. Set `SKIP_DEPENDENCY_INSTALL=1` as a build variable so the build command performs a frozen install. Workers Builds reads the Bun version from `packageManager`.
 
 - Build command: `bun install --frozen-lockfile && bun run build && bun run deploy:prepare`
 - Deploy command: `bun run deploy`

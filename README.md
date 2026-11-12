@@ -19,7 +19,7 @@ Drag a pane by its title to move it. Drag the divider between panes to resize th
 
 ## Build and deploy
 
-Next.js exports the site to `out/`. The Cloudflare package includes a Worker that serves video byte ranges for seeking and playback.
+Use `bun run build:pages` to export the site to `out/` for Cloudflare Pages. The export includes a Worker that serves video byte ranges for seeking and playback.
 
 ```sh
 bun run build
@@ -27,7 +27,7 @@ bun run deploy:prepare
 bun run deploy:check
 ```
 
-Authenticate the Cloudflare CLI with `bun --bun cf auth login` and run `bun run deploy` to publish the prepared build. See the [deployment guide](DEPLOYMENT.md) for authentication, configuration, and post-deployment verification.
+These commands prepare the standalone Cloudflare Worker. See the [deployment guide](DEPLOYMENT.md) for Pages settings, standalone Workers deployment and verification.
 
 ## Corrections
 

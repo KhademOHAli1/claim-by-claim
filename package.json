@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "bun --bun next dev --webpack --hostname 127.0.0.1 --port 5173",
     "build": "bun --bun next build --webpack",
+    "build:pages": "bun run build && bun deploy/prepare-pages.mjs",
     "test": "bun --bun playwright test",
     "check:content": "bun scripts/build-content.mjs --check",
     "test:worker": "bun test deploy/worker.test.mjs deploy/prepare.test.mjs",
