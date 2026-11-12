@@ -151,21 +151,24 @@ test('deep links, honest verdict definitions and correction links remain availab
     'This does not mean it is false',
   );
   await page.keyboard.press('Escape');
-  await page.getByRole('button', { name: /Did we make a mistake/ }).click();
+  await page
+    .getByRole('region', { name: 'Selected claim fact check' })
+    .getByRole('button', { name: 'Did we make a mistake?' })
+    .click();
   const dialog = page.getByRole('dialog', { name: 'Did we make a mistake?' });
   await expect(dialog).toContainText('C017');
   await expect(dialog).toContainText('Describe what should change');
   const form = new URL(
     (await dialog
-      .getByRole('link', { name: /Open correction form/ })
+      .getByRole('link', { name: 'Open an issue' })
       .getAttribute('href'))!,
   );
   expect(form.searchParams.get('template')).toBe('correction.yml');
   expect(form.searchParams.get('claim')).toBe('C017');
   expect(form.searchParams.get('timestamp')).toBe('00:56');
   await expect(
-    dialog.getByRole('link', { name: /View website repository/ }),
-  ).toHaveAttribute('href', 'https://github.com/KhademOHAli1/claim-by-claim');
+    dialog.getByRole('link', { name: 'Start a pull request' }),
+  ).toHaveAttribute('href', 'https://github.com/KhademOHAli1/claim-by-claim/compare');
   await page.keyboard.press('Escape');
   await expect(page.locator('[data-slot="tabs-list"]')).toBeVisible();
   await expect(page.locator('[data-slot="button"]').first()).toBeVisible();

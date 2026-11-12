@@ -1350,16 +1350,26 @@ main {
   padding-inline: 5px;
   color: #747b71;
 }
-.site-footer .correction-trigger {
+.finding-actions {
+  flex-shrink: 0;
+  padding: 5px 8px;
+  border-top: 1px solid var(--divider);
+  background: var(--chrome);
+}
+.finding-actions .correction-trigger {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  height: 22px;
-  padding: 0 5px;
-  font-size: 10px;
-  color: var(--secondary-text);
+  height: auto;
+  min-height: 28px;
+  max-width: 100%;
+  padding: 4px 8px;
+  white-space: normal;
+  text-align: left;
+  font-size: 11px;
+  color: var(--accent);
 }
-.site-footer .correction-trigger:hover {
+.finding-actions .correction-trigger:hover {
   background: var(--hover-surface);
 }
 
@@ -1629,16 +1639,8 @@ main {
   color: #f0f4fa;
   font-size: 11px;
 }
-.correction-steps {
-  list-style: decimal;
-  padding-left: 20px;
-  margin: 14px 0;
-  color: var(--secondary-text);
-  font-size: 13px;
-  line-height: 1.65;
-}
-.correction-steps li {
-  margin-bottom: 5px;
+.correction-options > a + p {
+  margin-top: 16px;
 }
 @media (max-width: 740px) {
   .site-header {

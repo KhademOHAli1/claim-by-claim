@@ -32,7 +32,7 @@ Authenticate the Cloudflare CLI with `npx cf auth login` and run `npm run deploy
 
 ## Corrections
 
-Use **Did we make a mistake?** in the site to open the correction form with the selected claim and timestamp. You can also start from [GitHub](https://github.com/KhademOHAli1/claim-by-claim/issues/new?template=correction.yml). Describe the proposed change and include the supporting public evidence. Issues are public. Omit personal information and private documents.
+Use **Did we make a mistake?** in the Fact Check panel to open an issue with the selected claim and timestamp or start a pull request. Describe the proposed change and include supporting public evidence. Issues are public. Omit personal information and private documents. [Open the correction form](https://github.com/KhademOHAli1/claim-by-claim/issues/new?template=correction.yml) · [Compare changes for a pull request](https://github.com/KhademOHAli1/claim-by-claim/compare).
 
 ## License
 

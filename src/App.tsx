@@ -287,7 +287,7 @@ function Dialog({
         </div>
         <DialogDescription className="sr-only">
           {overlay === 'correction'
-            ? 'Report a correction through the project’s GitHub repository.'
+            ? 'Report a mistake or propose a correction on GitHub.'
             : 'Inspect sources, evidence limitations, and the method behind this fact check.'}
         </DialogDescription>
         {source ? (
@@ -430,30 +430,31 @@ function Dialog({
               </strong>{' '}
               {titles[claim.id]}
             </p>
-            <ol className="correction-steps">
-              <li>Open the correction form and sign in to GitHub.</li>
-              <li>
-                Describe what should change. Add a source link and its relevant
-                page or timestamp if available.
-              </li>
-              <li>Review the issue and submit it. GitHub issues are public.</li>
-            </ol>
-            <div className="source-actions">
+            <div className="correction-options">
+              <p>
+                Describe what should change and link to the relevant evidence.
+                The issue form already includes this claim and timestamp.
+              </p>
               <a
                 className="primary-button"
                 href={correctionUrl}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Open correction form <ArrowUpRight size={15} />
+                Open an issue <ArrowUpRight size={15} />
               </a>
+              <p>
+                Have an edit ready? Push it to a branch, then compare that
+                branch with main. If you used a fork, choose Compare across
+                forks.
+              </p>
               <a
                 className="text-link"
-                href={repository}
+                href={`${repository}/compare`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                View website repository <ArrowUpRight size={13} />
+                Start a pull request <ArrowUpRight size={13} />
               </a>
             </div>
           </>
@@ -1048,6 +1049,17 @@ export default function App() {
             </div>
           </details>
         </div>
+        <div className="finding-actions">
+          <Button
+            variant="outline"
+            className="correction-trigger"
+            aria-haspopup="dialog"
+            onClick={() => setOverlay('correction')}
+          >
+            <GitBranch size={14} />
+            Did we make a mistake?
+          </Button>
+        </div>
       </section>
     ),
     evidence: (
@@ -1161,14 +1173,6 @@ export default function App() {
           Reviewed 12 Nov 2026 <span className="footer-separator">·</span>{' '}
           Unproven does not mean false.
         </span>
-        <Button
-          variant="ghost"
-          className="correction-trigger"
-          onClick={() => setOverlay('correction')}
-        >
-          <GitBranch size={13} />
-          Did we make a mistake? <ArrowUpRight size={11} />
-        </Button>
       </footer>
       <Dialog
         overlay={overlay}
