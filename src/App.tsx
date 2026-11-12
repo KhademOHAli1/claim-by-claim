@@ -459,6 +459,20 @@ function Dialog({
           </>
         ) : (
           <>
+            <p>
+              <strong>Fact-checking methodology.</strong> We used GPT‑6.1 in
+              ChatGPT with the open-source{' '}
+              <a
+                className="text-link"
+                href="https://github.com/KhademOHAli1/investigate-and-fact-check"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Investigate &amp; Fact-Check skill
+              </a>{' '}
+              to identify checkable claims, trace them to original sources, and
+              flag where the evidence was incomplete or conflicting.
+            </p>
             <p className="modal-intro">
               This review examines 47 statements in the supplied video, as of 12
               November 2026.

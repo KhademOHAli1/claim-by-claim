@@ -1,5 +1,7 @@
 # Review methodology
 
+**Fact-checking methodology.** We used GPT‑6.1 in ChatGPT with the open-source [Investigate & Fact-Check skill](https://github.com/KhademOHAli1/investigate-and-fact-check) to identify checkable claims, trace them to original sources, and flag where the evidence was incomplete or conflicting.
+
 The review covers the submitted video and the evidence inspected through November 12, 2026. The video's original publication, recording date, and narrator identity remain unverified. The transcript uses a corrected automated transcription compared with a separate recognition pass. Timing is approximate and a complete listening review remains outstanding.
 
 ## From statement to finding
