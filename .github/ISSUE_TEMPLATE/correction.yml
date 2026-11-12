@@ -1,0 +1,36 @@
+name: Suggest a correction
+description: Flag a transcript, assessment, citation, or source record that needs correction.
+title: "[Correction] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This issue will be public. Use public source links and page or section references. Please omit personal information and private documents.
+  - type: input
+    id: claim
+    attributes:
+      label: Claim or source ID
+      description: Enter the claim ID, source ID, or “General” for a correction that applies to the whole review.
+      placeholder: C017
+    validations:
+      required: true
+  - type: input
+    id: timestamp
+    attributes:
+      label: Video timestamp
+      description: Add the playback time if the correction concerns the video or transcript.
+      placeholder: "01:23"
+  - type: textarea
+    id: correction
+    attributes:
+      label: Suggested correction
+      description: Identify the current wording and explain the change you propose.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Public evidence
+      description: Provide a source link and pinpoint, or identify the relevant moment in the submitted clip. Explain what the evidence establishes.
+    validations:
+      required: true

@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+.env
+.env.*
+!.env.example
+.DS_Store
+test-results/
+playwright-report/
+.cloudflare/
+.wrangler/

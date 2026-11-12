@@ -1,0 +1,4849 @@
+{
+  "schemaVersion": 1,
+  "id": "ilhan-omar-video-review-2026-11-12",
+  "title": "Ilhan Omar video: claim-by-claim review",
+  "asOf": "2026-11-12T17:04:17.949368+00:00",
+  "reviewStatus": "Research assessment; identified gaps remain. No human editorial sign-off.",
+  "scopeNotes": [
+    "The original publication and recording dates are unknown. A local file date is not a publication date.",
+    "The narrator is not independently authenticated. The recording carries a visible @ALEXISANNABETH watermark.",
+    "Quotes come from a corrected automated transcript compared with a separate recognition pass. A complete listening review is outstanding.",
+    "Unsubstantiated means the evidence reviewed does not adequately support a claim; it does not establish falsity.",
+    "C017 supports the existence of a documented October-November 2026 inquiry, not the narrator’s authority or its live status on November 12.",
+    "C029 concerns reported public support for Tim Walz. The intensity described as heavily is subjective.",
+    "Different reports that depend on one record or statement are one underlying evidence stream."
+  ],
+  "video": {
+    "src": "/media/source.mp4",
+    "poster": "/video-poster.jpg",
+    "captions": "/transcript.vtt",
+    "durationSeconds": 179.1
+  },
+  "transcript": {
+    "language": "en-us",
+    "provisional": true,
+    "note": "Corrected automated transcription, not complete listening verification. Review wording near 00:56.500 and name spelling near 01:47.860 before quotation.",
+    "segments": [
+      {
+        "id": "T001",
+        "start": 0.02,
+        "end": 30.020000001791225,
+        "text": "If you want an update on Ilhan Omar, this is all facts from the federal investigation. Nothing I'm saying here has a skewed opinion. Left or right. She is not an American citizen and never has been. She forged her birth certificate, which is immigration fraud. Okay. She said that she was a year younger, that she was 17 instead of 18 in the 90s when she illegally immigrated under her father.",
+        "words": [
+          {
+            "text": "If",
+            "start": 0.02,
+            "end": 0.22
+          },
+          {
+            "text": "you",
+            "start": 0.26,
+            "end": 0.5
+          },
+          {
+            "text": "want",
+            "start": 0.5,
+            "end": 0.98
+          },
+          {
+            "text": "an",
+            "start": 1.06,
+            "end": 1.34
+          },
+          {
+            "text": "update",
+            "start": 1.34,
+            "end": 1.7000000000000002
+          },
+          {
+            "text": "on",
+            "start": 1.7,
+            "end": 2.06
+          },
+          {
+            "text": "Ilhan Omar,",
+            "start": 2.14,
+            "end": 2.9400000000000004
+          },
+          {
+            "text": "this",
+            "start": 3.02,
+            "end": 3.34
+          },
+          {
+            "text": "is",
+            "start": 3.34,
+            "end": 3.46
+          },
+          {
+            "text": "all",
+            "start": 3.46,
+            "end": 3.94
+          },
+          {
+            "text": "facts",
+            "start": 4.019999999996063,
+            "end": 4.78
+          },
+          {
+            "text": "from",
+            "start": 4.78,
+            "end": 5.26
+          },
+          {
+            "text": "the",
+            "start": 5.46,
+            "end": 5.62
+          },
+          {
+            "text": "federal",
+            "start": 5.62,
+            "end": 5.98
+          },
+          {
+            "text": "investigation.",
+            "start": 5.98,
+            "end": 6.74
+          },
+          {
+            "text": "Nothing",
+            "start": 6.78,
+            "end": 7.180000000000001
+          },
+          {
+            "text": "I'm",
+            "start": 7.18,
+            "end": 7.46
+          },
+          {
+            "text": "saying",
+            "start": 7.46,
+            "end": 7.74
+          },
+          {
+            "text": "here",
+            "start": 7.74,
+            "end": 8.14
+          },
+          {
+            "text": "has",
+            "start": 8.539999999996063,
+            "end": 9.139999999999999
+          },
+          {
+            "text": "a",
+            "start": 9.34,
+            "end": 9.62
+          },
+          {
+            "text": "skewed",
+            "start": 9.62,
+            "end": 10.02
+          },
+          {
+            "text": "opinion.",
+            "start": 10.02,
+            "end": 10.58
+          },
+          {
+            "text": "Left",
+            "start": 10.58,
+            "end": 10.9
+          },
+          {
+            "text": "or",
+            "start": 10.9,
+            "end": 11.06
+          },
+          {
+            "text": "right.",
+            "start": 11.06,
+            "end": 11.370000000000001
+          },
+          {
+            "text": "She",
+            "start": 11.38,
+            "end": 11.780000000000001
+          },
+          {
+            "text": "is",
+            "start": 11.78,
+            "end": 11.94
+          },
+          {
+            "text": "not",
+            "start": 11.94,
+            "end": 12.139999999999999
+          },
+          {
+            "text": "an",
+            "start": 12.14,
+            "end": 12.3
+          },
+          {
+            "text": "American",
+            "start": 12.3,
+            "end": 12.74
+          },
+          {
+            "text": "citizen",
+            "start": 12.74,
+            "end": 13.22
+          },
+          {
+            "text": "and",
+            "start": 13.22,
+            "end": 13.42
+          },
+          {
+            "text": "never",
+            "start": 13.42,
+            "end": 13.66
+          },
+          {
+            "text": "has",
+            "start": 13.66,
+            "end": 13.9
+          },
+          {
+            "text": "been.",
+            "start": 13.9,
+            "end": 14.3
+          },
+          {
+            "text": "She",
+            "start": 14.62,
+            "end": 15.18
+          },
+          {
+            "text": "forged",
+            "start": 15.5,
+            "end": 16.379999999996063
+          },
+          {
+            "text": "her",
+            "start": 16.379999999996063,
+            "end": 16.579999999996062
+          },
+          {
+            "text": "birth",
+            "start": 16.579999999996062,
+            "end": 16.82
+          },
+          {
+            "text": "certificate,",
+            "start": 16.82,
+            "end": 17.62
+          },
+          {
+            "text": "which",
+            "start": 18.02,
+            "end": 18.34
+          },
+          {
+            "text": "is",
+            "start": 18.34,
+            "end": 18.54
+          },
+          {
+            "text": "immigration",
+            "start": 18.54,
+            "end": 19.259999999999998
+          },
+          {
+            "text": "fraud.",
+            "start": 19.26,
+            "end": 19.900000000000002
+          },
+          {
+            "text": "Okay.",
+            "start": 20.18,
+            "end": 20.7
+          },
+          {
+            "text": "She",
+            "start": 20.94,
+            "end": 21.5
+          },
+          {
+            "text": "said",
+            "start": 21.7,
+            "end": 22.06
+          },
+          {
+            "text": "that",
+            "start": 22.06,
+            "end": 22.22
+          },
+          {
+            "text": "she",
+            "start": 22.22,
+            "end": 22.34
+          },
+          {
+            "text": "was",
+            "start": 22.34,
+            "end": 22.46
+          },
+          {
+            "text": "a",
+            "start": 22.46,
+            "end": 22.62
+          },
+          {
+            "text": "year",
+            "start": 22.62,
+            "end": 22.82
+          },
+          {
+            "text": "younger,",
+            "start": 22.82,
+            "end": 23.14
+          },
+          {
+            "text": "that",
+            "start": 23.14,
+            "end": 23.3
+          },
+          {
+            "text": "she",
+            "start": 23.3,
+            "end": 23.46
+          },
+          {
+            "text": "was",
+            "start": 23.46,
+            "end": 23.66
+          },
+          {
+            "text": "17",
+            "start": 23.66,
+            "end": 24.34
+          },
+          {
+            "text": "instead",
+            "start": 24.34,
+            "end": 24.54
+          },
+          {
+            "text": "of",
+            "start": 24.7,
+            "end": 24.82
+          },
+          {
+            "text": "18",
+            "start": 24.82,
+            "end": 25.46
+          },
+          {
+            "text": "in",
+            "start": 25.98,
+            "end": 26.3
+          },
+          {
+            "text": "the",
+            "start": 26.3,
+            "end": 26.38
+          },
+          {
+            "text": "90s",
+            "start": 26.38,
+            "end": 26.74
+          },
+          {
+            "text": "when",
+            "start": 26.78,
+            "end": 26.94
+          },
+          {
+            "text": "she",
+            "start": 26.94,
+            "end": 27.1
+          },
+          {
+            "text": "illegally",
+            "start": 27.1,
+            "end": 27.540000000000003
+          },
+          {
+            "text": "immigrated",
+            "start": 27.54,
+            "end": 28.22
+          },
+          {
+            "text": "under",
+            "start": 28.3,
+            "end": 28.66
+          },
+          {
+            "text": "her",
+            "start": 28.66,
+            "end": 28.9
+          },
+          {
+            "text": "father.",
+            "start": 28.9,
+            "end": 29.459999999999997
+          }
+        ]
+      },
+      {
+        "id": "T002",
+        "start": 30.1,
+        "end": 50.18,
+        "text": "Okay. Who, by the way, is a genocide leader? He killed over 200,000 Somalians. But in order for her to apply for citizenship, she had to be declared a minor. That alone, without having any political power, let alone a member of Congress, will put you in federal prison for life. Forget deportation. She married her biological brother to get him a green card.",
+        "words": [
+          {
+            "text": "Okay.",
+            "start": 30.1,
+            "end": 30.46
+          },
+          {
+            "text": "Who,",
+            "start": 30.5,
+            "end": 30.66
+          },
+          {
+            "text": "by",
+            "start": 30.66,
+            "end": 30.86
+          },
+          {
+            "text": "the",
+            "start": 30.86,
+            "end": 30.939999999999998
+          },
+          {
+            "text": "way,",
+            "start": 30.94,
+            "end": 31.3
+          },
+          {
+            "text": "is",
+            "start": 31.34,
+            "end": 31.54
+          },
+          {
+            "text": "a",
+            "start": 31.54,
+            "end": 31.619999999999997
+          },
+          {
+            "text": "genocide",
+            "start": 31.62,
+            "end": 32.02
+          },
+          {
+            "text": "leader?",
+            "start": 32.02,
+            "end": 32.25999999999607
+          },
+          {
+            "text": "He",
+            "start": 32.25999999999606,
+            "end": 32.42
+          },
+          {
+            "text": "killed",
+            "start": 32.42,
+            "end": 32.61999999999607
+          },
+          {
+            "text": "over",
+            "start": 32.61999999999606,
+            "end": 32.86
+          },
+          {
+            "text": "200,000",
+            "start": 32.86,
+            "end": 33.61999999999606
+          },
+          {
+            "text": "Somalians.",
+            "start": 33.65999999999606,
+            "end": 34.29999999999606
+          },
+          {
+            "text": "But",
+            "start": 34.38,
+            "end": 34.82
+          },
+          {
+            "text": "in",
+            "start": 34.82,
+            "end": 35.02
+          },
+          {
+            "text": "order",
+            "start": 35.02,
+            "end": 35.220000000000006
+          },
+          {
+            "text": "for",
+            "start": 35.22,
+            "end": 35.3
+          },
+          {
+            "text": "her",
+            "start": 35.3,
+            "end": 35.419999999999995
+          },
+          {
+            "text": "to",
+            "start": 35.42,
+            "end": 35.54
+          },
+          {
+            "text": "apply",
+            "start": 35.54,
+            "end": 35.78
+          },
+          {
+            "text": "for",
+            "start": 35.82,
+            "end": 36.02
+          },
+          {
+            "text": "citizenship,",
+            "start": 36.02,
+            "end": 36.620000000000005
+          },
+          {
+            "text": "she",
+            "start": 36.62,
+            "end": 36.82
+          },
+          {
+            "text": "had",
+            "start": 36.82,
+            "end": 37.02
+          },
+          {
+            "text": "to",
+            "start": 37.02,
+            "end": 37.14
+          },
+          {
+            "text": "be",
+            "start": 37.14,
+            "end": 37.5
+          },
+          {
+            "text": "declared",
+            "start": 37.7,
+            "end": 38.260000000000005
+          },
+          {
+            "text": "a",
+            "start": 38.26,
+            "end": 38.339999999999996
+          },
+          {
+            "text": "minor.",
+            "start": 38.34,
+            "end": 38.82
+          },
+          {
+            "text": "That",
+            "start": 38.9,
+            "end": 39.379999999999995
+          },
+          {
+            "text": "alone,",
+            "start": 39.38,
+            "end": 39.940000000000005
+          },
+          {
+            "text": "without",
+            "start": 39.98,
+            "end": 40.459999999999994
+          },
+          {
+            "text": "having",
+            "start": 40.46,
+            "end": 40.82
+          },
+          {
+            "text": "any",
+            "start": 40.82,
+            "end": 41.14
+          },
+          {
+            "text": "political",
+            "start": 41.14,
+            "end": 41.62
+          },
+          {
+            "text": "power,",
+            "start": 41.62,
+            "end": 41.98
+          },
+          {
+            "text": "let",
+            "start": 41.98,
+            "end": 42.18
+          },
+          {
+            "text": "alone",
+            "start": 42.18,
+            "end": 42.46
+          },
+          {
+            "text": "a",
+            "start": 42.46,
+            "end": 42.62
+          },
+          {
+            "text": "member",
+            "start": 42.62,
+            "end": 42.86
+          },
+          {
+            "text": "of",
+            "start": 42.86,
+            "end": 42.98
+          },
+          {
+            "text": "Congress,",
+            "start": 42.98,
+            "end": 43.699999999999996
+          },
+          {
+            "text": "will",
+            "start": 43.82,
+            "end": 44.02
+          },
+          {
+            "text": "put",
+            "start": 44.02,
+            "end": 44.14
+          },
+          {
+            "text": "you",
+            "start": 44.14,
+            "end": 44.22
+          },
+          {
+            "text": "in",
+            "start": 44.22,
+            "end": 44.339999999999996
+          },
+          {
+            "text": "federal",
+            "start": 44.34,
+            "end": 44.660000000000004
+          },
+          {
+            "text": "prison",
+            "start": 44.66,
+            "end": 44.98
+          },
+          {
+            "text": "for",
+            "start": 44.98,
+            "end": 45.13999999999999
+          },
+          {
+            "text": "life.",
+            "start": 45.14,
+            "end": 45.42
+          },
+          {
+            "text": "Forget",
+            "start": 45.42,
+            "end": 45.74
+          },
+          {
+            "text": "deportation.",
+            "start": 45.78,
+            "end": 46.660000000000004
+          },
+          {
+            "text": "She",
+            "start": 46.78,
+            "end": 47.14
+          },
+          {
+            "text": "married",
+            "start": 47.14,
+            "end": 47.54
+          },
+          {
+            "text": "her",
+            "start": 47.54,
+            "end": 47.78
+          },
+          {
+            "text": "biological",
+            "start": 47.82,
+            "end": 48.660000000000004
+          },
+          {
+            "text": "brother",
+            "start": 48.66,
+            "end": 48.98
+          },
+          {
+            "text": "to",
+            "start": 48.98,
+            "end": 49.099999999999994
+          },
+          {
+            "text": "get",
+            "start": 49.14,
+            "end": 49.3
+          },
+          {
+            "text": "him",
+            "start": 49.3,
+            "end": 49.419999999999995
+          },
+          {
+            "text": "a",
+            "start": 49.42,
+            "end": 49.54
+          },
+          {
+            "text": "green",
+            "start": 49.54,
+            "end": 49.78
+          },
+          {
+            "text": "card.",
+            "start": 49.78,
+            "end": 50.18
+          }
+        ]
+      },
+      {
+        "id": "T003",
+        "start": 50.3,
+        "end": 76.69999999999999,
+        "text": "Immigration fraud. We've discovered that none of her family members, besides her brother, are her biological family members that we're currently having her under investigation, that she might potentially be a trafficked orphan of al Qaeda, and that any and every bill that she's already signed in Congress will now have to be revoked or overturned, which will breed thousands of lawsuits like billions of dollars because of her mere presence.",
+        "words": [
+          {
+            "text": "Immigration",
+            "start": 50.3,
+            "end": 50.86
+          },
+          {
+            "text": "fraud.",
+            "start": 50.86,
+            "end": 51.3
+          },
+          {
+            "text": "We've",
+            "start": 51.5,
+            "end": 51.86
+          },
+          {
+            "text": "discovered",
+            "start": 51.86,
+            "end": 52.339999999999996
+          },
+          {
+            "text": "that",
+            "start": 52.34,
+            "end": 52.620000000000005
+          },
+          {
+            "text": "none",
+            "start": 52.62,
+            "end": 52.9
+          },
+          {
+            "text": "of",
+            "start": 52.9,
+            "end": 53.019999999999996
+          },
+          {
+            "text": "her",
+            "start": 53.02,
+            "end": 53.14
+          },
+          {
+            "text": "family",
+            "start": 53.14,
+            "end": 53.46
+          },
+          {
+            "text": "members,",
+            "start": 53.46,
+            "end": 53.78
+          },
+          {
+            "text": "besides",
+            "start": 53.78,
+            "end": 54.14
+          },
+          {
+            "text": "her",
+            "start": 54.14,
+            "end": 54.3
+          },
+          {
+            "text": "brother,",
+            "start": 54.3,
+            "end": 54.66
+          },
+          {
+            "text": "are",
+            "start": 54.74,
+            "end": 54.980000000000004
+          },
+          {
+            "text": "her",
+            "start": 54.98,
+            "end": 55.13999999999999
+          },
+          {
+            "text": "biological",
+            "start": 55.14,
+            "end": 55.660000000000004
+          },
+          {
+            "text": "family",
+            "start": 55.66,
+            "end": 55.94
+          },
+          {
+            "text": "members",
+            "start": 55.94,
+            "end": 56.46
+          },
+          {
+            "text": "that",
+            "start": 56.5,
+            "end": 56.82
+          },
+          {
+            "text": "we're",
+            "start": 56.82,
+            "end": 57.1
+          },
+          {
+            "text": "currently",
+            "start": 57.1,
+            "end": 57.78
+          },
+          {
+            "text": "having",
+            "start": 57.82,
+            "end": 58.18
+          },
+          {
+            "text": "her",
+            "start": 58.18,
+            "end": 58.339999999999996
+          },
+          {
+            "text": "under",
+            "start": 58.34,
+            "end": 58.620000000000005
+          },
+          {
+            "text": "investigation,",
+            "start": 58.62,
+            "end": 59.18
+          },
+          {
+            "text": "that",
+            "start": 59.18,
+            "end": 59.38
+          },
+          {
+            "text": "she",
+            "start": 59.58,
+            "end": 59.78
+          },
+          {
+            "text": "might",
+            "start": 59.78,
+            "end": 59.980000000000004
+          },
+          {
+            "text": "potentially",
+            "start": 59.98,
+            "end": 60.5
+          },
+          {
+            "text": "be",
+            "start": 60.5,
+            "end": 60.86
+          },
+          {
+            "text": "a",
+            "start": 61.1,
+            "end": 61.26
+          },
+          {
+            "text": "trafficked",
+            "start": 61.26,
+            "end": 61.699999999999996
+          },
+          {
+            "text": "orphan",
+            "start": 61.7,
+            "end": 62.34
+          },
+          {
+            "text": "of",
+            "start": 62.46,
+            "end": 62.660000000000004
+          },
+          {
+            "text": "al",
+            "start": 62.66,
+            "end": 62.86
+          },
+          {
+            "text": "Qaeda,",
+            "start": 62.86,
+            "end": 63.339999999999996
+          },
+          {
+            "text": "and",
+            "start": 63.7,
+            "end": 64.09999999999607
+          },
+          {
+            "text": "that",
+            "start": 64.09999999999606,
+            "end": 64.33999999999999
+          },
+          {
+            "text": "any",
+            "start": 64.34,
+            "end": 64.62
+          },
+          {
+            "text": "and",
+            "start": 64.62,
+            "end": 64.81999999999607
+          },
+          {
+            "text": "every",
+            "start": 64.81999999999606,
+            "end": 65.05999999999999
+          },
+          {
+            "text": "bill",
+            "start": 65.06,
+            "end": 65.3
+          },
+          {
+            "text": "that",
+            "start": 65.3,
+            "end": 65.5
+          },
+          {
+            "text": "she's",
+            "start": 65.5,
+            "end": 65.78
+          },
+          {
+            "text": "already",
+            "start": 65.78,
+            "end": 66.22
+          },
+          {
+            "text": "signed",
+            "start": 66.26,
+            "end": 66.66000000000001
+          },
+          {
+            "text": "in",
+            "start": 66.66,
+            "end": 66.94
+          },
+          {
+            "text": "Congress",
+            "start": 66.94,
+            "end": 67.34
+          },
+          {
+            "text": "will",
+            "start": 67.34,
+            "end": 67.5
+          },
+          {
+            "text": "now",
+            "start": 67.5,
+            "end": 67.66
+          },
+          {
+            "text": "have",
+            "start": 67.66,
+            "end": 67.89999999999999
+          },
+          {
+            "text": "to",
+            "start": 67.9,
+            "end": 67.98
+          },
+          {
+            "text": "be",
+            "start": 67.98,
+            "end": 68.22
+          },
+          {
+            "text": "revoked",
+            "start": 68.22,
+            "end": 68.66
+          },
+          {
+            "text": "or",
+            "start": 68.66,
+            "end": 68.81999999999606
+          },
+          {
+            "text": "overturned,",
+            "start": 68.81999999999606,
+            "end": 69.46
+          },
+          {
+            "text": "which",
+            "start": 69.62,
+            "end": 69.94
+          },
+          {
+            "text": "will",
+            "start": 69.94,
+            "end": 70.14
+          },
+          {
+            "text": "breed",
+            "start": 70.18,
+            "end": 70.66000000000001
+          },
+          {
+            "text": "thousands",
+            "start": 70.7,
+            "end": 71.78
+          },
+          {
+            "text": "of",
+            "start": 72.26,
+            "end": 72.54
+          },
+          {
+            "text": "lawsuits",
+            "start": 72.54,
+            "end": 73.22000000000001
+          },
+          {
+            "text": "like",
+            "start": 73.26,
+            "end": 73.46000000000001
+          },
+          {
+            "text": "billions",
+            "start": 73.5,
+            "end": 74.02
+          },
+          {
+            "text": "of",
+            "start": 74.02,
+            "end": 74.17999999999999
+          },
+          {
+            "text": "dollars",
+            "start": 74.18,
+            "end": 74.74000000000001
+          },
+          {
+            "text": "because",
+            "start": 74.74,
+            "end": 75.17999999999999
+          },
+          {
+            "text": "of",
+            "start": 75.18,
+            "end": 75.42
+          },
+          {
+            "text": "her",
+            "start": 75.46,
+            "end": 75.77999999999999
+          },
+          {
+            "text": "mere",
+            "start": 75.78,
+            "end": 76.02
+          },
+          {
+            "text": "presence.",
+            "start": 76.06,
+            "end": 76.7
+          }
+        ]
+      },
+      {
+        "id": "T004",
+        "start": 76.9,
+        "end": 105.62000000179123,
+        "text": "She committed tax fraud. She has sent millions of Minnesota tax dollars to Somalia. She has laundered tax dollars. She is on national television in an interview bragging about spending American tax dollars on Bentleys and designer clothing. And she has two homes. She has now also been discovered with her husband to have a fraudulent winery where they were selling empty wine barrels.",
+        "words": [
+          {
+            "text": "She",
+            "start": 76.9,
+            "end": 77.18
+          },
+          {
+            "text": "committed",
+            "start": 77.18,
+            "end": 77.54
+          },
+          {
+            "text": "tax",
+            "start": 77.54,
+            "end": 77.98
+          },
+          {
+            "text": "fraud.",
+            "start": 77.98,
+            "end": 78.33
+          },
+          {
+            "text": "She",
+            "start": 78.34,
+            "end": 78.7
+          },
+          {
+            "text": "has",
+            "start": 78.7,
+            "end": 78.9
+          },
+          {
+            "text": "sent",
+            "start": 78.9,
+            "end": 79.26
+          },
+          {
+            "text": "millions",
+            "start": 79.3,
+            "end": 80.3
+          },
+          {
+            "text": "of",
+            "start": 80.38,
+            "end": 80.58
+          },
+          {
+            "text": "Minnesota",
+            "start": 80.58,
+            "end": 81.06
+          },
+          {
+            "text": "tax",
+            "start": 81.06,
+            "end": 81.38
+          },
+          {
+            "text": "dollars",
+            "start": 81.38,
+            "end": 81.74
+          },
+          {
+            "text": "to",
+            "start": 81.74,
+            "end": 81.97999999999999
+          },
+          {
+            "text": "Somalia.",
+            "start": 81.98,
+            "end": 82.54
+          },
+          {
+            "text": "She",
+            "start": 82.58,
+            "end": 82.89999999999999
+          },
+          {
+            "text": "has",
+            "start": 82.9,
+            "end": 83.10000000000001
+          },
+          {
+            "text": "laundered",
+            "start": 83.1,
+            "end": 83.61999999999999
+          },
+          {
+            "text": "tax",
+            "start": 83.66,
+            "end": 84.02
+          },
+          {
+            "text": "dollars.",
+            "start": 84.02,
+            "end": 84.42
+          },
+          {
+            "text": "She",
+            "start": 84.42,
+            "end": 84.78
+          },
+          {
+            "text": "is",
+            "start": 84.78,
+            "end": 84.98
+          },
+          {
+            "text": "on",
+            "start": 84.98,
+            "end": 85.46000000000001
+          },
+          {
+            "text": "national",
+            "start": 85.46,
+            "end": 85.97999999999999
+          },
+          {
+            "text": "television",
+            "start": 86.02,
+            "end": 86.7
+          },
+          {
+            "text": "in an",
+            "start": 86.7,
+            "end": 86.9
+          },
+          {
+            "text": "interview",
+            "start": 86.9,
+            "end": 87.34
+          },
+          {
+            "text": "bragging",
+            "start": 87.34,
+            "end": 88.06
+          },
+          {
+            "text": "about",
+            "start": 88.22,
+            "end": 88.62
+          },
+          {
+            "text": "spending",
+            "start": 88.62,
+            "end": 89.42
+          },
+          {
+            "text": "American",
+            "start": 89.58,
+            "end": 90.3
+          },
+          {
+            "text": "tax",
+            "start": 90.3,
+            "end": 90.7
+          },
+          {
+            "text": "dollars",
+            "start": 90.7,
+            "end": 91.26
+          },
+          {
+            "text": "on",
+            "start": 91.38,
+            "end": 91.74
+          },
+          {
+            "text": "Bentleys",
+            "start": 91.74,
+            "end": 92.33999999999999
+          },
+          {
+            "text": "and",
+            "start": 92.38,
+            "end": 92.69999999999999
+          },
+          {
+            "text": "designer",
+            "start": 92.7,
+            "end": 93.14
+          },
+          {
+            "text": "clothing.",
+            "start": 93.14,
+            "end": 93.74
+          },
+          {
+            "text": "And",
+            "start": 94.18,
+            "end": 94.54
+          },
+          {
+            "text": "she",
+            "start": 94.54,
+            "end": 94.7
+          },
+          {
+            "text": "has",
+            "start": 94.7,
+            "end": 94.86
+          },
+          {
+            "text": "two",
+            "start": 94.86,
+            "end": 95.1
+          },
+          {
+            "text": "homes.",
+            "start": 95.14,
+            "end": 95.74
+          },
+          {
+            "text": "She",
+            "start": 95.86,
+            "end": 96.22
+          },
+          {
+            "text": "has",
+            "start": 96.22,
+            "end": 96.38
+          },
+          {
+            "text": "now",
+            "start": 96.38,
+            "end": 96.61999999999999
+          },
+          {
+            "text": "also",
+            "start": 96.62,
+            "end": 96.9
+          },
+          {
+            "text": "been",
+            "start": 96.9,
+            "end": 97.10000000000001
+          },
+          {
+            "text": "discovered",
+            "start": 97.1,
+            "end": 97.5
+          },
+          {
+            "text": "with",
+            "start": 97.5,
+            "end": 97.7
+          },
+          {
+            "text": "her",
+            "start": 97.7,
+            "end": 97.86
+          },
+          {
+            "text": "husband",
+            "start": 97.86,
+            "end": 98.46
+          },
+          {
+            "text": "to",
+            "start": 98.86,
+            "end": 99.22
+          },
+          {
+            "text": "have",
+            "start": 99.22,
+            "end": 99.46
+          },
+          {
+            "text": "a",
+            "start": 99.46,
+            "end": 99.77999999999999
+          },
+          {
+            "text": "fraudulent",
+            "start": 99.82,
+            "end": 100.61999999999999
+          },
+          {
+            "text": "winery",
+            "start": 100.66,
+            "end": 101.53999999999999
+          },
+          {
+            "text": "where",
+            "start": 101.58,
+            "end": 101.82
+          },
+          {
+            "text": "they",
+            "start": 101.82,
+            "end": 101.97999999999999
+          },
+          {
+            "text": "were",
+            "start": 101.98,
+            "end": 102.18
+          },
+          {
+            "text": "selling",
+            "start": 102.18,
+            "end": 102.74000000000001
+          },
+          {
+            "text": "empty",
+            "start": 102.94,
+            "end": 103.53999999999999
+          },
+          {
+            "text": "wine",
+            "start": 103.58,
+            "end": 104.06
+          },
+          {
+            "text": "barrels.",
+            "start": 104.06,
+            "end": 104.7
+          }
+        ]
+      },
+      {
+        "id": "T005",
+        "start": 105.7,
+        "end": 136.74000000179123,
+        "text": "She was also heavily endorsing Tim Walz, who was the running VP with Kamala Harris in 2024. Reminder that all illegal Somalis or just illegal, undocumented. Muslims and immigrants alike all get a free driver's license. No testing, no driving, no courses, no testing at the DMV. Like an American. Like a 15, 16 year old American. No, they just get to be handed one like candy.",
+        "words": [
+          {
+            "text": "She",
+            "start": 105.7,
+            "end": 106.02
+          },
+          {
+            "text": "was",
+            "start": 106.02,
+            "end": 106.22
+          },
+          {
+            "text": "also",
+            "start": 106.22,
+            "end": 106.58
+          },
+          {
+            "text": "heavily",
+            "start": 106.78,
+            "end": 107.14
+          },
+          {
+            "text": "endorsing",
+            "start": 107.14,
+            "end": 107.58
+          },
+          {
+            "text": "Tim",
+            "start": 107.62,
+            "end": 107.86
+          },
+          {
+            "text": "Walz,",
+            "start": 107.86,
+            "end": 108.17999999999999
+          },
+          {
+            "text": "who",
+            "start": 108.18,
+            "end": 108.30000000000001
+          },
+          {
+            "text": "was",
+            "start": 108.3,
+            "end": 108.5
+          },
+          {
+            "text": "the",
+            "start": 108.5,
+            "end": 108.62
+          },
+          {
+            "text": "running",
+            "start": 108.62,
+            "end": 108.9
+          },
+          {
+            "text": "VP",
+            "start": 108.9,
+            "end": 109.34
+          },
+          {
+            "text": "with",
+            "start": 109.38,
+            "end": 109.58
+          },
+          {
+            "text": "Kamala",
+            "start": 109.58,
+            "end": 109.94
+          },
+          {
+            "text": "Harris",
+            "start": 109.94,
+            "end": 110.22
+          },
+          {
+            "text": "in",
+            "start": 110.22,
+            "end": 110.34
+          },
+          {
+            "text": "2024.",
+            "start": 110.34,
+            "end": 111.18
+          },
+          {
+            "text": "Reminder",
+            "start": 111.22,
+            "end": 111.9
+          },
+          {
+            "text": "that",
+            "start": 112.5,
+            "end": 112.86
+          },
+          {
+            "text": "all",
+            "start": 112.86,
+            "end": 113.3
+          },
+          {
+            "text": "illegal",
+            "start": 113.5,
+            "end": 114.02
+          },
+          {
+            "text": "Somalis",
+            "start": 114.02,
+            "end": 114.53999999999999
+          },
+          {
+            "text": "or",
+            "start": 114.54,
+            "end": 114.74000000000001
+          },
+          {
+            "text": "just",
+            "start": 114.74,
+            "end": 114.94
+          },
+          {
+            "text": "illegal,",
+            "start": 114.94,
+            "end": 115.5
+          },
+          {
+            "text": "undocumented.",
+            "start": 115.54,
+            "end": 116.62
+          },
+          {
+            "text": "Muslims",
+            "start": 117.3,
+            "end": 117.98
+          },
+          {
+            "text": "and",
+            "start": 117.98,
+            "end": 118.58
+          },
+          {
+            "text": "immigrants",
+            "start": 118.58,
+            "end": 119.14
+          },
+          {
+            "text": "alike",
+            "start": 119.14,
+            "end": 119.7
+          },
+          {
+            "text": "all",
+            "start": 119.86,
+            "end": 120.22
+          },
+          {
+            "text": "get",
+            "start": 120.22,
+            "end": 120.38
+          },
+          {
+            "text": "a",
+            "start": 120.38,
+            "end": 120.58
+          },
+          {
+            "text": "free",
+            "start": 120.58,
+            "end": 120.82
+          },
+          {
+            "text": "driver's",
+            "start": 120.86,
+            "end": 121.26
+          },
+          {
+            "text": "license.",
+            "start": 121.26,
+            "end": 121.9
+          },
+          {
+            "text": "No",
+            "start": 123.38,
+            "end": 123.69999999999999
+          },
+          {
+            "text": "testing,",
+            "start": 123.7,
+            "end": 124.18
+          },
+          {
+            "text": "no",
+            "start": 124.18,
+            "end": 124.5
+          },
+          {
+            "text": "driving,",
+            "start": 124.5,
+            "end": 125.06
+          },
+          {
+            "text": "no",
+            "start": 125.3,
+            "end": 125.58
+          },
+          {
+            "text": "courses,",
+            "start": 125.58,
+            "end": 126.22
+          },
+          {
+            "text": "no",
+            "start": 126.74,
+            "end": 127.02
+          },
+          {
+            "text": "testing",
+            "start": 127.02,
+            "end": 127.42
+          },
+          {
+            "text": "at",
+            "start": 127.42,
+            "end": 127.54
+          },
+          {
+            "text": "the",
+            "start": 127.54,
+            "end": 127.62
+          },
+          {
+            "text": "DMV.",
+            "start": 127.62,
+            "end": 128.02
+          },
+          {
+            "text": "Like",
+            "start": 128.02,
+            "end": 128.22
+          },
+          {
+            "text": "an",
+            "start": 128.22,
+            "end": 128.38
+          },
+          {
+            "text": "American.",
+            "start": 128.38,
+            "end": 129.06
+          },
+          {
+            "text": "Like",
+            "start": 129.58,
+            "end": 129.86
+          },
+          {
+            "text": "a",
+            "start": 129.86,
+            "end": 130.06
+          },
+          {
+            "text": "15, 16",
+            "start": 130.06,
+            "end": 130.94
+          },
+          {
+            "text": "year",
+            "start": 130.97999999999607,
+            "end": 131.1
+          },
+          {
+            "text": "old",
+            "start": 131.13999999999606,
+            "end": 131.25999999999607
+          },
+          {
+            "text": "American.",
+            "start": 131.25999999999607,
+            "end": 131.72
+          },
+          {
+            "text": "No,",
+            "start": 131.74,
+            "end": 132.13999999999606
+          },
+          {
+            "text": "they",
+            "start": 132.22,
+            "end": 132.41999999999607
+          },
+          {
+            "text": "just",
+            "start": 132.41999999999607,
+            "end": 132.62
+          },
+          {
+            "text": "get",
+            "start": 132.62,
+            "end": 132.82
+          },
+          {
+            "text": "to",
+            "start": 132.82,
+            "end": 132.94
+          },
+          {
+            "text": "be",
+            "start": 132.94,
+            "end": 133.06
+          },
+          {
+            "text": "handed",
+            "start": 133.1,
+            "end": 133.46
+          },
+          {
+            "text": "one",
+            "start": 133.46,
+            "end": 133.69
+          },
+          {
+            "text": "like",
+            "start": 133.69999999999607,
+            "end": 133.94
+          },
+          {
+            "text": "candy.",
+            "start": 133.94,
+            "end": 134.46
+          }
+        ]
+      },
+      {
+        "id": "T006",
+        "start": 136.82,
+        "end": 153.66000000179122,
+        "text": "You're allowed to be afraid or phobic of people who outwardly hate you, who hate their own country, are doing everything in their power not to be with their own people, country and culture, and then come into your country and tell you how to run it, especially when they come from a country, which I'm not saying this to be rude.",
+        "words": [
+          {
+            "text": "You're",
+            "start": 136.82,
+            "end": 137.22
+          },
+          {
+            "text": "allowed",
+            "start": 137.22,
+            "end": 137.58
+          },
+          {
+            "text": "to",
+            "start": 137.58,
+            "end": 137.69999999999607
+          },
+          {
+            "text": "be",
+            "start": 137.69999999999607,
+            "end": 137.9
+          },
+          {
+            "text": "afraid",
+            "start": 137.9,
+            "end": 138.5
+          },
+          {
+            "text": "or",
+            "start": 138.5,
+            "end": 138.82
+          },
+          {
+            "text": "phobic",
+            "start": 138.94,
+            "end": 139.38
+          },
+          {
+            "text": "of",
+            "start": 139.38,
+            "end": 139.5
+          },
+          {
+            "text": "people",
+            "start": 139.5,
+            "end": 139.82
+          },
+          {
+            "text": "who",
+            "start": 139.82,
+            "end": 139.98
+          },
+          {
+            "text": "outwardly",
+            "start": 140.02,
+            "end": 140.58
+          },
+          {
+            "text": "hate",
+            "start": 140.58,
+            "end": 140.82000000000002
+          },
+          {
+            "text": "you,",
+            "start": 140.82,
+            "end": 141.14
+          },
+          {
+            "text": "who",
+            "start": 141.38,
+            "end": 141.7
+          },
+          {
+            "text": "hate",
+            "start": 141.7,
+            "end": 141.94
+          },
+          {
+            "text": "their",
+            "start": 141.94,
+            "end": 142.1
+          },
+          {
+            "text": "own",
+            "start": 142.1,
+            "end": 142.26
+          },
+          {
+            "text": "country,",
+            "start": 142.26,
+            "end": 142.66
+          },
+          {
+            "text": "are",
+            "start": 142.66,
+            "end": 142.9
+          },
+          {
+            "text": "doing",
+            "start": 142.9,
+            "end": 143.1
+          },
+          {
+            "text": "everything",
+            "start": 143.1,
+            "end": 143.46
+          },
+          {
+            "text": "in",
+            "start": 143.46,
+            "end": 143.58
+          },
+          {
+            "text": "their",
+            "start": 143.58,
+            "end": 143.70000000000002
+          },
+          {
+            "text": "power",
+            "start": 143.7,
+            "end": 143.94
+          },
+          {
+            "text": "not",
+            "start": 143.98,
+            "end": 144.14
+          },
+          {
+            "text": "to",
+            "start": 144.14,
+            "end": 144.22
+          },
+          {
+            "text": "be",
+            "start": 144.22,
+            "end": 144.34
+          },
+          {
+            "text": "with",
+            "start": 144.34,
+            "end": 144.5
+          },
+          {
+            "text": "their",
+            "start": 144.5,
+            "end": 144.62
+          },
+          {
+            "text": "own",
+            "start": 144.62,
+            "end": 144.78
+          },
+          {
+            "text": "people,",
+            "start": 144.78,
+            "end": 145.1
+          },
+          {
+            "text": "country",
+            "start": 145.1,
+            "end": 145.46
+          },
+          {
+            "text": "and",
+            "start": 145.46,
+            "end": 145.62
+          },
+          {
+            "text": "culture,",
+            "start": 145.62,
+            "end": 146.14000000000001
+          },
+          {
+            "text": "and",
+            "start": 146.38,
+            "end": 146.7
+          },
+          {
+            "text": "then",
+            "start": 146.7,
+            "end": 146.85999999999999
+          },
+          {
+            "text": "come",
+            "start": 146.86,
+            "end": 147.10000000000002
+          },
+          {
+            "text": "into",
+            "start": 147.1,
+            "end": 147.29999999999998
+          },
+          {
+            "text": "your",
+            "start": 147.3,
+            "end": 147.46
+          },
+          {
+            "text": "country",
+            "start": 147.46,
+            "end": 147.74
+          },
+          {
+            "text": "and",
+            "start": 147.74,
+            "end": 147.86
+          },
+          {
+            "text": "tell",
+            "start": 147.86,
+            "end": 148.02
+          },
+          {
+            "text": "you",
+            "start": 148.02,
+            "end": 148.14000000000001
+          },
+          {
+            "text": "how",
+            "start": 148.14,
+            "end": 148.22
+          },
+          {
+            "text": "to",
+            "start": 148.22,
+            "end": 148.34
+          },
+          {
+            "text": "run",
+            "start": 148.34,
+            "end": 148.5
+          },
+          {
+            "text": "it,",
+            "start": 148.5,
+            "end": 148.78
+          },
+          {
+            "text": "especially",
+            "start": 148.82,
+            "end": 149.5
+          },
+          {
+            "text": "when",
+            "start": 149.5,
+            "end": 149.86
+          },
+          {
+            "text": "they",
+            "start": 149.86,
+            "end": 150.06
+          },
+          {
+            "text": "come",
+            "start": 150.06,
+            "end": 150.18
+          },
+          {
+            "text": "from",
+            "start": 150.18,
+            "end": 150.38
+          },
+          {
+            "text": "a",
+            "start": 150.38,
+            "end": 150.5
+          },
+          {
+            "text": "country,",
+            "start": 150.5,
+            "end": 150.86
+          },
+          {
+            "text": "which",
+            "start": 150.86,
+            "end": 151.06
+          },
+          {
+            "text": "I'm",
+            "start": 151.06,
+            "end": 151.38
+          },
+          {
+            "text": "not",
+            "start": 151.38,
+            "end": 151.54
+          },
+          {
+            "text": "saying",
+            "start": 151.54,
+            "end": 152.01999999999998
+          },
+          {
+            "text": "this",
+            "start": 152.02,
+            "end": 152.34
+          },
+          {
+            "text": "to",
+            "start": 152.34,
+            "end": 152.46
+          },
+          {
+            "text": "be",
+            "start": 152.46,
+            "end": 152.58
+          },
+          {
+            "text": "rude.",
+            "start": 152.58,
+            "end": 153.10000000000002
+          }
+        ]
+      },
+      {
+        "id": "T007",
+        "start": 153.74,
+        "end": 174.86,
+        "text": "This is factual. Whose average IQ is 68 because they're 14 generations deep of marrying their first cousin by their faith. Not to mention, she also changed her name on her birth certificate so that she wouldn't be tied to said genocidal father. Omar is not her last name.",
+        "words": [
+          {
+            "text": "This",
+            "start": 153.74,
+            "end": 154.06
+          },
+          {
+            "text": "is",
+            "start": 154.06,
+            "end": 154.22
+          },
+          {
+            "text": "factual.",
+            "start": 154.22,
+            "end": 155.06
+          },
+          {
+            "text": "Whose",
+            "start": 155.3,
+            "end": 155.66000000000003
+          },
+          {
+            "text": "average",
+            "start": 155.66,
+            "end": 156.1
+          },
+          {
+            "text": "IQ",
+            "start": 156.1,
+            "end": 156.5
+          },
+          {
+            "text": "is",
+            "start": 156.54,
+            "end": 156.7
+          },
+          {
+            "text": "68",
+            "start": 156.7,
+            "end": 157.42
+          },
+          {
+            "text": "because",
+            "start": 157.42,
+            "end": 157.66
+          },
+          {
+            "text": "they're",
+            "start": 157.66,
+            "end": 157.9
+          },
+          {
+            "text": "14",
+            "start": 157.9,
+            "end": 158.34
+          },
+          {
+            "text": "generations",
+            "start": 158.34,
+            "end": 158.94
+          },
+          {
+            "text": "deep",
+            "start": 158.94,
+            "end": 159.18
+          },
+          {
+            "text": "of",
+            "start": 159.18,
+            "end": 159.3
+          },
+          {
+            "text": "marrying",
+            "start": 159.3,
+            "end": 159.66000000000003
+          },
+          {
+            "text": "their",
+            "start": 159.66,
+            "end": 159.78
+          },
+          {
+            "text": "first",
+            "start": 159.78,
+            "end": 160.02
+          },
+          {
+            "text": "cousin",
+            "start": 160.02,
+            "end": 160.58
+          },
+          {
+            "text": "by",
+            "start": 160.9,
+            "end": 161.26000000000002
+          },
+          {
+            "text": "their",
+            "start": 161.26,
+            "end": 161.45999999999998
+          },
+          {
+            "text": "faith.",
+            "start": 161.46,
+            "end": 161.94
+          },
+          {
+            "text": "Not",
+            "start": 162.26,
+            "end": 162.7
+          },
+          {
+            "text": "to",
+            "start": 162.7,
+            "end": 162.78
+          },
+          {
+            "text": "mention,",
+            "start": 162.82,
+            "end": 163.42
+          },
+          {
+            "text": "she",
+            "start": 163.54,
+            "end": 163.9
+          },
+          {
+            "text": "also",
+            "start": 163.9,
+            "end": 164.22
+          },
+          {
+            "text": "changed",
+            "start": 164.22,
+            "end": 164.78
+          },
+          {
+            "text": "her",
+            "start": 164.78,
+            "end": 164.98
+          },
+          {
+            "text": "name",
+            "start": 164.98,
+            "end": 165.22
+          },
+          {
+            "text": "on",
+            "start": 165.22,
+            "end": 165.42
+          },
+          {
+            "text": "her",
+            "start": 165.42,
+            "end": 165.61999999999998
+          },
+          {
+            "text": "birth",
+            "start": 165.62,
+            "end": 165.9
+          },
+          {
+            "text": "certificate",
+            "start": 165.9,
+            "end": 166.70000000000002
+          },
+          {
+            "text": "so",
+            "start": 167.14,
+            "end": 167.45999999999998
+          },
+          {
+            "text": "that",
+            "start": 167.46,
+            "end": 167.74
+          },
+          {
+            "text": "she",
+            "start": 167.74,
+            "end": 168.10000000000002
+          },
+          {
+            "text": "wouldn't",
+            "start": 168.1,
+            "end": 168.5
+          },
+          {
+            "text": "be",
+            "start": 168.5,
+            "end": 168.74
+          },
+          {
+            "text": "tied",
+            "start": 168.74,
+            "end": 169.18
+          },
+          {
+            "text": "to",
+            "start": 169.22,
+            "end": 169.5
+          },
+          {
+            "text": "said",
+            "start": 169.54,
+            "end": 170.06
+          },
+          {
+            "text": "genocidal",
+            "start": 170.54,
+            "end": 171.42
+          },
+          {
+            "text": "father.",
+            "start": 171.42,
+            "end": 171.94
+          },
+          {
+            "text": "Omar",
+            "start": 172.7,
+            "end": 173.26
+          },
+          {
+            "text": "is",
+            "start": 173.3,
+            "end": 173.54000000000002
+          },
+          {
+            "text": "not",
+            "start": 173.54,
+            "end": 173.85999999999999
+          },
+          {
+            "text": "her",
+            "start": 173.9,
+            "end": 174.14000000000001
+          },
+          {
+            "text": "last",
+            "start": 174.14,
+            "end": 174.42
+          },
+          {
+            "text": "name.",
+            "start": 174.42,
+            "end": 174.85999999999999
+          }
+        ]
+      }
+    ]
+  },
+  "evidenceIds": [
+    "E001",
+    "E002",
+    "E003",
+    "E004",
+    "E005",
+    "E006",
+    "E007",
+    "E008",
+    "E009",
+    "E010",
+    "E011",
+    "E012",
+    "E013",
+    "E014",
+    "E015",
+    "E016",
+    "E017",
+    "E018",
+    "E019",
+    "E020",
+    "E021",
+    "E022",
+    "E023",
+    "E024",
+    "E025",
+    "E026",
+    "E027",
+    "E028",
+    "E029",
+    "E030",
+    "E031",
+    "E032",
+    "E033",
+    "E034",
+    "E035",
+    "E036",
+    "E037",
+    "E038",
+    "E039",
+    "E040"
+  ],
+  "claims": [
+    {
+      "id": "C001",
+      "start": 0,
+      "end": 6.9,
+      "quote": "this is all facts from the federal investigation",
+      "category": "meta",
+      "scope": "Whether the substantive claims are factual, and whether their asserted federal-investigation provenance is demonstrated; not a claim that every allegation has been adjudicated",
+      "verdict": "Mixed",
+      "status": "orange",
+      "confidence": "High",
+      "confidenceReason": "The universal truth characterization conflicts with the licensing/penalty checks; the asserted federal origin of every allegation is not demonstrated.",
+      "finding": "Some events are real, but the package is not established as all factual or all derived from official investigative findings.",
+      "counterevidence": "A real investigation is supported. Investigative evidence need not first become a court judgment to support journalism.",
+      "unresolved": "Which specific original investigative record supports each allegation?",
+      "nextTest": "Obtain the narrator's cited records and distinguish reported suspicion, observation and finding.",
+      "sourceIds": [
+        "S001",
+        "S002",
+        "S033",
+        "S037"
+      ],
+      "evidenceIds": [
+        "E001",
+        "E002",
+        "E033",
+        "E037"
+      ],
+      "originGroups": [
+        "DDC-26MC159",
+        "MN-DVS-IMPLEMENTATION",
+        "REUTERS-20261015",
+        "US-STATUTES"
+      ],
+      "relations": {
+        "supporting": [],
+        "contradicting": [],
+        "context": [
+          "E001",
+          "E002",
+          "E033",
+          "E037"
+        ]
+      },
+      "reviewStatus": "Research assessment; original quotations provisional; identified gaps remain"
+    },
+    {
+      "id": "C002",
+      "start": 6.9,
+      "end": 11.4,
+      "quote": "Nothing I'm saying here has a skewed opinion. Left or right.",
+      "category": "rhetoric",
+      "scope": "Neutrality or lack of opinion asserted by the narrator",
+      "verdict": "Not fact-checkable",
+      "status": "neutral",
+      "confidence": "High",
+      "confidenceReason": "Political neutrality and absence of skew are undefined self-characterizations.",
+      "finding": "This is the narrator's characterization, not an independently measurable fact.",
+      "counterevidence": "Individual errors can be tested separately; error does not establish intentional deception.",
+      "unresolved": "What measurable meaning is intended by unbiased?",
+      "nextTest": "Assess the separate propositions, not an invented neutrality score.",
+      "sourceIds": [
+        "S033"
+      ],
+      "evidenceIds": [
+        "E033"
+      ],
+      "originGroups": [
+        "MN-DVS-IMPLEMENTATION"
+      ],
+      "relations": {
+        "supporting": [],
+        "contradicting": [],
+        "context": [
+          "E033"
+        ]
+      },
+      "reviewStatus": "Research assessment; original quotations provisional; identified gaps remain"
+    },
+    {
+      "id": "C003",
+      "start": 11.4,
+      "end": 14.3,
+      "quote": "She is not an American citizen",
+      "category": "citizenship",
+      "scope": "Present U.S. citizenship status",
+      "verdict": "Contradicted",
+      "status": "red",
+      "confidence": "Medium",
+      "confidenceReason": "Official history and current inspected reporting recognize U.S. citizenship; the underlying legal-acquisition file remains unexamined.",
+      "finding": "The inspected public record recognizes her as a U.S. citizen; lawful acquisition is a separate disputed question.",
+      "counterevidence": "A current inquiry and the contrary private no-record copy warrant examination but do not themselves revoke citizenship.",
+      "unresolved": "Has a competent authority made a status-changing decision after the records inspected?",
+      "nextTest": "Obtain the current official status/derivation record and any operative judgment.",
+      "sourceIds": [
+        "S004",
+        "S001"
+      ],
+      "evidenceIds": [
+        "E004",
+        "E001"
+      ],
+      "originGroups": [
+        "HOUSE-HISTORY-BIO",
+        "REUTERS-20261015"
+      ],
+      "relations": {
+        "supporting": [],
+        "contradicting": [
+          "E004",
+          "E001"
+        ],
+        "context": []
+      },
+      "reviewStatus": "Research assessment; original quotations provisional; identified gaps remain"
+    },
+    {
+      "id": "C004",
+      "start": 11.4,
+      "end": 14.3,
+      "quote": "and never has been",
+      "category": "citizenship",
+      "scope": "Ever having held recognized U.S. citizenship",
+      "verdict": "Contradicted",
+      "status": "red",
+      "confidence": "High",
+      "confidenceReason": "The bounded historical-status claim conflicts with the congressional record of citizenship in 2000.",
+      "finding": "She has been publicly recognized as a citizen since 2000; never lawfully acquired is a different allegation.",
+      "counterevidence": "This finding does not establish that every historical application condition was lawfully satisfied.",
+      "unresolved": "The acquisition mechanics remain unresolved in the underlying files.",
+      "nextTest": "Inspect authenticated derivation/naturalization records, without replacing recognized status with legal merits.",
+      "sourceIds": [
+        "S004",
+        "S001"
+      ],
+      "evidenceIds": [
+        "E004",
+        "E001"
+      ],
+      "originGroups": [
+        "HOUSE-HISTORY-BIO",
+        "REUTERS-20261015"
+      ],
+      "relations": {
+        "supporting": [],
+        "contradicting": [
+          "E004",
+          "E001"
+        ],
+        "context": []
+      },
+      "reviewStatus": "Research assessment; original quotations provisional; identified gaps remain"
+    },
+    {
+      "id": "C005",
+      "start": 14.3,
+      "end": 19.9,
+      "quote": "She forged her birth certificate",
+      "category": "citizenship",
+      "scope": "Personal forgery of a birth certificate",
+      "verdict": "Unsubstantiated",
+      "status": "orange",
+      "confidence": "High",
+      "confidenceReason": "No authenticated original/altered certificate pair or other decisive forgery evidence was inspected.",
+      "finding": "Certificate forgery is not established by the inspected evidence.",
+      "counterevidence": "A public birth-year correction is real, and the adverse no-record copy is preserved; neither establishes personal certificate forgery.",
+      "unresolved": "Was a certificate actually altered, by whom, when, and with what material effect?",
+      "nextTest": "Obtain authenticated versions, issuer verification and reliable evidence of the alleged act.",
+      "sourceIds": [
+        "S005",
+        "S009"
+      ],
+      "evidenceIds": [
+        "E005",
+        "E009"
+      ],
+      "originGroups": [
+        "KERN-RECORD-REQUESTS",
+        "LRL-OMAR-STAFF-BIO"
+      ],
+      "relations": {
+        "supporting": [],
+        "contradicting": [],
+        "context": [
+          "E005",
+          "E009"
+        ]
+      },
+      "reviewStatus": "Research assessment; original quotations provisional; identified gaps remain"
+    },
+    {
+      "id": "C047",
+      "start": 14.3,
+      "end": 19.9,
+      "quote": "which is immigration fraud",
+      "category": "legal",
+      "scope": "The legal conclusion about the alleged certificate conduct, distinct from marriage-fraud allegations",
+      "verdict": "Unsubstantiated",
+      "status": "orange",
+      "confidence": "Medium",
+      "confidenceReason": "The particular legal conclusion depends on acts and statutory elements not established in this case.",
+      "finding": "The certificate-based immigration-fraud accusation is not established; the general legal possibility is different.",
+      "counterevidence": "Knowing material false statements or document misuse in an immigration process can be offenses; that conditional rule does not prove this accusation.",
+      "unresolved": "Was a false document knowingly and materially used in the relevant process?",
+      "nextTest": "Require authenticated documents and evidence of each applicable element.",
+      "sourceIds": [
+        "S038",
+        "S037",
+        "S005"
+      ],
+      "evidenceIds": [
+        "E038",
+        "E037",
+        "E005"
+      ],
+      "originGroups": [
+        "LRL-OMAR-STAFF-BIO",
+        "US-STATUTES"
+      ],
+      "relations": {
+        "supporting": [],
+        "contradicting": [],
+        "context": [
+          "E038",
+          "E037",
+          "E005"
+        ]
+      },
+      "reviewStatus": "Research assessment; original quotations provisional; identified gaps remain"
+    },
+    {
+      "id": "C006",
+      "start": 20.7,
+      "end": 30.1,
+      "quote": "she was 17 instead of 18 in the 90s when she illegally immigrated",
+      "category": "citizenship",
+      "scope": "Asserted age alteration and whether the ages concern entry or citizenship",
+      "verdict": "Misleading",
+      "status": "orange",
+      "confidence": "High",
+      "confidenceReason": "The video merges the arrival chronology with later citizenship and the disputed age issue.",
+      "finding": "The recorded arrival was in 1995 as a child; citizenship is recorded in 2000 at 17. The alleged age fraud remains unproved.",
+      "counterevidence": "The birth-year listing changed; a benign correction and deliberate misstatement both require consideration.",
+      "unresolved": "What date and document allegedly contained a false age?",
+      "nextTest": "Compare contemporaneous authenticated records and the precise date of the claimed representation.",
+      "sourceIds": [
+        "S004",
+        "S005",
+        "S001"
+      ],
+      "evidenceIds": [
+        "E004",
+        "E005",
+        "E001"
+      ],
+      "originGroups": [
+        "HOUSE-HISTORY-BIO",
+        "LRL-OMAR-STAFF-BIO",
+        "REUTERS-20261015"
+      ],
+      "relations": {
+        "supporting": [],
+        "contradicting": [],
+        "context": [
+          "E004",
+          "E005",
+          "E001"
+        ]
+      },
+      "reviewStatus": "Research assessment; original quotations provisional; identified gaps remain"
+    },
+    {
+      "id": "C007",
+      "start": 20.7,
+      "end": 30.1,
+      "quote": "in the 90s when she ... immigrated",
+      "category": "citizenship",
+      "scope": "Entry decade, checked separately from legality and claimed age",
+      "verdict": "Supported",
+      "status": "green",
+      "confidence": "High",
+      "confidenceReason": "The 1990s arrival is recorded in the official history and independent current reporting.",
+      "finding": "The public chronology places her arrival in 1995.",
+      "counterevidence": "These accounts do not independently authenticate the original admission paperwork.",
+      "unresolved": "Exact document-level admission details were not obtained.",
+      "nextTest": "Inspect the admission record if the precise legal route becomes decisive.",
+      "sourceIds": [
+        "S004",
+        "S001"
+      ],
+      "evidenceIds": [
+        "E004",
+        "E001"
+      ],
+      "originGroups": [
+        "HOUSE-HISTORY-BIO",
+        "REUTERS-20261015"
+      ],
+      "relations": {
+        "supporting": [
+          "E004",
+          "E001"
+        ],
+        "contradicting": [],
+        "context": []
+      },
+      "reviewStatus": "Research assessment; original quotations provisional; identified gaps remain"
+    },
+    {
+      "id": "C008",
+      "start": 27,
+      "end": 30.1,
+      "quote": "illegally immigrated",
+      "category": "citizenship",
+      "scope": "Whether the available evidence establishes unlawful entry or procurement",
+      "verdict": "Unsubstantiated",
+      "status": "orange",
+      "confidence": "Medium",
+      "confidenceReason": "The inspected evidence does not establish unlawful admission, despite current scrutiny of the paperwork.",
+      "finding": "Unlawful immigration is an allegation under examination, not a fact established by this review.",
+      "counterevidence": "Official refugee accounts are not an audit; a privately hosted adverse search certificate raises a defined unresolved issue.",
+      "unresolved": "Were materially false representations made in the actual entry/derivation process?",
+      "nextTest": "Inspect the authenticated files, request parameters and any competent findings.",
+      "sourceIds": [
+        "S003",
+        "S004",
+        "S001",
+        "S009"
+      ],
+      "evidenceIds": [
+        "E003",
+        "E004",
+        "E001",
+        "E009"
+      ],
+      "originGroups": [
+        "HOUSE-HISTORY-BIO",
+        "KERN-RECORD-REQUESTS",
+        "OMAR-PUBLIC-BIO",
+        "REUTERS-20261015"
+      ],
+      "relations": {
+        "supporting": [],
+        "contradicting": [],
+        "context": [
+          "E003",
+          "E004",
+          "E001",
+          "E009"
+        ]
+      },
+      "reviewStatus": "Research assessment; original quotations provisional; identified gaps remain"
+    },
+    {
+      "id": "C009",
+      "start": 27,
+      "end": 30.2,
+      "quote": "under her father",
+      "category": "citizenship",
+      "scope": "Whether the documented refugee/entry account involved her father",
+      "verdict": "Supported",
+      "status": "green",
+      "confidence": "Medium",
+      "confidenceReason": "The family-resettlement accounts place her with her father and family.",
+      "finding": "Public accounts support that her father and family resettled with her.",
+      "counterevidence": "This supports family accompaniment, not every legal meaning of being admitted under a parent.",
+      "unresolved": "The actual application/dependency records are unavailable.",
+      "nextTest": "Obtain the admission file if that legal distinction matters.",
+      "sourceIds": [
+        "S004",
+        "S006"
+      ],
+      "evidenceIds": [
+        "E004",
+        "E006"
+      ],
+      "originGroups": [
+        "HOUSE-HISTORY-BIO",
+        "SAHAN-20200620"
+      ],
+      "relations": {
+        "supporting": [
+          "E004",
+          "E006"
+        ],
+        "contradicting": [],
+        "context": []
+      },
+      "reviewStatus": "Research assessment; original quotations provisional; identified gaps remain"
+    },
+    {
+      "id": "C010",
+      "start": 30.1,
+      "end": 32.6,
+      "quote": "Who, by the way, is a genocide leader?",
+      "category": "citizenship",
+      "scope": "Claim that her father personally led genocide; automatic punctuation is provisional",
+      "verdict": "Unsubstantiated",
+      "status": "orange",
+      "confidence": "High",
+      "confidenceReason": "Military service is reported, but individual genocide leadership is not established in the inspected record.",
+      "finding": "The reported military role does not establish the specific genocide accusation.",
+      "counterevidence": "The obituary reports colonel/regimental-command service; do not erase that material fact or treat it as innocence.",
+      "unresolved": "What command, deployment, orders or directly corroborated acts establish genocide responsibility?",
+      "nextTest": "Seek contemporaneous individual service/command records, competent findings and direct witnesses.",
+      "sourceIds": [
+        "S006",
+        "S007"
+      ],
+      "evidenceIds": [
+        "E006",
+        "E007"
+      ],
+      "originGroups": [
+        "HRW-SOMALIA-1995",
+        "SAHAN-20200620"
+      ],
+      "relations": {
+        "supporting": [],
+        "contradicting": [],
+        "context": [
+          "E006",
+          "E007"
+        ]
+      },
+      "reviewStatus": "Research assessment; original quotations provisional; identified gaps remain"
+    },
+    {
+      "id": "C011",
+      "start": 32.4,
+      "end": 34.4,
+      "quote": "He killed over 200,000 Somalians",
+      "category": "citizenship",
+      "scope": "Personal responsibility and exact victim count attributed to her father",
+      "verdict": "Unsubstantiated",
+      "status": "orange",
+      "confidence": "High",
+      "confidenceReason": "The personal attribution and exact death toll lack identified individual evidence.",
+      "finding": "The claimed personal death toll is not established.",
+      "counterevidence": "Documented regime atrocities do not transfer a national/regime toll to one officer.",
+      "unresolved": "What source establishes this individual's responsibility for more than 200,000 deaths?",
+      "nextTest": "Inspect an attributable investigation and its victim-count methodology.",
+      "sourceIds": [
+        "S006",
+        "S007"
+      ],
+      "evidenceIds": [
+        "E006",
+        "E007"
+      ],
+      "originGroups": [
+        "HRW-SOMALIA-1995",
+        "SAHAN-20200620"
+      ],
+      "relations": {
+        "supporting": [],
+        "contradicting": [],
+        "context": [
+          "E006",
+          "E007"
+        ]
+      },
+      "reviewStatus": "Research assessment; original quotations provisional; identified gaps remain"
+    },
+    {
+      "id": "C012",
+      "start": 34.4,
+      "end": 38.9,
+      "quote": "in order for her to apply for citizenship, she had to be declared a minor",
+      "category": "citizenship",
+      "scope": "General citizenship rule versus a particular derivative route in 2000",
+      "verdict": "Mixed",
+      "status": "orange",
+      "confidence": "Medium",
+      "confidenceReason": "Under-18 status mattered for the former derivative route, but her exact acquisition conditions have not been independently inspected.",
+      "finding": "The under-18 threshold is real for the relevant derivative route; it is not proof that she falsified her age, and citizenship was not generally limited to minors.",
+      "counterevidence": "Adult naturalization applications also existed. That does not by itself refute a minor requirement for a particular derivative route.",
+      "unresolved": "Which route was actually used and were its conditions satisfied at the relevant date?",
+      "nextTest": "Inspect the contemporaneous citizenship file against former section 1432 and applicable rules.",
+      "sourceIds": [
+        "S008",
+        "S004"
+      ],
+      "evidenceIds": [
+        "E008",
+        "E004"
+      ],
+      "originGroups": [
+        "HOUSE-HISTORY-BIO",
+        "US-STATUTES"
+      ],
+      "relations": {
+        "supporting": [],
+        "contradicting": [],
+        "context": [
+          "E008",
+          "E004"
+        ]
+      },
+      "reviewStatus": "Research assessment; original quotations provisional; identified gaps remain"
+    },
+    {
+      "id": "C013",
+      "start": 38.9,
+      "end": 46.7,
+      "quote": "That alone ... will put you in federal prison for life",
+      "category": "legal",
+      "scope": "Automatic life imprisonment for the alleged document/immigration offense alone",
+      "verdict": "Contradicted",
+      "status": "red",
+      "confidence": "High",
+      "confidenceReason": "The relevant document/procurement statutes specify finite maximum terms, not automatic life imprisonment for that conduct alone.",
+      "finding": "The statement that this alone automatically means federal prison for life is incorrect.",
+      "counterevidence": "Other separately established offenses could have different penalties; they are not proved by this allegation.",
+      "unresolved": "No actual charge-specific sentencing analysis was possible.",
+      "nextTest": "Require the exact charged statute, proven elements and procedural disposition.",
+      "sourceIds": [
+        "S037",
+        "S038"
+      ],
+      "evidenceIds": [
+        "E037",
+        "E038"
+      ],
+      "originGroups": [
+        "US-STATUTES"
+      ],
+      "relations": {
+        "supporting": [],
+        "contradicting": [
+          "E037",
+          "E038"
+        ],
+        "context": []
+      },
+      "reviewStatus": "Research assessment; original quotations provisional; identified gaps remain"
+    },
+    {
+      "id": "C014",
+      "start": 46.7,
+      "end": 50.3,
+      "quote": "She married her biological brother",
+      "category": "citizenship",
+      "scope": "Biological relationship to Ahmed Nur Said Elmi and marriage",
+      "verdict": "Unsubstantiated",
+      "status": "orange",
+      "confidence": "Medium",
+      "confidenceReason": "The marriage is reported; the biological-sibling claim lacks validated named-donor evidence or decisive civil records in this review.",
+      "finding": "The marriage is documented in reporting; the claim that the spouse was her biological brother is not established here.",
+      "counterevidence": "The private memorandum is real contrary material, but explicitly assumes the adult female sample's identity. Older inconclusive reporting cannot resolve all later evidence.",
+      "unresolved": "Are the asserted samples reliably tied to the named people, and what do authenticated records establish?",
+      "nextTest": "Obtain validated donor provenance and independent expert examination, or reliable civil/genealogical records.",
+      "sourceIds": [
+        "S012",
+        "S010"
+      ],
+      "evidenceIds": [
+        "E012",
+        "E010"
+      ],
+      "originGroups": [
+        "LAZZARO-PRIVATE-DNA-2021",
+        "STARTRIBUNE-2019-INVESTIGATION"
+      ],
+      "relations": {
+        "supporting": [],
+        "contradicting": [],
+        "context": [
+          "E012",
+          "E010"
+        ]
+      },
+      "reviewStatus": "Research assessment; original quotations provisional; identified gaps remain"
+    },
+    {
+      "id": "C015",
+      "start": 46.7,
+      "end": 51.5,
+      "quote": "to get him a green card. Immigration fraud.",
+      "category": "citizenship",
+      "scope": "Immigration purpose, benefit and criminal intent of the marriage",
+      "verdict": "Unsubstantiated",
+      "status": "orange",
+      "confidence": "Medium",
+      "confidenceReason": "A marriage and asserted kinship do not establish the alleged immigration purpose or criminal intent.",
+      "finding": "The green-card purpose and immigration-fraud conclusion remain unproved.",
+      "counterevidence": "The accusers propose an immigration-benefit theory, but the relevant benefit records and communications were not inspected.",
+      "unresolved": "Was a benefit sought or obtained through knowing material misrepresentation?",
+      "nextTest": "Inspect the relevant application/decision and corroborated evidence of purpose.",
+      "sourceIds": [
+        "S012",
+        "S010"
+      ],
+      "evidenceIds": [
+        "E012",
+        "E010"
+      ],
+      "originGroups": [
+        "LAZZARO-PRIVATE-DNA-2021",
+        "STARTRIBUNE-2019-INVESTIGATION"
+      ],
+      "relations": {
+        "supporting": [],
+        "contradicting": [],
+        "context": [
+          "E012",
+          "E010"
+        ]
+      },
+      "reviewStatus": "Research assessment; original quotations provisional; identified gaps remain"
+    },
+    {
+      "id": "C016",
+      "start": 51.5,
+      "end": 56.5,
+      "quote": "none of her family members, besides her brother, are her biological family members",
+      "category": "citizenship",
+      "scope": "Claim of established family-wide biological nonrelationship",
+      "verdict": "Unsubstantiated",
+      "status": "orange",
+      "confidence": "High",
+      "confidenceReason": "No validated family-wide evidence supports the sweeping nonrelationship claim.",
+      "finding": "The claimed family-wide biological finding is not established.",
+      "counterevidence": "Even the interested memorandum alleges biological father/sister relationships, so it does not support this formulation.",
+      "unresolved": "Which relatives, samples or civil records support each asserted relationship?",
+      "nextTest": "Require defined persons and validated evidence for each relationship; avoid private-person dossiers.",
+      "sourceIds": [
+        "S010",
+        "S004"
+      ],
+      "evidenceIds": [
+        "E010",
+        "E004"
+      ],
+      "originGroups": [
+        "HOUSE-HISTORY-BIO",
+        "LAZZARO-PRIVATE-DNA-2021"
+      ],
+      "relations": {
+        "supporting": [],
+        "contradicting": [],
+        "context": [
+          "E010",
+          "E004"
+        ]
+      },
+      "reviewStatus": "Research assessment; original quotations provisional; identified gaps remain"
+    },
+    {
+      "id": "C017",
+      "start": 56.5,
+      "end": 59.7,
+      "quote": "that we're currently having her under investigation",
+      "category": "citizenship",
+      "scope": "Existence and scope of a current official investigation; narrator authority not inferred",
+      "verdict": "Supported",
+      "status": "green",
+      "confidence": "High",
+      "confidenceReason": "Reporting and the search-related docket document an immigration inquiry in October-November 2026.",
+      "finding": "An immigration inquiry is documented in October-November 2026; the narrator's role and live procedural status on November 12 are not independently established.",
+      "counterevidence": "The mirror only covers through November 4; sealed evidence and the narrator's own authority were not established.",
+      "unresolved": "Its full scope and live procedural status on November 12 remain partly inaccessible; the recording date is unknown.",
+      "nextTest": "Inspect current official filings or an on-record agency statement; authenticate the original post date.",
+      "sourceIds": [
+        "S001",
+        "S002"
+      ],
+      "evidenceIds": [
+        "E001",
+        "E002"
+      ],
+      "originGroups": [
+        "DDC-26MC159",
+        "REUTERS-20261015"
+      ],
+      "relations": {
+        "supporting": [
+          "E001",
+          "E002"
+        ],
+        "contradicting": [],
+        "context": []
+      },
+      "reviewStatus": "Research assessment; original quotations provisional; identified gaps remain"
+    },
+    {
+      "id": "C018",
+      "start": 59.7,
+      "end": 64,
+      "quote": "she might potentially be a trafficked orphan of al Qaeda",
+      "category": "citizenship",
+      "scope": "Specific suggestion of trafficking/orphan status and Al-Qaeda involvement, not merely an investigation",
+      "verdict": "Unsubstantiated",
+      "status": "orange",
+      "confidence": "Medium",
+      "confidenceReason": "The specific Al-Qaeda/trafficking/orphan theory was not supported by the records inspected.",
+      "finding": "This specific suggestion is not established by the evidence reviewed.",
+      "counterevidence": "That is a bounded evidence finding, not a comprehensive clearance of every possible sealed theory.",
+      "unresolved": "What identifiable original record supports this particular assertion?",
+      "nextTest": "Obtain the specific attributed investigative record and corroboration.",
+      "sourceIds": [
+        "S001",
+        "S002"
+      ],
+      "evidenceIds": [
+        "E001",
+        "E002"
+      ],
+      "originGroups": [
+        "DDC-26MC159",
+        "REUTERS-20261015"
+      ],
+      "relations": {
+        "supporting": [],
+        "contradicting": [],
+        "context": [
+          "E001",
+          "E002"
+        ]
+      },
+      "reviewStatus": "Research assessment; original quotations provisional; identified gaps remain"
+    },
+    {
+      "id": "C019",
+      "start": 64,
+      "end": 71.3,
+      "quote": "any and every bill that she's already signed in Congress will now have to be revoked or overturned",
+      "category": "legal",
+      "scope": "Automatic invalidation of all legislation supported or signed by a member",
+      "verdict": "Misleading",
+      "status": "orange",
+      "confidence": "Medium",
+      "confidenceReason": "Legislation is enacted through a collective constitutional process; no basis for the claimed blanket automatic result was established.",
+      "finding": "The review establishes no automatic rule invalidating every law a member supported. The outcome of any specific challenge is unresolved.",
+      "counterevidence": "A particular future legal challenge would need separate grounds and adjudication. No exhaustive case-law review is claimed.",
+      "unresolved": "What controlling authority or operative ruling requires every affected law to be voided?",
+      "nextTest": "Require a specified legal authority and actual affected measures, not a blanket prediction.",
+      "sourceIds": [
+        "S039",
+        "S040"
+      ],
+      "evidenceIds": [
+        "E039",
+        "E040"
+      ],
+      "originGroups": [
+        "HOUSE-PROCEDURE",
+        "US-CONSTITUTION"
+      ],
+      "relations": {
+        "supporting": [],
+        "contradicting": [],
+        "context": [
+          "E039",
+          "E040"
+        ]
+      },
+      "reviewStatus": "Research assessment; original quotations provisional; identified gaps remain"
+    },
+    {
+      "id": "C020",
+      "start": 71.3,
+      "end": 76.8,
+      "quote": "will breed thousands of lawsuits like billions of dollars",
+      "category": "rhetoric",
+      "scope": "Predicted lawsuit count and financial magnitude",
+      "verdict": "Not fact-checkable",
+      "status": "neutral",
+      "confidence": "High",
+      "confidenceReason": "This is an unresolved future prediction, with no defined cases, valuation or methodology.",
+      "finding": "Thousands of lawsuits and billions of dollars are unsupported predictions, not present facts.",
+      "counterevidence": "Predictions can later be tested against events, but cannot be reported now as established losses.",
+      "unresolved": "Which lawsuits and amounts are actually identified?",
+      "nextTest": "Obtain filed cases and a reproducible damages estimate if such a claim becomes concrete.",
+      "sourceIds": [
+        "S039"
+      ],
+      "evidenceIds": [
+        "E039"
+      ],
+      "originGroups": [
+        "US-CONSTITUTION"
+      ],
+      "relations": {
+        "supporting": [],
+        "contradicting": [],
+        "context": [
+          "E039"
+        ]
+      },
+      "reviewStatus": "Research assessment; original quotations provisional; identified gaps remain"
+    },
+    {
+      "id": "C021",
+      "start": 76.9,
+      "end": 78.4,
+      "quote": "She committed tax fraud",
+      "category": "finance",
+      "scope": "Personal tax fraud, distinguished from campaign-finance reimbursement findings",
+      "verdict": "Unsubstantiated",
+      "status": "orange",
+      "confidence": "Medium",
+      "confidenceReason": "The record supports accounting/joint-return concerns and civil campaign violations, but not the categorical criminal-tax conclusion.",
+      "finding": "There are documented campaign/accounting issues; criminal tax fraud is not established by this packet.",
+      "counterevidence": "The apparent joint filing and reported correction are material, not dismissed. Actual returns and fraudulent intent were not inspected.",
+      "unresolved": "What were the actual filings, legal treatment, correction and any tax-agency findings?",
+      "nextTest": "Obtain authorized redacted returns or a competent determination and corroborated evidence of the alleged offense.",
+      "sourceIds": [
+        "S013",
+        "S014"
+      ],
+      "evidenceIds": [
+        "E013",
+        "E014"
+      ],
+      "originGroups": [
+        "MN-CFB-1464",
+        "MN-CFB-1464; LAWYER-RESPONSE"
+      ],
+      "relations": {
+        "supporting": [],
+        "contradicting": [],
+        "context": [
+          "E013",
+          "E014"
+        ]
+      },
+      "reviewStatus": "Research assessment; original quotations provisional; identified gaps remain"
+    },
+    {
+      "id": "C022",
+      "start": 78.4,
+      "end": 82.6,
+      "quote": "She has sent millions of Minnesota tax dollars to Somalia",
+      "category": "finance",
+      "scope": "Omar personally caused specific public-money transfers; not other defendants or remittances generally",
+      "verdict": "Unsubstantiated",
+      "status": "orange",
+      "confidence": "Medium",
+      "confidenceReason": "No identified transfer by Omar with the stated amount, public program, recipient and date was established.",
+      "finding": "The personal transfer allegation is not established.",
+      "counterevidence": "Association, a funding allegation or another person's fraud is not a transaction trace; the searches cannot exclude concealed transactions.",
+      "unresolved": "What specific payment or banking record links Omar to the alleged transfers?",
+      "nextTest": "Identify program, authority, date, amount, recipient and a verifiable money trail.",
+      "sourceIds": [
+        "S015",
+        "S016",
+        "S018"
+      ],
+      "evidenceIds": [
+        "E015",
+        "E016",
+        "E018"
+      ],
+      "originGroups": [
+        "HOUSE-DISCLOSURES; REFORMER-MYNETT-2024",
+        "OMAR-HOUSE-DISCLOSURES"
+      ],
+      "relations": {
+        "supporting": [],
+        "contradicting": [],
+        "context": [
+          "E015",
+          "E016",
+          "E018"
+        ]
+      },
+      "reviewStatus": "Research assessment; original quotations provisional; identified gaps remain"
+    },
+    {
+      "id": "C023",
+      "start": 82.6,
+      "end": 84.5,
+      "quote": "She has laundered tax dollars",
+      "category": "finance",
+      "scope": "Omar personally committed money laundering",
+      "verdict": "Unsubstantiated",
+      "status": "orange",
+      "confidence": "Medium",
+      "confidenceReason": "No inspected transaction trace or other sufficiently strong evidence establishes Omar's personal laundering.",
+      "finding": "Personal money laundering is not established by the inspected record.",
+      "counterevidence": "Disclosure amendments, civil disputes and investigations warrant scrutiny but do not by themselves prove laundering.",
+      "unresolved": "What proceeds, transactions and knowing conduct satisfy the alleged offense?",
+      "nextTest": "Obtain the underlying financial trail and competent analysis of the elements.",
+      "sourceIds": [
+        "S013",
+        "S015",
+        "S018"
+      ],
+      "evidenceIds": [
+        "E013",
+        "E015",
+        "E018"
+      ],
+      "originGroups": [
+        "HOUSE-DISCLOSURES; REFORMER-MYNETT-2024",
+        "MN-CFB-1464",
+        "OMAR-HOUSE-DISCLOSURES"
+      ],
+      "relations": {
+        "supporting": [],
+        "contradicting": [],
+        "context": [
+          "E013",
+          "E015",
+          "E018"
+        ]
+      },
+      "reviewStatus": "Research assessment; original quotations provisional; identified gaps remain"
+    },
+    {
+      "id": "C024",
+      "start": 84.5,
+      "end": 93.8,
+      "quote": "She is on national television in an interview bragging about spending American tax dollars on Bentleys and designer clothing",
+      "category": "finance",
+      "scope": "Interview provenance, correct speaker identity, context and alleged use of taxpayer funds",
+      "verdict": "Unsubstantiated",
+      "status": "orange",
+      "confidence": "Medium",
+      "confidenceReason": "No identified complete interview supports the specific boast in the material inspected.",
+      "finding": "The Bentley/designer-clothing interview allegation is not verified. It has not been proved fabricated either.",
+      "counterevidence": "The located transcript index is explicitly unverified and is only a lead; it cannot disprove every possible interview.",
+      "unresolved": "Which network, program, date, full recording and timestamp are alleged?",
+      "nextTest": "Obtain and authenticate that recording, then verify speaker, context and the claimed expenditure.",
+      "sourceIds": [
+        "S021"
+      ],
+      "evidenceIds": [
+        "E021"
+      ],
+      "originGroups": [
+        "OMAR-MSNOW-20261021"
+      ],
+      "relations": {
+        "supporting": [],
+        "contradicting": [],
+        "context": [
+          "E021"
+        ]
+      },
+      "reviewStatus": "Research assessment; original quotations provisional; identified gaps remain"
+    },
+    {
+      "id": "C025",
+      "start": 93.8,
+      "end": 95.8,
+      "quote": "she has two homes",
+      "category": "finance",
+      "scope": "Two residences; the video does not say she owns two properties",
+      "verdict": "Unresolved",
+      "status": "orange",
+      "confidence": "Medium",
+      "confidenceReason": "The statement says has, not owns, and the original interview/residence records were not inspected.",
+      "finding": "Two homes could mean two rented residences. Ownership and illicit acquisition are not established by this wording.",
+      "counterevidence": "An unverified index points to a statement about rented residences. That is not independent housing proof or evidence of illicit wealth.",
+      "unresolved": "Does the full original establish the two-residence statement at the relevant date?",
+      "nextTest": "Inspect the full original recording first; seek minimally necessary corroboration without collecting home addresses.",
+      "sourceIds": [
+        "S021"
+      ],
+      "evidenceIds": [
+        "E021"
+      ],
+      "originGroups": [
+        "OMAR-MSNOW-20261021"
+      ],
+      "relations": {
+        "supporting": [],
+        "contradicting": [],
+        "context": [
+          "E021"
+        ]
+      },
+      "reviewStatus": "Research assessment; original quotations provisional; identified gaps remain"
+    },
+    {
+      "id": "C026",
+      "start": 95.8,
+      "end": 102.8,
+      "quote": "with her husband ... a ... winery",
+      "category": "finance",
+      "scope": "Existence and disclosed relationship to a winery, separated from fraud",
+      "verdict": "Supported",
+      "status": "green",
+      "confidence": "High",
+      "confidenceReason": "Original filed disclosures identify ESTCRU as a spousal asset.",
+      "finding": "A disclosed spousal winery interest is documented; Omar's operational participation is not established.",
+      "counterevidence": "Declarations establish reported financial relationship, not independent valuation, operational control or fraud by Omar.",
+      "unresolved": "The exact underlying control/transactions remain separate questions.",
+      "nextTest": "Use governing/transaction documents if a specific control claim is made.",
+      "sourceIds": [
+        "S015",
+        "S016",
+        "S017"
+      ],
+      "evidenceIds": [
+        "E015",
+        "E016",
+        "E017"
+      ],
+      "originGroups": [
+        "OMAR-HOUSE-DISCLOSURES"
+      ],
+      "relations": {
+        "supporting": [
+          "E015",
+          "E016",
+          "E017"
+        ],
+        "contradicting": [],
+        "context": []
+      },
+      "reviewStatus": "Research assessment; original quotations provisional; identified gaps remain"
+    },
+    {
+      "id": "C027",
+      "start": 95.8,
+      "end": 105.7,
+      "quote": "a fraudulent winery",
+      "category": "finance",
+      "scope": "Whether winery fraud has been established rather than alleged",
+      "verdict": "Unsubstantiated",
+      "status": "orange",
+      "confidence": "Medium",
+      "confidenceReason": "A real civil allegation and congressional request are not themselves proof of the winery-fraud accusation.",
+      "finding": "Winery fraud is alleged, not established by this review.",
+      "counterevidence": "The principals denied fraud; reported settlement is not a merits finding. Original pleadings were inaccessible.",
+      "unresolved": "What do the complaint, answer, transaction records and any operative disposition actually establish?",
+      "nextTest": "Obtain the accessible pleadings and disposition in case 23CV010043 and primary transaction evidence.",
+      "sourceIds": [
+        "S018",
+        "S019",
+        "S020"
+      ],
+      "evidenceIds": [
+        "E018",
+        "E019",
+        "E020"
+      ],
+      "originGroups": [
+        "HOUSE-DISCLOSURES; REFORMER-MYNETT-2024",
+        "REFORMER-MYNETT-2024"
+      ],
+      "relations": {
+        "supporting": [],
+        "contradicting": [],
+        "context": [
+          "E018",
+          "E019",
+          "E020"
+        ]
+      },
+      "reviewStatus": "Research assessment; original quotations provisional; identified gaps remain"
+    },
+    {
+      "id": "C028",
+      "start": 102.7,
+      "end": 105.7,
+      "quote": "selling empty wine barrels",
+      "category": "finance",
+      "scope": "Exact alleged business conduct and whether any record proves it",
+      "verdict": "Unsubstantiated",
+      "status": "orange",
+      "confidence": "Medium",
+      "confidenceReason": "No identified buyer, inventory/warehouse record or transaction proving the empty-barrel claim was inspected.",
+      "finding": "The empty-barrel assertion remains unproved.",
+      "counterevidence": "Reports of real wine production would not disprove fraud in a particular sale. Repetition of a political allegation is not independent corroboration.",
+      "unresolved": "What original purchase, storage and delivery records support this exact allegation?",
+      "nextTest": "Obtain the complete source interview and the named transaction/inventory evidence.",
+      "sourceIds": [
+        "S018",
+        "S019"
+      ],
+      "evidenceIds": [
+        "E018",
+        "E019"
+      ],
+      "originGroups": [
+        "HOUSE-DISCLOSURES; REFORMER-MYNETT-2024",
+        "REFORMER-MYNETT-2024"
+      ],
+      "relations": {
+        "supporting": [],
+        "contradicting": [],
+        "context": [
+          "E018",
+          "E019"
+        ]
+      },
+      "reviewStatus": "Research assessment; original quotations provisional; identified gaps remain"
+    },
+    {
+      "id": "C029",
+      "start": 105.7,
+      "end": 108.3,
+      "quote": "She was also heavily endorsing Tim Walz",
+      "category": "finance",
+      "scope": "Endorsement; heavily is undefined emphasis and not separately measured",
+      "verdict": "Supported",
+      "status": "green",
+      "confidence": "Medium",
+      "confidenceReason": "Contemporaneous reporting documents public support for Walz; the original post was inaccessible.",
+      "finding": "Public support is reported; the degree described as heavily is subjective.",
+      "counterevidence": "Multiple reports of the same post are one underlying stream. Heavily is an undefined intensity judgment.",
+      "unresolved": "Can the full original post be authenticated if exact quotation is needed?",
+      "nextTest": "Inspect an accessible original or verified capture.",
+      "sourceIds": [
+        "S022"
+      ],
+      "evidenceIds": [
+        "E022"
+      ],
+      "originGroups": [
+        "OMAR-X-20240806"
+      ],
+      "relations": {
+        "supporting": [
+          "E022"
+        ],
+        "contradicting": [],
+        "context": []
+      },
+      "reviewStatus": "Research assessment; original quotations provisional; identified gaps remain"
+    },
+    {
+      "id": "C030",
+      "start": 108.3,
+      "end": 111.5,
+      "quote": "the running VP with Kamala Harris in 2024",
+      "category": "finance",
+      "scope": "Walz was the 2024 Democratic vice-presidential nominee",
+      "verdict": "Supported",
+      "status": "green",
+      "confidence": "High",
+      "confidenceReason": "The official electoral record settles this narrow candidate fact.",
+      "finding": "Tim Walz was Kamala Harris's 2024 vice-presidential running mate.",
+      "counterevidence": "He was the vice-presidential candidate, not the elected vice president.",
+      "unresolved": "No material unresolved issue for this narrow proposition.",
+      "nextTest": "No further check needed absent contradictory evidence.",
+      "sourceIds": [
+        "S023"
+      ],
+      "evidenceIds": [
+        "E023"
+      ],
+      "originGroups": [
+        "NARA-ELECTORAL2024"
+      ],
+      "relations": {
+        "supporting": [
+          "E023"
+        ],
+        "contradicting": [],
+        "context": []
+      },
+      "reviewStatus": "Research assessment; original quotations provisional; identified gaps remain"
+    },
+    {
+      "id": "C031",
+      "start": 111.5,
+      "end": 122,
+      "quote": "all illegal Somalis or just illegal, undocumented ... Muslims and immigrants alike all get a ... driver's license",
+      "category": "licensing",
+      "scope": "Eligibility versus automatic entitlement; strongest contextual reading is Minnesota standard licenses",
+      "verdict": "Mixed",
+      "status": "orange",
+      "confidence": "High",
+      "confidenceReason": "Minnesota permits eligible residents to seek standard licenses regardless of status, but eligibility is not automatic issuance.",
+      "finding": "Status does not disqualify an otherwise eligible Minnesota standard-license applicant; the group is not automatically handed licenses.",
+      "counterevidence": "The strongest contextual reading is Minnesota; requirements and ordinary exemptions must be considered. Religion/ethnicity is not a licensing entitlement.",
+      "unresolved": "No particular applicant or exception is identified.",
+      "nextTest": "Check any specific applicant against the actual rules rather than assuming a group exemption.",
+      "sourceIds": [
+        "S032",
+        "S034",
+        "S036"
+      ],
+      "evidenceIds": [
+        "E032",
+        "E034",
+        "E036"
+      ],
+      "originGroups": [
+        "MN-DVS-IMPLEMENTATION",
+        "MN-LICENSING-STATUTES"
+      ],
+      "relations": {
+        "supporting": [],
+        "contradicting": [],
+        "context": [
+          "E032",
+          "E034",
+          "E036"
+        ]
+      },
+      "reviewStatus": "Research assessment; original quotations provisional; identified gaps remain"
+    },
+    {
+      "id": "C032",
+      "start": 111.5,
+      "end": 122,
+      "quote": "all get a free driver's license",
+      "category": "licensing",
+      "scope": "A fee exemption based on immigration status, ethnicity or religion",
+      "verdict": "Contradicted",
+      "status": "red",
+      "confidence": "High",
+      "confidenceReason": "Official fees apply; no blanket fee exemption for the described group is established.",
+      "finding": "The blanket free-license claim is incorrect.",
+      "counterevidence": "Some defined exceptions exist, but they do not support a group-wide free-license assertion.",
+      "unresolved": "A specific subsidy or applicant exception was not supplied.",
+      "nextTest": "Require the exact fee-waiver rule or documented program if alleged.",
+      "sourceIds": [
+        "S033",
+        "S036"
+      ],
+      "evidenceIds": [
+        "E033",
+        "E036"
+      ],
+      "originGroups": [
+        "MN-DVS-IMPLEMENTATION",
+        "MN-LICENSING-STATUTES"
+      ],
+      "relations": {
+        "supporting": [],
+        "contradicting": [
+          "E033",
+          "E036"
+        ],
+        "context": []
+      },
+      "reviewStatus": "Research assessment; original quotations provisional; identified gaps remain"
+    },
+    {
+      "id": "C033",
+      "start": 123,
+      "end": 124.5,
+      "quote": "No testing",
+      "category": "licensing",
+      "scope": "No written knowledge examination requirement for the described group",
+      "verdict": "Contradicted",
+      "status": "red",
+      "confidence": "High",
+      "confidenceReason": "Knowledge testing is normally required; there is no blanket undocumented/religious-group exemption.",
+      "finding": "The group-wide no-written-test claim is incorrect.",
+      "counterevidence": "Qualified existing-license holders and renewals can fall under ordinary exceptions, unrelated to the claimed group entitlement.",
+      "unresolved": "A particular applicant's exemption would need individual assessment.",
+      "nextTest": "Apply section 171.13 to that applicant's qualifications.",
+      "sourceIds": [
+        "S032",
+        "S034"
+      ],
+      "evidenceIds": [
+        "E032",
+        "E034"
+      ],
+      "originGroups": [
+        "MN-DVS-IMPLEMENTATION",
+        "MN-LICENSING-STATUTES"
+      ],
+      "relations": {
+        "supporting": [],
+        "contradicting": [
+          "E032",
+          "E034"
+        ],
+        "context": []
+      },
+      "reviewStatus": "Research assessment; original quotations provisional; identified gaps remain"
+    },
+    {
+      "id": "C034",
+      "start": 124,
+      "end": 125.4,
+      "quote": "no driving",
+      "category": "licensing",
+      "scope": "In the list context, no practical road test; ambiguity retained",
+      "verdict": "Contradicted",
+      "status": "red",
+      "confidence": "High",
+      "confidenceReason": "Road testing is normally required and no group-wide exemption of the asserted kind is established.",
+      "finding": "The group-wide no-road-test claim is incorrect.",
+      "counterevidence": "Ordinary existing-license and renewal exceptions prevent saying every person must retake a road test.",
+      "unresolved": "No specific applicant is identified; no driving is interpreted in the list's testing context.",
+      "nextTest": "Verify the applicant category and exact meaning before quoting it more broadly.",
+      "sourceIds": [
+        "S032",
+        "S034"
+      ],
+      "evidenceIds": [
+        "E032",
+        "E034"
+      ],
+      "originGroups": [
+        "MN-DVS-IMPLEMENTATION",
+        "MN-LICENSING-STATUTES"
+      ],
+      "relations": {
+        "supporting": [],
+        "contradicting": [
+          "E032",
+          "E034"
+        ],
+        "context": []
+      },
+      "reviewStatus": "Research assessment; original quotations provisional; identified gaps remain"
+    },
+    {
+      "id": "C035",
+      "start": 125.2,
+      "end": 126.5,
+      "quote": "no courses",
+      "category": "licensing",
+      "scope": "Driver-education requirements, considering age and existing-license exceptions",
+      "verdict": "Misleading",
+      "status": "orange",
+      "confidence": "High",
+      "confidenceReason": "Driver education differs by age and experience, not a blanket immigrant-versus-American distinction.",
+      "finding": "The no-courses comparison conflates adult and minor requirements.",
+      "counterevidence": "Adults generally are not treated as 15- or 16-year-old learners; under-18 education conditions exist.",
+      "unresolved": "Any specific exception or training category would need its own check.",
+      "nextTest": "Compare like-aged, similarly qualified applicants under the statute.",
+      "sourceIds": [
+        "S035",
+        "S034"
+      ],
+      "evidenceIds": [
+        "E035",
+        "E034"
+      ],
+      "originGroups": [
+        "MN-LICENSING-STATUTES"
+      ],
+      "relations": {
+        "supporting": [],
+        "contradicting": [],
+        "context": [
+          "E035",
+          "E034"
+        ]
+      },
+      "reviewStatus": "Research assessment; original quotations provisional; identified gaps remain"
+    },
+    {
+      "id": "C036",
+      "start": 126.5,
+      "end": 132.2,
+      "quote": "no testing at the DMV. Like an American. Like a 15, 16 year old American.",
+      "category": "licensing",
+      "scope": "Claim of a group-based testing exemption contrasted with American minors",
+      "verdict": "Misleading",
+      "status": "orange",
+      "confidence": "High",
+      "confidenceReason": "The comparison implies a group testing privilege that the statutes do not establish.",
+      "finding": "The contrast with American teenagers is materially misleading.",
+      "counterevidence": "Age-based learner requirements are real and apply regardless of the narrator's group labels.",
+      "unresolved": "The video identifies no comparable applicants.",
+      "nextTest": "Compare the same age, experience and license category.",
+      "sourceIds": [
+        "S034",
+        "S035"
+      ],
+      "evidenceIds": [
+        "E034",
+        "E035"
+      ],
+      "originGroups": [
+        "MN-LICENSING-STATUTES"
+      ],
+      "relations": {
+        "supporting": [],
+        "contradicting": [],
+        "context": [
+          "E034",
+          "E035"
+        ]
+      },
+      "reviewStatus": "Research assessment; original quotations provisional; identified gaps remain"
+    },
+    {
+      "id": "C037",
+      "start": 132.2,
+      "end": 136.8,
+      "quote": "they just get to be handed one like candy",
+      "category": "licensing",
+      "scope": "Rhetoric containing the already assessed automatic-issuance premise",
+      "verdict": "Misleading",
+      "status": "orange",
+      "confidence": "High",
+      "confidenceReason": "The simile carries an automatic-issuance premise contradicted by the eligibility and examination rules.",
+      "finding": "Licenses are not an automatic group entitlement; like candy is rhetorical exaggeration.",
+      "counterevidence": "This overlaps C031-C036; it is not counted as a separate independent event or used in a false-claim percentage.",
+      "unresolved": "The simile itself has no literal numerical truth test.",
+      "nextTest": "Refer to the same underlying licensing requirements.",
+      "sourceIds": [
+        "S032",
+        "S034",
+        "S036"
+      ],
+      "evidenceIds": [
+        "E032",
+        "E034",
+        "E036"
+      ],
+      "originGroups": [
+        "MN-DVS-IMPLEMENTATION",
+        "MN-LICENSING-STATUTES"
+      ],
+      "relations": {
+        "supporting": [],
+        "contradicting": [],
+        "context": [
+          "E032",
+          "E034",
+          "E036"
+        ]
+      },
+      "reviewStatus": "Research assessment; original quotations provisional; identified gaps remain"
+    },
+    {
+      "id": "C038",
+      "start": 136.8,
+      "end": 140,
+      "quote": "You're allowed to be afraid or phobic",
+      "category": "rhetoric",
+      "scope": "Normative permission to feel fear or phobia; no particular legal rule identified",
+      "verdict": "Not fact-checkable",
+      "status": "neutral",
+      "confidence": "High",
+      "confidenceReason": "This is a normative permission to feel an emotion, not a specified empirical or legal proposition.",
+      "finding": "This passage expresses a value judgment.",
+      "counterevidence": "No particular legal rule is identified.",
+      "unresolved": "What factual or legal proposition, if any, is intended?",
+      "nextTest": "Do not invent a legal claim from the emotional judgment.",
+      "sourceIds": [],
+      "evidenceIds": [],
+      "originGroups": [],
+      "relations": {
+        "supporting": [],
+        "contradicting": [],
+        "context": []
+      },
+      "reviewStatus": "Research assessment; original quotations provisional; identified gaps remain"
+    },
+    {
+      "id": "C039",
+      "start": 139,
+      "end": 153.7,
+      "quote": "people who outwardly hate you, who hate their own country ... come into your country and tell you how to run it",
+      "category": "rhetoric",
+      "scope": "Unspecified group motive assertions; not rewritten as a literal claim about all immigrants",
+      "verdict": "Unsubstantiated",
+      "status": "orange",
+      "confidence": "Medium",
+      "confidenceReason": "No identified group, observations or representative evidence establish the implied motive account.",
+      "finding": "The group-motive narrative lacks a defined evidential basis; do not rewrite it as a universal claim.",
+      "counterevidence": "The conditional wording does not literally assert that every immigrant hates Americans. Migration alone does not establish hatred.",
+      "unresolved": "Which people and documented statements/actions are meant?",
+      "nextTest": "Define subjects and inspect relevant original conduct or valid representative evidence.",
+      "sourceIds": [],
+      "evidenceIds": [],
+      "originGroups": [],
+      "relations": {
+        "supporting": [],
+        "contradicting": [],
+        "context": []
+      },
+      "reviewStatus": "Research assessment; original quotations provisional; identified gaps remain"
+    },
+    {
+      "id": "C040",
+      "start": 153.7,
+      "end": 157.4,
+      "quote": "whose average IQ is 68",
+      "category": "science",
+      "scope": "Somalia countrywide cognitive average represented as established fact",
+      "verdict": "Misleading",
+      "status": "orange",
+      "confidence": "High",
+      "confidenceReason": "A published sample-derived number exists, but presenting it as settled national knowledge omits material sampling limitations.",
+      "finding": "68 has a published limited-sample provenance; it is not established here as a reliable countrywide average.",
+      "counterevidence": "The study and derived book are one measurement stream. The book itself cautions about extrapolation; this review proves no replacement national mean.",
+      "unresolved": "What representative, validated population measurement would justify the national generalization?",
+      "nextTest": "Require appropriate sampling and measurement validation, not repeated rankings.",
+      "sourceIds": [
+        "S026",
+        "S027",
+        "S028",
+        "S031"
+      ],
+      "evidenceIds": [
+        "E026",
+        "E027",
+        "E028",
+        "E031"
+      ],
+      "originGroups": [
+        "DADAAB-STUDY-2017",
+        "EHBEA-METHODS",
+        "NATIONAL-IQ-METHODS-REVIEW"
+      ],
+      "relations": {
+        "supporting": [],
+        "contradicting": [],
+        "context": [
+          "E026",
+          "E027",
+          "E028",
+          "E031"
+        ]
+      },
+      "reviewStatus": "Research assessment; original quotations provisional; identified gaps remain"
+    },
+    {
+      "id": "C043",
+      "start": 153.7,
+      "end": 162.1,
+      "quote": "average IQ is 68 because they're 14 generations deep",
+      "category": "science",
+      "scope": "Causal attribution of the asserted national mean to the asserted lineage",
+      "verdict": "Unsubstantiated",
+      "status": "orange",
+      "confidence": "High",
+      "confidenceReason": "The Somali sample study does not test the asserted national causal explanation.",
+      "finding": "The asserted cause of a national score is not established.",
+      "counterevidence": "General genetic associations are genuine counterevidence to any claim that consanguinity can have no cognitive effects; they do not prove this national story.",
+      "unresolved": "What population-specific design distinguishes the proposed cause from other explanations?",
+      "nextTest": "Inspect validated ancestry/parentage data and an appropriate causal analysis with confounder testing.",
+      "sourceIds": [
+        "S026",
+        "S027",
+        "S030"
+      ],
+      "evidenceIds": [
+        "E026",
+        "E027",
+        "E030"
+      ],
+      "originGroups": [
+        "COGENT-AUTOZYGOSITY",
+        "DADAAB-STUDY-2017"
+      ],
+      "relations": {
+        "supporting": [],
+        "contradicting": [],
+        "context": [
+          "E026",
+          "E027",
+          "E030"
+        ]
+      },
+      "reviewStatus": "Research assessment; original quotations provisional; identified gaps remain"
+    },
+    {
+      "id": "C041",
+      "start": 157.4,
+      "end": 162.1,
+      "quote": "they're 14 generations deep of marrying their first cousin",
+      "category": "science",
+      "scope": "Nationwide or group-wide continuous first-cousin lineage over fourteen generations",
+      "verdict": "Unsubstantiated",
+      "status": "orange",
+      "confidence": "High",
+      "confidenceReason": "The inspected sources provide no representative fourteen-generation pedigree or genomic history.",
+      "finding": "The fourteen-generation population claim is not established.",
+      "counterevidence": "The lack of such evidence does not prove that no individual has a particular pedigree.",
+      "unresolved": "What original representative genealogy supports the exact count and marriage pattern?",
+      "nextTest": "Inspect the underlying dataset, sampling and pedigree validation.",
+      "sourceIds": [
+        "S026",
+        "S027"
+      ],
+      "evidenceIds": [
+        "E026",
+        "E027"
+      ],
+      "originGroups": [
+        "DADAAB-STUDY-2017"
+      ],
+      "relations": {
+        "supporting": [],
+        "contradicting": [],
+        "context": [
+          "E026",
+          "E027"
+        ]
+      },
+      "reviewStatus": "Research assessment; original quotations provisional; identified gaps remain"
+    },
+    {
+      "id": "C042",
+      "start": 157.4,
+      "end": 162.1,
+      "quote": "by their faith",
+      "category": "science",
+      "scope": "Ambiguous claim linking the alleged marriage pattern to religion; a requirement is not literally stated",
+      "verdict": "Unresolved",
+      "status": "orange",
+      "confidence": "Medium",
+      "confidenceReason": "By their faith is ambiguous and should not be strengthened into words the narrator did not say.",
+      "finding": "The faith wording is too ambiguous for a definitive binary verdict; a religious requirement is not established.",
+      "counterevidence": "Relevant scholarship distinguishes permission from prescription; it does not establish Somalia-wide marriage prevalence or motive.",
+      "unresolved": "Is the claim about permission, obligation, custom or a measured cause?",
+      "nextTest": "Clarify the exact proposition and obtain qualified contextual evidence for it.",
+      "sourceIds": [
+        "S029"
+      ],
+      "evidenceIds": [
+        "E029"
+      ],
+      "originGroups": [
+        "PAKISTAN-DEMOGRAPHY; BITTLES-INTERPRETATION"
+      ],
+      "relations": {
+        "supporting": [],
+        "contradicting": [],
+        "context": [
+          "E029"
+        ]
+      },
+      "reviewStatus": "Research assessment; original quotations provisional; identified gaps remain"
+    },
+    {
+      "id": "C044",
+      "start": 162.1,
+      "end": 168.2,
+      "quote": "she also changed her name on her birth certificate",
+      "category": "citizenship",
+      "scope": "Specific birth-certificate alteration, distinct from a reported alias or Somali naming convention",
+      "verdict": "Unsubstantiated",
+      "status": "orange",
+      "confidence": "High",
+      "confidenceReason": "No authenticated before/after certificate record establishes the alleged name alteration.",
+      "finding": "A specific name change on her birth certificate is not established.",
+      "counterevidence": "Name/alias allegations and general patronymic variation do not settle a particular document change.",
+      "unresolved": "What original document changed, when, under whose authority?",
+      "nextTest": "Authenticate the relevant versions with the issuer and preserve context.",
+      "sourceIds": [
+        "S005",
+        "S009",
+        "S010",
+        "S011"
+      ],
+      "evidenceIds": [
+        "E005",
+        "E009",
+        "E010",
+        "E011"
+      ],
+      "originGroups": [
+        "KERN-RECORD-REQUESTS",
+        "LAZZARO-PRIVATE-DNA-2021",
+        "LRL-OMAR-STAFF-BIO",
+        "UK-HMPO-SOMALIA"
+      ],
+      "relations": {
+        "supporting": [],
+        "contradicting": [],
+        "context": [
+          "E005",
+          "E009",
+          "E010",
+          "E011"
+        ]
+      },
+      "reviewStatus": "Research assessment; original quotations provisional; identified gaps remain"
+    },
+    {
+      "id": "C045",
+      "start": 166,
+      "end": 172.5,
+      "quote": "so that she wouldn't be tied to said genocidal father",
+      "category": "citizenship",
+      "scope": "Purpose or intent to conceal a family connection and underlying genocide premise",
+      "verdict": "Unsubstantiated",
+      "status": "orange",
+      "confidence": "High",
+      "confidenceReason": "The act, motive and underlying personal-genocide premise each lack decisive evidence here.",
+      "finding": "The claimed concealment motive remains unproved.",
+      "counterevidence": "A name change, if proved, would not by itself establish concealment intent.",
+      "unresolved": "What reliable contemporaneous evidence demonstrates the alleged purpose?",
+      "nextTest": "Obtain corroborated records of the act and intent; assess the father allegation independently.",
+      "sourceIds": [
+        "S006",
+        "S007",
+        "S010"
+      ],
+      "evidenceIds": [
+        "E006",
+        "E007",
+        "E010"
+      ],
+      "originGroups": [
+        "HRW-SOMALIA-1995",
+        "LAZZARO-PRIVATE-DNA-2021",
+        "SAHAN-20200620"
+      ],
+      "relations": {
+        "supporting": [],
+        "contradicting": [],
+        "context": [
+          "E006",
+          "E007",
+          "E010"
+        ]
+      },
+      "reviewStatus": "Research assessment; original quotations provisional; identified gaps remain"
+    },
+    {
+      "id": "C046",
+      "start": 172.4,
+      "end": 174.9,
+      "quote": "Omar is not her last name",
+      "category": "citizenship",
+      "scope": "Ambiguous legal-name versus patronymic convention claim, not guilt by naming practice",
+      "verdict": "Unresolved",
+      "status": "orange",
+      "confidence": "Medium",
+      "confidenceReason": "The intended meaning of last name is ambiguous; current official usage is clear but earlier identity merits are not resolved.",
+      "finding": "Omar is used in official U.S. records; the implied earlier-identity accusation is not resolved by naming conventions.",
+      "counterevidence": "Somali patronymics differ from inherited surnames. That general fact neither proves fraud nor authenticates this person's earlier identity.",
+      "unresolved": "Does the claim concern current legal usage, birth identity or a cultural naming convention?",
+      "nextTest": "Define the proposition and inspect authenticated individual records.",
+      "sourceIds": [
+        "S003",
+        "S005",
+        "S011",
+        "S010"
+      ],
+      "evidenceIds": [
+        "E003",
+        "E005",
+        "E011",
+        "E010"
+      ],
+      "originGroups": [
+        "LAZZARO-PRIVATE-DNA-2021",
+        "LRL-OMAR-STAFF-BIO",
+        "OMAR-PUBLIC-BIO",
+        "UK-HMPO-SOMALIA"
+      ],
+      "relations": {
+        "supporting": [],
+        "contradicting": [],
+        "context": [
+          "E003",
+          "E005",
+          "E011",
+          "E010"
+        ]
+      },
+      "reviewStatus": "Research assessment; original quotations provisional; identified gaps remain"
+    }
+  ],
+  "sources": [
+    {
+      "id": "S001",
+      "evidenceId": "E001",
+      "title": "Reuters: immigration-paperwork investigation",
+      "type": "Original wire reporting, inspected syndication",
+      "url": "https://www.marketscreener.com/news/us-probes-omar-s-decades-old-immigration-paperwork-with-eye-toward-deportation-sources-say-ce785dd3d08af622",
+      "published": "2026-10-15; displayed EDT",
+      "pinpoint": "Investigation and Denaturalization sections",
+      "originGroup": "REUTERS-20261015",
+      "establishes": "Reports a federal immigration probe; records the 1995 arrival/2000 citizenship chronology and denial.",
+      "limits": "Unnamed investigative sources; sealed warrant not inspected. Syndications share this origin.",
+      "inspected": true,
+      "preview": {
+        "kind": "metadata",
+        "label": "Source metadata",
+        "caption": "No local reproduction. Open the original source and read its scope and limitations."
+      }
+    },
+    {
+      "id": "S002",
+      "evidenceId": "E002",
+      "title": "D.D.C. 1:26-mc-00159",
+      "type": "Court docket mirror",
+      "url": "https://dockets.justia.com/docket/district-of-columbia/dcdce/1:2026mc00159/298438",
+      "published": "Filed 2026-11-03; mirror retrieved 2026-11-04",
+      "pinpoint": "Entries 1-5 and retrieval notice",
+      "originGroup": "DDC-26MC159",
+      "establishes": "Lists a sealed Rule 41 return-of-property proceeding naming Omar.",
+      "limits": "Justia mirror, not direct PACER; coverage ends November 4; underlying documents sealed.",
+      "inspected": true,
+      "preview": {
+        "kind": "metadata",
+        "label": "Source metadata",
+        "caption": "No local reproduction. Open the original source and read its scope and limitations."
+      }
+    },
+    {
+      "id": "S003",
+      "evidenceId": "E003",
+      "title": "Representative Omar: About",
+      "type": "Official first-party biography",
+      "url": "https://omar.house.gov/about",
+      "published": "Undated current page",
+      "pinpoint": "Biography paragraphs",
+      "originGroup": "OMAR-PUBLIC-BIO",
+      "establishes": "Current official public name and family/refugee narrative.",
+      "limits": "First-party account, not authentication of individual immigration documents.",
+      "inspected": true,
+      "preview": {
+        "kind": "metadata",
+        "label": "Source metadata",
+        "caption": "No local reproduction. Open the original source and read its scope and limitations."
+      }
+    },
+    {
+      "id": "S004",
+      "evidenceId": "E004",
+      "title": "House history: Black Americans in Congress, 1870-2022",
+      "type": "Official congressional history",
+      "url": "https://www.govinfo.gov/content/pkg/GPO-CDOC-118hdoc16/pdf/GPO-CDOC-118hdoc16.pdf",
+      "published": "2023; House Document 118-16",
+      "pinpoint": "Printed p.700; one-based PDF p.714",
+      "originGroup": "HOUSE-HISTORY-BIO",
+      "establishes": "Records asylum/arrival in 1995 and citizenship in 2000 at age 17.",
+      "limits": "Biography depends on cited profiles, not an inspected individual citizenship certificate. Relevant page visually checked.",
+      "inspected": true,
+      "preview": {
+        "kind": "image",
+        "src": "/evidence/E004-house-history-p700-excerpt.png",
+        "label": "U.S. House history: Black Americans in Congress · Printed page 700; PDF page 714 · excerpt",
+        "caption": "Cropped text-column excerpt. The source image is shown with an added identification header. Open the original for complete context.",
+        "page": "Printed page 700; PDF page 714"
+      }
+    },
+    {
+      "id": "S005",
+      "evidenceId": "E005",
+      "title": "Minnesota Legislative Reference Library, record 15470",
+      "type": "Official biographical register",
+      "url": "https://www.lrl.mn.gov/legdb/fulldetail?id=15470",
+      "published": "Current; correction note 2019-05-24",
+      "pinpoint": "Biographical information; General Notes",
+      "originGroup": "LRL-OMAR-STAFF-BIO",
+      "establishes": "Records 1982 birth year, childhood arrival and staff efforts to correct 1981 in other biographies.",
+      "limits": "A listing and explanation of a correction, not a birth certificate or finding of motive.",
+      "inspected": true,
+      "preview": {
+        "kind": "metadata",
+        "label": "Source metadata",
+        "caption": "No local reproduction. Open the original source and read its scope and limitations."
+      }
+    },
+    {
+      "id": "S006",
+      "evidenceId": "E006",
+      "title": "Sahan Journal: Nur Omar Mohamed obituary",
+      "type": "Contemporaneous reporting and interviews",
+      "url": "https://sahanjournal.com/remembering-minnesotans-lost-to-covid-19/he-was-loved-by-everyone-the-somali-community-remembers-nur-omar-mohamed-who-died-of-covid-19/",
+      "published": "2020-06-20; updated 2020-06-22",
+      "pinpoint": "Life in Somalia; Life in Minnesota; age passage",
+      "originGroup": "SAHAN-20200620",
+      "establishes": "Reports military service and family resettlement, including a former officer's account.",
+      "limits": "No original service/command records; a favorable obituary does not resolve criminal responsibility.",
+      "inspected": true,
+      "preview": {
+        "kind": "metadata",
+        "label": "Source metadata",
+        "caption": "No local reproduction. Open the original source and read its scope and limitations."
+      }
+    },
+    {
+      "id": "S007",
+      "evidenceId": "E007",
+      "title": "Human Rights Watch: Somalia Faces the Future",
+      "type": "Human-rights investigation/report",
+      "url": "https://www.hrw.org/reports/1995/somalia/",
+      "published": "April 1995",
+      "pinpoint": "Historical background; note 18",
+      "originGroup": "HRW-SOMALIA-1995",
+      "establishes": "Documents large-scale atrocities and other command contexts.",
+      "limits": "The inspected passages do not attribute the narrator's personal death toll to Omar's father. Not an exhaustive war-crimes archive.",
+      "inspected": true,
+      "preview": {
+        "kind": "metadata",
+        "label": "Source metadata",
+        "caption": "No local reproduction. Open the original source and read its scope and limitations."
+      }
+    },
+    {
+      "id": "S008",
+      "evidenceId": "E008",
+      "title": "1999 U.S. Code, Title 8",
+      "type": "Controlling historical statutory text",
+      "url": "https://www.govinfo.gov/content/pkg/USCODE-1999-title8/html/USCODE-1999-title8.htm",
+      "published": "1999 edition, through 2000-01-23",
+      "pinpoint": "Former 1432(a)(2),(4),(5); 1445(b)",
+      "originGroup": "US-STATUTES",
+      "establishes": "Under-18 derivative conditions and adult naturalization applications are distinct.",
+      "limits": "Controls the rule, not whether this individual satisfied it. Do not substitute later child-citizenship rules.",
+      "inspected": true,
+      "preview": {
+        "kind": "metadata",
+        "label": "Source metadata",
+        "caption": "No local reproduction. Open the original source and read its scope and limitations."
+      }
+    },
+    {
+      "id": "S009",
+      "evidenceId": "E009",
+      "title": "Copy attributed to USCIS: no-record certificate",
+      "type": "Privately hosted purported agency document",
+      "url": "https://www.thepostemail.com/wp-content/uploads/2023/11/Additional-Information-for-FEC-10-27-2023.pdf",
+      "published": "Certificate dated 2023-09-06",
+      "pinpoint": "PDF pp.3-4, Exhibit L",
+      "originGroup": "KERN-RECORD-REQUESTS",
+      "establishes": "Purports to report no matching CIS/MIDAS record for supplied identifiers.",
+      "limits": "Issuer authentication, request parameters and identifier accuracy unverified; date/age discrepancy needs resolution. Rendered pages inspected.",
+      "inspected": true,
+      "preview": {
+        "kind": "metadata",
+        "label": "Source metadata",
+        "caption": "No local reproduction. Open the original source and read its scope and limitations."
+      }
+    },
+    {
+      "id": "S010",
+      "evidenceId": "E010",
+      "title": "Private allegation memorandum",
+      "type": "Interested accuser document",
+      "url": "https://ilhanomardna.com/media/legal_brief.pdf",
+      "published": "2021 contents; undated publication",
+      "pinpoint": "Printed pp.30-39, especially p.32",
+      "originGroup": "LAZZARO-PRIVATE-DNA-2021",
+      "establishes": "Presents kinship/identity allegations and explicitly assumes the female donor's identity.",
+      "limits": "No validated donor attribution, independent laboratory authentication or forensic review. Not government findings; unnecessary identifiers omitted.",
+      "inspected": true,
+      "preview": {
+        "kind": "metadata",
+        "label": "Source metadata",
+        "caption": "No local reproduction. Open the original source and read its scope and limitations."
+      }
+    },
+    {
+      "id": "S011",
+      "evidenceId": "E011",
+      "title": "HM Passport Office: Somalia profile",
+      "type": "Official general naming/document guidance",
+      "url": "https://www.gov.uk/government/publications/somalia-knowledge-base-profile/somalia-knowledge-base-profile",
+      "published": "Version 3; updated 2026-03-23",
+      "pinpoint": "Names; Change of name; Documents",
+      "originGroup": "UK-HMPO-SOMALIA",
+      "establishes": "Explains Somali patronymic naming and possible document spelling variation.",
+      "limits": "General guidance cannot prove this individual's genealogy, former name or intent.",
+      "inspected": true,
+      "preview": {
+        "kind": "metadata",
+        "label": "Source metadata",
+        "caption": "No local reproduction. Open the original source and read its scope and limitations."
+      }
+    },
+    {
+      "id": "S012",
+      "evidenceId": "E012",
+      "title": "PolitiFact interview with newspaper editor",
+      "type": "Original interview about prior records investigation",
+      "url": "https://api.politifact.com/article/2019/jul/18/did-ilhan-omar-marry-her-brother-her-hometown-news/",
+      "published": "2019-07-18",
+      "pinpoint": "Marital chronology and interview",
+      "originGroup": "STARTRIBUNE-2019-INVESTIGATION",
+      "establishes": "Reports the marriage and the newspaper's inability to settle kinship; includes denial.",
+      "limits": "Substantially the same newspaper investigation, not separate corroboration. Older reporting cannot resolve later evidence; civil originals not obtained.",
+      "inspected": true,
+      "preview": {
+        "kind": "metadata",
+        "label": "Source metadata",
+        "caption": "No local reproduction. Open the original source and read its scope and limitations."
+      }
+    },
+    {
+      "id": "S013",
+      "evidenceId": "E013",
+      "title": "Minnesota CFB Findings, Conclusions and Order 1464",
+      "type": "Primary enforcement order",
+      "url": "https://cfb.mn.gov/pdf/bdactions/1464_Findings.pdf",
+      "published": "2019-06-06",
+      "pinpoint": "Printed/PDF pp.6,10,13",
+      "originGroup": "MN-CFB-1464",
+      "establishes": "Records joint-return/accounting issues and civil campaign-expenditure/reporting findings.",
+      "limits": "Does not adjudicate criminal tax fraud. Relevant order/accounting pages visually inspected; not a general exoneration.",
+      "inspected": true,
+      "preview": {
+        "kind": "image",
+        "src": "/evidence/E013-campaign-finance-order-p13-excerpt.png",
+        "label": "Minnesota Campaign Finance Board: Order 1464 · Page 13 · excerpt",
+        "caption": "Rendered page excerpt. The source image is shown with an added identification header. Open the original for complete context.",
+        "page": "Page 13"
+      }
+    },
+    {
+      "id": "S014",
+      "evidenceId": "E014",
+      "title": "MPR: why Omar reviewed tax returns",
+      "type": "Independent reporting about same investigation",
+      "url": "https://www.mprnews.org/story/2019/06/13/documents-shed-light-on-why-omar-reviewed-her-tax-returns",
+      "published": "2019-06-13",
+      "pinpoint": "Accounting, depositions and correction passages",
+      "originGroup": "MN-CFB-1464; LAWYER-RESPONSE",
+      "establishes": "Reports apparent improper joint filing, reported correction and scope limits.",
+      "limits": "Actual returns not inspected; lawyer/campaign statements are attributed, not independently proved compliance.",
+      "inspected": true,
+      "preview": {
+        "kind": "metadata",
+        "label": "Source metadata",
+        "caption": "No local reproduction. Open the original source and read its scope and limitations."
+      }
+    },
+    {
+      "id": "S015",
+      "evidenceId": "E015",
+      "title": "House disclosure 10068415",
+      "type": "Primary filed declaration",
+      "url": "https://disclosures-clerk.house.gov/public_disc/financial-pdfs/2024/10068415.pdf",
+      "published": "Filed 2025-05-14 for 2024",
+      "pinpoint": "p.1, Schedule A",
+      "originGroup": "OMAR-HOUSE-DISCLOSURES",
+      "establishes": "Lists ESTCRU as a spousal asset and declared value/income ranges.",
+      "limits": "Declaration is not an independent valuation, transaction trace or proof of management. Visually inspected.",
+      "inspected": true,
+      "preview": {
+        "kind": "image",
+        "src": "/evidence/E015-house-disclosure-10068415-p1-excerpt.png",
+        "label": "U.S. House financial disclosure: Filing 10068415 · Page 1, Schedule A · excerpt",
+        "caption": "Rendered page excerpt. The source image is shown with an added identification header. Open the original for complete context.",
+        "page": "Page 1, Schedule A"
+      }
+    },
+    {
+      "id": "S016",
+      "evidenceId": "E016",
+      "title": "House amendment 10073338",
+      "type": "Primary amended declaration",
+      "url": "https://disclosures-clerk.house.gov/public_disc/financial-pdfs/2024/10073338.pdf",
+      "published": "Filed 2026-03-26 for 2024",
+      "pinpoint": "p.1, Schedule A",
+      "originGroup": "OMAR-HOUSE-DISCLOSURES",
+      "establishes": "Changes the business asset-value and income entries.",
+      "limits": "Amendment alone cannot establish mistake versus knowing misrepresentation. Visually inspected.",
+      "inspected": true,
+      "preview": {
+        "kind": "image",
+        "src": "/evidence/E016-house-amendment-10073338-p1-excerpt.png",
+        "label": "U.S. House financial disclosure: Amendment 10073338 · Page 1, Schedule A · excerpt",
+        "caption": "Rendered page excerpt. The source image is shown with an added identification header. Open the original for complete context.",
+        "page": "Page 1, Schedule A"
+      }
+    },
+    {
+      "id": "S017",
+      "evidenceId": "E017",
+      "title": "House disclosure 10077400",
+      "type": "Primary filed declaration",
+      "url": "https://disclosures-clerk.house.gov/public_disc/financial-pdfs/2025/10077400.pdf",
+      "published": "Filed 2026-05-13 for 2025",
+      "pinpoint": "p.1, Schedule A",
+      "originGroup": "OMAR-HOUSE-DISCLOSURES",
+      "establishes": "Retains spousal ESTCRU listing with revised reported values/income.",
+      "limits": "No finding about home ownership or criminal conduct. Visually inspected.",
+      "inspected": true,
+      "preview": {
+        "kind": "image",
+        "src": "/evidence/E017-house-disclosure-10077400-p1-excerpt.png",
+        "label": "U.S. House financial disclosure: Filing 10077400 · Page 1, Schedule A · excerpt",
+        "caption": "Rendered page excerpt. The source image is shown with an added identification header. Open the original for complete context.",
+        "page": "Page 1, Schedule A"
+      }
+    },
+    {
+      "id": "S018",
+      "evidenceId": "E018",
+      "title": "House Oversight letter to Timothy Mynett",
+      "type": "Primary congressional records request",
+      "url": "https://oversight.house.gov/wp-content/uploads/2026/02/Letter-to-Timothy-Mynett-.pdf",
+      "published": "2026-02-05; released February 6",
+      "pinpoint": "pp.1-2; footnote 8",
+      "originGroup": "HOUSE-DISCLOSURES; REFORMER-MYNETT-2024",
+      "establishes": "Requests records and identifies California case 23CV010043.",
+      "limits": "An inquiry and cited allegations, not independent proof of fraud or empty barrels. Relevant pages visually inspected.",
+      "inspected": true,
+      "preview": {
+        "kind": "image",
+        "src": "/evidence/E018-house-oversight-letter-p1-excerpt.png",
+        "label": "U.S. House Oversight Committee: Letter to Timothy Mynett · Page 1 of 3 · excerpt",
+        "caption": "Rendered page excerpt. The source image is shown with an added identification header. Open the original for complete context.",
+        "page": "Page 1 of 3"
+      }
+    },
+    {
+      "id": "S019",
+      "evidenceId": "E019",
+      "title": "Minnesota Reformer winery investigation, Current republication",
+      "type": "Original reporting, inspected syndication",
+      "url": "https://rhodeislandcurrent.com/2024/06/05/rep-ilhan-omars-husband-accused-of-swindling-investor-in-their-california-winery/",
+      "published": "2024-06-05",
+      "pinpoint": "Investment contract, complaint, response and wine-production passages",
+      "originGroup": "REFORMER-MYNETT-2024",
+      "establishes": "Reports civil investor allegations and principals' denials, with real wine-production reporting.",
+      "limits": "Underlying complaint and answer inaccessible to this review. Copies are one origin; real wine does not disprove every alleged barrel transaction.",
+      "inspected": true,
+      "preview": {
+        "kind": "metadata",
+        "label": "Source metadata",
+        "caption": "No local reproduction. Open the original source and read its scope and limitations."
+      }
+    },
+    {
+      "id": "S020",
+      "evidenceId": "E020",
+      "title": "Minnesota Reformer year-in-review",
+      "type": "Follow-up reporting",
+      "url": "https://minnesotareformer.com/2024/12/30/uber-wage-theft-and-alleged-fraud-2024-in-review/",
+      "published": "2024-12-30",
+      "pinpoint": "Winery litigation follow-up",
+      "originGroup": "REFORMER-MYNETT-2024",
+      "establishes": "Reports settlement without public terms.",
+      "limits": "Research agent inspected; primary assistant retry returned HTTP 403. Not an admission or merits judgment.",
+      "inspected": false,
+      "preview": {
+        "kind": "metadata",
+        "label": "Source metadata",
+        "caption": "No local reproduction. Open the original source and read its scope and limitations."
+      }
+    },
+    {
+      "id": "S021",
+      "evidenceId": "E021",
+      "title": "PolitiQuote index to MS NOW interview",
+      "type": "Unverified automated-transcript discovery lead",
+      "url": "https://politiquote.gigafact.org/quotes/ilhan-omar-90cec5/he-ordered-his-department-of-homeland-security-to-788615/",
+      "published": "Video indexed as 2026-10-21",
+      "pinpoint": "Index housing passage 17:06-17:16",
+      "originGroup": "OMAR-MSNOW-20261021",
+      "establishes": "Provides a route to a purported statement about rented residences.",
+      "limits": "Explicitly unverified; original video fetch throttled and not listened to. Not proof of housing or a rebuttal to every possible interview.",
+      "inspected": true,
+      "preview": {
+        "kind": "metadata",
+        "label": "Source metadata",
+        "caption": "No local reproduction. Open the original source and read its scope and limitations."
+      }
+    },
+    {
+      "id": "S022",
+      "evidenceId": "E022",
+      "title": "CQ Roll Call: Walz selection reactions",
+      "type": "Contemporaneous reporting",
+      "url": "https://rollcall.com/2024/08/06/how-selection-of-gov-tim-walz-as-harris-running-mate-is-playing/",
+      "published": "2024-08-06",
+      "pinpoint": "Paragraph on Omar's congratulatory post",
+      "originGroup": "OMAR-X-20240806",
+      "establishes": "Reports Omar publicly congratulating/supporting Walz.",
+      "limits": "Original X status inaccessible; multiple reports of that post remain one underlying stream.",
+      "inspected": true,
+      "preview": {
+        "kind": "metadata",
+        "label": "Source metadata",
+        "caption": "No local reproduction. Open the original source and read its scope and limitations."
+      }
+    },
+    {
+      "id": "S023",
+      "evidenceId": "E023",
+      "title": "National Archives: 2024 Electoral College results",
+      "type": "Controlling official election record",
+      "url": "https://www.archives.gov/electoral-college/2024",
+      "published": "2024 election results",
+      "pinpoint": "President/VP columns and state-certificate table",
+      "originGroup": "NARA-ELECTORAL2024",
+      "establishes": "Records Harris and Walz as the Democratic presidential/vice-presidential opponents.",
+      "limits": "Narrow recorded candidate fact; not a claim that Walz was elected vice president.",
+      "inspected": true,
+      "preview": {
+        "kind": "metadata",
+        "label": "Source metadata",
+        "caption": "No local reproduction. Open the original source and read its scope and limitations."
+      }
+    },
+    {
+      "id": "S024",
+      "evidenceId": "E024",
+      "title": "September procedural report",
+      "type": "Reporting",
+      "url": "https://www.startribune.com/report-congressional-watchdog-clears-ilhan-omar-over-financial-disclosure-errors/601887629",
+      "published": "2026-09-09",
+      "pinpoint": "Recommendation",
+      "originGroup": "WSJ-OCC-20260909",
+      "establishes": "OCC dismissal recommendation reported.",
+      "limits": "Primary uninspected.",
+      "inspected": true,
+      "preview": {
+        "kind": "metadata",
+        "label": "Source metadata",
+        "caption": "No local reproduction. Open the original source and read its scope and limitations."
+      },
+      "usageLimitWords": 25
+    },
+    {
+      "id": "S025",
+      "evidenceId": "E025",
+      "title": "October procedural report",
+      "type": "Reporting",
+      "url": "https://www.axios.com/2026/10/13/ilhan-omar-investigation-finances-pirro",
+      "published": "2026-10-13",
+      "pinpoint": "Statement",
+      "originGroup": "PIRRO-FOX-20261013",
+      "establishes": "Later disclosure inquiry reported.",
+      "limits": "Not a judgment.",
+      "inspected": true,
+      "preview": {
+        "kind": "metadata",
+        "label": "Source metadata",
+        "caption": "No local reproduction. Open the original source and read its scope and limitations."
+      },
+      "usageLimitWords": 25
+    },
+    {
+      "id": "S026",
+      "evidenceId": "E026",
+      "title": "Bakhiet et al., Somali refugee study",
+      "type": "Original study and author-uploaded full text",
+      "url": "https://mankindquarterly.org/archive/issue/58-2/8",
+      "published": "2017-12-01; testing 2015",
+      "pinpoint": "Abstract; Method p.302; Discussion p.305",
+      "originGroup": "DADAAB-STUDY-2017",
+      "establishes": "British-normed matrix-test results for school-attending refugee children in Kenya.",
+      "limits": "Not a representative Somali national sample; no test of fourteen-generation pedigrees or the asserted national causal story.",
+      "inspected": true,
+      "preview": {
+        "kind": "metadata",
+        "label": "Source metadata",
+        "caption": "No local reproduction. Open the original source and read its scope and limitations."
+      }
+    },
+    {
+      "id": "S027",
+      "evidenceId": "E027",
+      "title": "Lynn and Becker, The Intelligence of Nations",
+      "type": "Derived national estimate, author-hosted book",
+      "url": "https://richardlynn.net/wp-content/uploads/2024/08/THE-INTELLIGENCE-OF-NATIONS-Richard-Lynn-David-Becker.pdf",
+      "published": "2019 book; path dated 2024",
+      "pinpoint": "Section 2.3.105; printed pp.141-142, PDF pp.142-143",
+      "originGroup": "DADAAB-STUDY-2017",
+      "establishes": "Derives 67.67 from the refugee sample and expressly qualifies extrapolation.",
+      "limits": "Same underlying measurement as the study; does not authenticate the narrator's actual source. Pages visually inspected.",
+      "inspected": true,
+      "preview": {
+        "kind": "metadata",
+        "label": "Source metadata",
+        "caption": "No local reproduction. Open the original source and read its scope and limitations."
+      }
+    },
+    {
+      "id": "S028",
+      "evidenceId": "E028",
+      "title": "EHBEA national-IQ statement",
+      "type": "Professional-association methodological assessment",
+      "url": "https://www.cambridge.org/core/membership/ehbea/principles-and-ethics",
+      "published": "2020 committee section, distinct from 2025 statement",
+      "pinpoint": "National IQ Datasets section",
+      "originGroup": "EHBEA-METHODS",
+      "establishes": "Criticizes sampling, curation and cross-cultural validity of the dataset family.",
+      "limits": "Methodological assessment, not an independent measurement of a replacement Somali mean.",
+      "inspected": true,
+      "preview": {
+        "kind": "metadata",
+        "label": "Source metadata",
+        "caption": "No local reproduction. Open the original source and read its scope and limitations."
+      }
+    },
+    {
+      "id": "S029",
+      "evidenceId": "E029",
+      "title": "Shenk et al., kinship and demography",
+      "type": "Peer-reviewed demographic research/discussion",
+      "url": "https://onlinelibrary.wiley.com/doi/full/10.1111/padr.12678",
+      "published": "First published 2024-11-26",
+      "pinpoint": "Discussion following Table 8",
+      "originGroup": "PAKISTAN-DEMOGRAPHY; BITTLES-INTERPRETATION",
+      "establishes": "Distinguishes religious permission from prescription and documents variation.",
+      "limits": "Pakistan-focused study; religious statement cites prior scholarship, not Somali national genealogy.",
+      "inspected": true,
+      "preview": {
+        "kind": "metadata",
+        "label": "Source metadata",
+        "caption": "No local reproduction. Open the original source and read its scope and limitations."
+      }
+    },
+    {
+      "id": "S030",
+      "evidenceId": "E030",
+      "title": "Howrigan et al., autozygosity and cognition",
+      "type": "Original genetic association study",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4803638/",
+      "published": "Online 2015-09-22; issue June 2016",
+      "pinpoint": "Abstract; Results; Discussion",
+      "originGroup": "COGENT-AUTOZYGOSITY",
+      "establishes": "Finds an association between autozygosity and cognitive scores in European-ancestry samples.",
+      "limits": "Does not test Somalia, a fourteen-generation history or a country-average causal attribution.",
+      "inspected": true,
+      "preview": {
+        "kind": "metadata",
+        "label": "Source metadata",
+        "caption": "No local reproduction. Open the original source and read its scope and limitations."
+      }
+    },
+    {
+      "id": "S031",
+      "evidenceId": "E031",
+      "title": "Warne, national-mean IQ data-quality assessment",
+      "type": "Methodological counterposition",
+      "url": "https://link.springer.com/article/10.1007/s40806-022-00351-y",
+      "published": "Online 2022-12-19; issue 2023",
+      "pinpoint": "Publisher abstract and note 32",
+      "originGroup": "NATIONAL-IQ-METHODS-REVIEW",
+      "establishes": "Argues for evaluating particular uses/data quality rather than blanket acceptance or rejection.",
+      "limits": "Full text subscription-restricted; abstract/notes inspected only, not validation of 68.",
+      "inspected": true,
+      "preview": {
+        "kind": "metadata",
+        "label": "Source metadata",
+        "caption": "No local reproduction. Open the original source and read its scope and limitations."
+      }
+    },
+    {
+      "id": "S032",
+      "evidenceId": "E032",
+      "title": "Minnesota DPS: Driver's License for All",
+      "type": "Official implementation guidance",
+      "url": "https://assets.dps.mn.gov/files/dvs/Drivers-License-for-All-info-sheet.pdf",
+      "published": "Undated current factsheet",
+      "pinpoint": "PDF p.1, requirements",
+      "originGroup": "MN-DVS-IMPLEMENTATION",
+      "establishes": "Standard-license access without proof of status retains identity, residency and test requirements.",
+      "limits": "Text inspected through web tool; raw download returned 403. Statutory exceptions checked separately.",
+      "inspected": true,
+      "preview": {
+        "kind": "metadata",
+        "label": "Source metadata",
+        "caption": "No local reproduction. Open the original source and read its scope and limitations."
+      }
+    },
+    {
+      "id": "S033",
+      "evidenceId": "E033",
+      "title": "Minnesota DPS: Driver's License for All FAQ",
+      "type": "Official implementation guidance",
+      "url": "https://assets.dps.mn.gov/files/dvs/dvs-drivers-license-for-all-faqs.pdf",
+      "published": "Updated 2023-10-03",
+      "pinpoint": "PDF pp.1-2, fees and testing",
+      "originGroup": "MN-DVS-IMPLEMENTATION",
+      "establishes": "Explains legally set fees and normal written/road testing.",
+      "limits": "Not proof every applicant must retake every test; general statutory exemptions exist.",
+      "inspected": true,
+      "preview": {
+        "kind": "metadata",
+        "label": "Source metadata",
+        "caption": "No local reproduction. Open the original source and read its scope and limitations."
+      }
+    },
+    {
+      "id": "S034",
+      "evidenceId": "E034",
+      "title": "Minnesota Statutes 171.13",
+      "type": "Controlling statute",
+      "url": "https://www.revisor.mn.gov/statutes/cite/171.13",
+      "published": "Current text reviewed 2026-11-12",
+      "pinpoint": "Subdivisions 1,1a,2",
+      "originGroup": "MN-LICENSING-STATUTES",
+      "establishes": "Examination requirements and existing-license/renewal exceptions.",
+      "limits": "Exceptions turn on qualifications, not a blanket religion or undocumented-status entitlement. Future-effective text is not treated as already effective.",
+      "inspected": true,
+      "preview": {
+        "kind": "metadata",
+        "label": "Source metadata",
+        "caption": "No local reproduction. Open the original source and read its scope and limitations."
+      }
+    },
+    {
+      "id": "S035",
+      "evidenceId": "E035",
+      "title": "Minnesota Statutes 171.05",
+      "type": "Controlling statute",
+      "url": "https://www.revisor.mn.gov/statutes/cite/171.05",
+      "published": "Current text reviewed 2026-11-12",
+      "pinpoint": "Subdivisions 1,1a,2",
+      "originGroup": "MN-LICENSING-STATUTES",
+      "establishes": "Distinguishes adult instruction permits and under-18 driver education.",
+      "limits": "Do not equate an adult applicant with a 15- or 16-year-old learner.",
+      "inspected": true,
+      "preview": {
+        "kind": "metadata",
+        "label": "Source metadata",
+        "caption": "No local reproduction. Open the original source and read its scope and limitations."
+      }
+    },
+    {
+      "id": "S036",
+      "evidenceId": "E036",
+      "title": "Minnesota Statutes 171.06",
+      "type": "Controlling statute",
+      "url": "https://www.revisor.mn.gov/statutes/cite/171.06",
+      "published": "Current text reviewed 2026-11-12",
+      "pinpoint": "Subdivisions 2,2c,3",
+      "originGroup": "MN-LICENSING-STATUTES",
+      "establishes": "License fees, defined exceptions and resident application conditions.",
+      "limits": "No assertion that no special fee exception can ever apply; none is established for the narrator's whole group.",
+      "inspected": true,
+      "preview": {
+        "kind": "metadata",
+        "label": "Source metadata",
+        "caption": "No local reproduction. Open the original source and read its scope and limitations."
+      }
+    },
+    {
+      "id": "S037",
+      "evidenceId": "E037",
+      "title": "18 U.S.C. 1425",
+      "type": "Controlling statute",
+      "url": "https://uscode.house.gov/us/usc/t18/s1425/",
+      "published": "Through Public Law 119-138, 2026-11-03",
+      "pinpoint": "Operative offense and penalty paragraph",
+      "originGroup": "US-STATUTES",
+      "establishes": "Specifies finite maximum prison terms for unlawful procurement offenses.",
+      "limits": "No automatic life term; this is not an analysis of every hypothetical separately charged offense.",
+      "inspected": true,
+      "preview": {
+        "kind": "metadata",
+        "label": "Source metadata",
+        "caption": "No local reproduction. Open the original source and read its scope and limitations."
+      }
+    },
+    {
+      "id": "S038",
+      "evidenceId": "E038",
+      "title": "18 U.S.C. 1546",
+      "type": "Controlling statute",
+      "url": "https://uscode.house.gov/us/usc/t18/s1546/",
+      "published": "Through Public Law 119-138, 2026-11-03",
+      "pinpoint": "Subsection (a), offense and penalty",
+      "originGroup": "US-STATUTES",
+      "establishes": "Covers defined knowing immigration-document fraud/material false statements, with finite maxima.",
+      "limits": "Application requires proven statutory elements. A mere unverified certificate allegation is insufficient.",
+      "inspected": true,
+      "preview": {
+        "kind": "metadata",
+        "label": "Source metadata",
+        "caption": "No local reproduction. Open the original source and read its scope and limitations."
+      }
+    },
+    {
+      "id": "S039",
+      "evidenceId": "E039",
+      "title": "U.S. Constitution, National Archives transcription",
+      "type": "Controlling constitutional text",
+      "url": "https://www.archives.gov/founding-docs/constitution-transcript",
+      "published": "Original text with amendment links",
+      "pinpoint": "Article I sections 2,5,7",
+      "originGroup": "US-CONSTITUTION",
+      "establishes": "Member qualifications and collective legislative enactment process.",
+      "limits": "Does not adjudicate any individual future challenge or support automatic invalidation of all laws.",
+      "inspected": true,
+      "preview": {
+        "kind": "metadata",
+        "label": "Source metadata",
+        "caption": "No local reproduction. Open the original source and read its scope and limitations."
+      }
+    },
+    {
+      "id": "S040",
+      "evidenceId": "E040",
+      "title": "U.S. House: Legislative Process",
+      "type": "Official procedural explanation",
+      "url": "https://www.house.gov/the-house-explained/the-legislative-process",
+      "published": "Undated current page",
+      "pinpoint": "How Are Laws Made?",
+      "originGroup": "HOUSE-PROCEDURE",
+      "establishes": "Explains sponsorship, passage by both chambers and presidential action.",
+      "limits": "A procedural explanation, not a court ruling about a hypothetical membership defect.",
+      "inspected": true,
+      "preview": {
+        "kind": "metadata",
+        "label": "Source metadata",
+        "caption": "No local reproduction. Open the original source and read its scope and limitations."
+      }
+    }
+  ]
+}

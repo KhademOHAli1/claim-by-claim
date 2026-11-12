@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "note": "Local previews are labeled derivatives, not complete source reproductions. Original source links and document context remain in the source register.",
+  "assets": [
+    {
+      "sourceId": "S004",
+      "evidenceId": "E004",
+      "src": "/evidence/E004-house-history-p700-excerpt.png",
+      "label": "U.S. House history: Black Americans in Congress · Printed page 700; PDF page 714 · excerpt",
+      "caption": "Cropped text-column excerpt. The source image is shown with an added identification header. Open the original for complete context.",
+      "page": "Printed page 700; PDF page 714",
+      "sha256": "40d08716e9ab5cd4e830778062b0a9e5e26085bdff9ee26c8ef86aad2dc90309",
+      "derivative": true,
+      "transform": "crop and identification border"
+    },
+    {
+      "sourceId": "S013",
+      "evidenceId": "E013",
+      "src": "/evidence/E013-campaign-finance-order-p13-excerpt.png",
+      "label": "Minnesota Campaign Finance Board: Order 1464 · Page 13 · excerpt",
+      "caption": "Rendered page excerpt. The source image is shown with an added identification header. Open the original for complete context.",
+      "page": "Page 13",
+      "sha256": "14977a96c51f5767dedc06f842557e8398dffac47a19ae7f38c97793c07ef413",
+      "derivative": true,
+      "transform": "identification border; document pixels unchanged"
+    },
+    {
+      "sourceId": "S015",
+      "evidenceId": "E015",
+      "src": "/evidence/E015-house-disclosure-10068415-p1-excerpt.png",
+      "label": "U.S. House financial disclosure: Filing 10068415 · Page 1, Schedule A · excerpt",
+      "caption": "Rendered page excerpt. The source image is shown with an added identification header. Open the original for complete context.",
+      "page": "Page 1, Schedule A",
+      "sha256": "c770c89aa4200761fe8f31d88dbf4094cf711824c006a4a6bd7d8302242fd7a4",
+      "derivative": true,
+      "transform": "identification border; document pixels unchanged"
+    },
+    {
+      "sourceId": "S016",
+      "evidenceId": "E016",
+      "src": "/evidence/E016-house-amendment-10073338-p1-excerpt.png",
+      "label": "U.S. House financial disclosure: Amendment 10073338 · Page 1, Schedule A · excerpt",
+      "caption": "Rendered page excerpt. The source image is shown with an added identification header. Open the original for complete context.",
+      "page": "Page 1, Schedule A",
+      "sha256": "17b643c9db1d6cc317d417861925e8e79a5c892b1ed9a921cfef9af4a1b0a1ca",
+      "derivative": true,
+      "transform": "identification border; document pixels unchanged"
+    },
+    {
+      "sourceId": "S017",
+      "evidenceId": "E017",
+      "src": "/evidence/E017-house-disclosure-10077400-p1-excerpt.png",
+      "label": "U.S. House financial disclosure: Filing 10077400 · Page 1, Schedule A · excerpt",
+      "caption": "Rendered page excerpt. The source image is shown with an added identification header. Open the original for complete context.",
+      "page": "Page 1, Schedule A",
+      "sha256": "62a26747c7bb1973d4d9ecce9d627556f65f15952aba6e2d2ad4d283b67d82da",
+      "derivative": true,
+      "transform": "identification border; document pixels unchanged"
+    },
+    {
+      "sourceId": "S018",
+      "evidenceId": "E018",
+      "src": "/evidence/E018-house-oversight-letter-p1-excerpt.png",
+      "label": "U.S. House Oversight Committee: Letter to Timothy Mynett · Page 1 of 3 · excerpt",
+      "caption": "Rendered page excerpt. The source image is shown with an added identification header. Open the original for complete context.",
+      "page": "Page 1 of 3",
+      "sha256": "f88152df277fce1f350e36e77dacbe84d38ebf231f16c9f846ce00697f565f4a",
+      "derivative": true,
+      "transform": "identification border; document pixels unchanged"
+    }
+  ]
+}
