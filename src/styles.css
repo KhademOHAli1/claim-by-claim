@@ -316,7 +316,7 @@ button {
   gap: 5px;
   background: transparent;
 }
-.tabs > button[data-state='active'] {
+.tabs > button[data-selected] {
   background: #233541;
   color: #c8e0eb;
   box-shadow: none;
@@ -354,6 +354,9 @@ button {
   scrollbar-color: #324552 transparent;
   overscroll-behavior: contain;
   padding: 8px 7px 14px;
+}
+.transcript-controls {
+  flex: none;
 }
 .transcript-cue {
   border-radius: 4px;
@@ -570,16 +573,19 @@ button {
   font-size: 11px;
   color: #a1bbca;
 }
-.finding-details summary {
-  list-style: none;
+.finding-details > [data-slot='collapsible-trigger'] {
+  background: transparent;
+  border: 0;
+  padding: 0;
   display: flex;
   align-items: center;
   gap: 8px;
   cursor: pointer;
   color: #7ea9bc;
   font-size: 9px;
+  text-align: start;
 }
-.finding-details[open] summary svg {
+.finding-details > [data-slot='collapsible-trigger'][aria-expanded='true'] svg {
   transform: rotate(90deg);
 }
 .finding-details > div {
@@ -717,6 +723,11 @@ button {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 19px;
+}
+.modal .source-back {
+  margin-bottom: 8px;
+  padding-inline: 0 8px;
+  color: var(--accent);
 }
 .modal h2 {
   font-weight: 500;
@@ -1197,7 +1208,7 @@ button {
   .finding-scope p {
     font-size: 9px;
   }
-  .finding-details summary {
+  .finding-details > [data-slot='collapsible-trigger'] {
     font-size: 8px;
   }
   .transcript-toolbar {
@@ -1438,7 +1449,7 @@ main {
   color: var(--muted-text);
   font-size: 11px;
 }
-.tabs > button[data-state='active'] {
+.tabs > button[data-selected] {
   background: var(--accent-surface);
   color: var(--foreground);
 }
@@ -1544,7 +1555,7 @@ main {
 .finding-analysis-grid > div + div {
   margin-top: 8px;
 }
-.finding-details summary {
+.finding-details > [data-slot='collapsible-trigger'] {
   font-size: 11px;
   color: var(--accent);
 }

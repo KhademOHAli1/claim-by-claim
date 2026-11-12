@@ -95,11 +95,19 @@ test('compact transcript holds the inspected claim and opens the exact source pa
   await workspace.getByRole('radio', { name: 'Compact', exact: true }).tap();
   const cue = workspace.locator('.transcript-cue').filter({ hasText: 'She is not an American citizen' });
   await expect(cue).toHaveClass(/\bactive\b/);
-  await cue.getByRole('button', { name: /2 fact checks/i }).tap();
+  const factCheck = cue.getByRole('button', { name: /2 fact checks|close fact check/i });
+  await expect(factCheck).toHaveAttribute('aria-expanded', 'false');
+  await factCheck.tap();
+  await expect(factCheck).toHaveAttribute('aria-expanded', 'true');
 
   const inlineFinding = cue.locator('.mobile-inline-finding');
+  await expect(inlineFinding).toBeVisible();
   await expect(inlineFinding).toContainText('Her citizenship status');
   await expect(inlineFinding).toContainText('Contradicted');
+  await factCheck.tap();
+  await expect(factCheck).toHaveAttribute('aria-expanded', 'false');
+  await expect(inlineFinding).toBeHidden();
+  await factCheck.tap();
   await workspace.getByRole('slider', { name: 'Video position' }).fill('40');
   await expect
     .poll(() => workspace.locator('video').evaluate((element: HTMLVideoElement) => element.currentTime))
@@ -107,12 +115,16 @@ test('compact transcript holds the inspected claim and opens the exact source pa
   await expect(inlineFinding).toContainText('Her citizenship status');
 
   await inlineFinding.getByRole('button', { name: /sources/i }).tap();
-  await workspace.getByRole('button', { name: /House history/ }).tap();
+  const source = workspace.getByRole('button', { name: /House history/ });
+  await source.tap();
   const dialog = page.getByRole('dialog');
   await expect(dialog).toBeVisible();
   await expect(dialog.locator('.document-preview img')).toBeVisible();
   await expect(dialog.getByRole('link', { name: 'Arrival and citizenship · PDF page 714' }))
     .toHaveAttribute('href', /govinfo\.gov.*\.pdf#page=714$/);
+  await dialog.getByRole('button', { name: 'Close dialog' }).tap();
+  await expect(dialog).toBeHidden();
+  await expect(source).toBeFocused();
 });
 
 test('touch scrolling pauses transcript follow, and the layout fits a 320px screen', async ({

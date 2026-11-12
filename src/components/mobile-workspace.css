@@ -329,7 +329,7 @@ main.is-mobile-workspace {
   font-size: 12px;
 }
 
-.mobile-workspace .transcript-toolbar .tabs > button[data-state='active'] {
+.mobile-workspace .transcript-toolbar .tabs > button[data-selected] {
   background: transparent;
   box-shadow: inset 0 -2px var(--accent);
 }
@@ -404,11 +404,15 @@ main.is-mobile-workspace {
   white-space: normal;
 }
 
-.mobile-workspace .mobile-claim-links,
-.mobile-workspace .mobile-related-claims {
+.mobile-workspace .mobile-claim-links {
   display: flex;
   flex-wrap: wrap;
   gap: 0 5px;
+}
+
+.mobile-workspace .mobile-related-claims > [data-slot='collapsible-trigger'] {
+  background: transparent;
+  border: 0;
 }
 
 .mobile-workspace .mobile-claim-links {
@@ -478,7 +482,7 @@ main.is-mobile-workspace {
   font-size: 11px;
 }
 
-.mobile-workspace .finding-details summary,
+.mobile-workspace .finding-details > [data-slot='collapsible-trigger'],
 .mobile-workspace .finding-actions .correction-trigger {
   min-height: 44px;
   font-size: 13px;
@@ -536,6 +540,10 @@ main.is-mobile-workspace {
 .mobile-evidence-dialog.modal .modal-top .icon-button {
   width: 44px;
   height: 44px;
+}
+
+.mobile-evidence-dialog.modal .source-back {
+  min-height: 44px;
 }
 
 .mobile-evidence-dialog.modal .modal-top {

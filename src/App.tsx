@@ -2,11 +2,19 @@
 
 import {
   useEffect,
+  useLayoutEffect,
   useMemo,
   useRef,
   useState,
   useSyncExternalStore,
 } from 'react';
+import {
+  Collapsible,
+  CollapsiblePanel,
+  CollapsibleTrigger,
+} from '@ui-sdk/react/collapsible';
+import { Input as SdkInput } from '@ui-sdk/react/input';
+import { Toggle } from '@ui-sdk/react/toggle';
 import {
   ArrowUpRight,
   BookOpen,
@@ -31,17 +39,17 @@ import {
 import { Button } from '@/components/ui/button';
 import { Badge as ShadcnBadge } from '@/components/ui/badge';
 import {
-  Dialog as ShadcnDialog,
+  Dialog as DialogRoot,
+  DialogClose,
   DialogContent,
   DialogTitle,
   DialogDescription,
 } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
-import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
   Tooltip,
   TooltipContent,
-  TooltipProvider,
   TooltipTrigger,
 } from '@/components/ui/tooltip';
 import Workspace from './components/Workspace';
@@ -196,16 +204,13 @@ function ConfidenceSignal({ claim }: { claim: Claim }) {
       : claim.status;
   return (
     <Tooltip>
-      <TooltipTrigger asChild>
-        <Button
-          variant="ghost"
-          className={`confidence-signal signal-${tone}`}
-          aria-label={`${claim.confidence} confidence in the ${claim.verdict.toLowerCase()} assessment`}
-        >
-          {[1, 2, 3].map((bar) => (
-            <span key={bar} aria-hidden="true" data-filled={bar <= level} />
-          ))}
-        </Button>
+      <TooltipTrigger
+        render={<Button variant="ghost" className={`confidence-signal signal-${tone}`} />}
+        aria-label={`${claim.confidence} confidence in the ${claim.verdict.toLowerCase()} assessment`}
+      >
+        {[1, 2, 3].map((bar) => (
+          <span key={bar} aria-hidden="true" data-filled={bar <= level} />
+        ))}
       </TooltipTrigger>
       <TooltipContent className="signal-tooltip">
         <strong>{claim.confidence} confidence in this assessment</strong>
@@ -272,29 +277,62 @@ const desktopSnapshot = () => false;
 type MobileInspection = { claim: Claim; cue?: Cue };
 
 type Overlay =
-  'method' | 'registry' | 'correction' | { source: CaseSource } | null;
+  | 'method'
+  | 'registry'
+  | { correction: Claim }
+  | { source: CaseSource; fromRegistry?: boolean }
+  | null;
 
-function Dialog({
+function ReviewDialog({
   overlay,
   close,
   openSource,
-  claim,
-  correctionUrl,
+  backToRegistry,
+  returnFocus,
   resetLayout,
   mobile,
 }: {
   overlay: Overlay;
   close: () => void;
   openSource: (source: CaseSource) => void;
-  claim: Claim;
-  correctionUrl: string;
+  backToRegistry: () => void;
+  returnFocus: () => HTMLElement | null;
   resetLayout: () => void;
   mobile: boolean;
 }) {
   const [query, setQuery] = useState('');
   const [kind, setKind] = useState('All types');
-  const opener = useRef<HTMLElement | null>(null);
-  const source = typeof overlay === 'object' && overlay ? overlay.source : null;
+  const content = useRef<HTMLDivElement>(null);
+  const titleElement = useRef<HTMLHeadingElement>(null);
+  const registryPosition = useRef<{ id: string; scrollTop: number } | null>(null);
+  const preview = overlay && typeof overlay === 'object' && 'source' in overlay
+    ? overlay
+    : null;
+  const source = preview?.source;
+  const correction = overlay && typeof overlay === 'object' && 'correction' in overlay
+    ? overlay.correction
+    : null;
+  const correctionQuery = correction && new URLSearchParams({
+    template: 'correction.yml',
+    title: `[Correction] ${correction.id}: ${titles[correction.id]}`,
+    claim: correction.id,
+    timestamp: formatTime(correction.start),
+  });
+  useLayoutEffect(() => {
+    if (preview?.fromRegistry) {
+      if (content.current) content.current.scrollTop = 0;
+      titleElement.current?.focus({ preventScroll: true });
+    } else if (overlay === 'registry' && registryPosition.current) {
+      const { id, scrollTop } = registryPosition.current;
+      if (content.current) content.current.scrollTop = scrollTop;
+      content.current
+        ?.querySelector<HTMLButtonElement>(`[data-source-id="${id}"]`)
+        ?.focus({ preventScroll: true });
+      registryPosition.current = null;
+    } else if (!overlay) {
+      registryPosition.current = null;
+    }
+  }, [overlay, preview]);
   const locations = source ? (sourceLocations[source.id] ?? []) : [];
   const results = data.sources.filter(
     (item) =>
@@ -307,46 +345,43 @@ function Dialog({
     source?.title ??
     (overlay === 'registry'
       ? 'Sources'
-      : overlay === 'correction'
+      : correction
         ? 'Did we make a mistake?'
         : 'How this review works');
   return (
-    <ShadcnDialog
+    <DialogRoot
       open={!!overlay}
       onOpenChange={(open) => {
         if (!open) close();
       }}
     >
       <DialogContent
-        showCloseButton={false}
-        className={`modal${overlay === 'correction' ? ' correction-modal' : ''}${mobile ? ' mobile-evidence-dialog' : ''}`}
-        onOpenAutoFocus={mobile ? () => {
-          opener.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
-        } : undefined}
-        onCloseAutoFocus={mobile ? (event) => {
-          if (!opener.current?.isConnected) return;
-          event.preventDefault();
-          opener.current.focus({ preventScroll: true });
-        } : undefined}
+        ref={content}
+        className={`modal${correction ? ' correction-modal' : ''}${mobile ? ' mobile-evidence-dialog' : ''}`}
+        initialFocus="content"
+        finalFocus={returnFocus}
       >
         <div className="modal-top">
-          <DialogTitle>{title}</DialogTitle>
-          <Button
-            variant="ghost"
-            className="icon-button"
-            onClick={close}
+          <DialogTitle ref={titleElement} tabIndex={-1}>{title}</DialogTitle>
+          <DialogClose
+            render={<Button variant="ghost" className="icon-button" />}
             aria-label="Close dialog"
           >
-            <X size={18} />
-          </Button>
+            <X size={18} aria-hidden="true" />
+          </DialogClose>
         </div>
         <DialogDescription className="sr-only">
-          {overlay === 'correction'
+          {correction
             ? 'Report a mistake or propose a correction on GitHub.'
             : 'Inspect sources, evidence limitations, and the method behind this fact check.'}
         </DialogDescription>
         {source ? (
           <>
+            {preview.fromRegistry && (
+              <Button variant="ghost" className="source-back" onClick={backToRegistry}>
+                <ChevronLeft size={15} aria-hidden="true" /> Back to sources
+              </Button>
+            )}
             <div className="source-byline">
               {new URL(source.url).hostname.replace(/^www\./, '')}{' '}
               <span>·</span> {source.published}
@@ -438,11 +473,13 @@ function Dialog({
             <div className="registry-tools">
               <label className="search-field">
                 <Search size={17} />
-                <Input
+                <SdkInput
+                  render={<Input />}
+                  type="search"
                   autoComplete="off"
                   aria-label="Search evidence"
                   value={query}
-                  onChange={(event) => setQuery(event.target.value)}
+                  onValueChange={setQuery}
                   placeholder="Search by title, source or ID"
                 />
               </label>
@@ -473,7 +510,14 @@ function Dialog({
                   variant="ghost"
                   key={item.id}
                   className="registry-row"
-                  onClick={() => openSource(item)}
+                  data-source-id={item.id}
+                  onClick={() => {
+                    registryPosition.current = {
+                      id: item.id,
+                      scrollTop: content.current?.scrollTop ?? 0,
+                    };
+                    openSource(item);
+                  }}
                 >
                   <span className="source-icon">
                     <FileText size={19} />
@@ -497,13 +541,13 @@ function Dialog({
               )}
             </div>
           </>
-        ) : overlay === 'correction' ? (
+        ) : correction ? (
           <>
             <p className="correction-claim">
               <strong>
-                {claim.id} · {formatTime(claim.start)}
+                {correction.id} · {formatTime(correction.start)}
               </strong>{' '}
-              {titles[claim.id]}
+              {titles[correction.id]}
             </p>
             <div className="correction-options">
               <p>
@@ -512,7 +556,7 @@ function Dialog({
               </p>
               <a
                 className="primary-button"
-                href={correctionUrl}
+                href={`${repository}/issues/new?${correctionQuery}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -610,7 +654,7 @@ function Dialog({
           </>
         )}
       </DialogContent>
-    </ShadcnDialog>
+    </DialogRoot>
   );
 }
 
@@ -625,6 +669,10 @@ export default function App() {
   const transcript = useRef<HTMLDivElement>(null);
   const inlineFinding = useRef<HTMLDivElement>(null);
   const manualClaim = useRef<string | null>(null);
+  const dialogOpener = useRef<HTMLElement | null>(null);
+  const registryButton = useRef<HTMLButtonElement>(null);
+  const mobilePanelTitle = useRef<HTMLHeadingElement>(null);
+  const focusMobilePanel = useRef(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [selectedId, setSelectedId] = useState(data.claims[0].id);
   const [playing, setPlaying] = useState(false);
@@ -685,6 +733,11 @@ export default function App() {
     [],
   );
 
+  function openDialog(view: NonNullable<Overlay>, trigger: HTMLElement) {
+    dialogOpener.current = trigger;
+    setOverlay(view);
+  }
+
   function seek(time: number, claim?: Claim) {
     if (video.current)
       video.current.currentTime = Math.min(time, data.video.durationSeconds);
@@ -706,6 +759,14 @@ export default function App() {
       setMobileInspection(null);
     }
   }
+  function openMobilePanel(panel: 'finding' | 'evidence') {
+    if (panel === mobilePanel) {
+      mobilePanelTitle.current?.focus({ preventScroll: true });
+    } else {
+      focusMobilePanel.current = true;
+    }
+    setMobilePanel(panel);
+  }
   function resizePlayer(size: PlayerSize) {
     setPlayerSize(size);
     if (inlineCue && size !== 'compact') {
@@ -717,26 +778,22 @@ export default function App() {
     }
   }
   function inspectCue(cue: Cue) {
-    if (inlineCue?.id === cue.id) {
-      setMobileInspection(null);
-      return;
-    }
     const claim = cue.claims.find(({ id }) => id === selectedId) ?? cue.claims[0];
     setMobileInspection({ claim, cue });
     if (playerSize === 'compact') setFollowing(false);
-    else setMobilePanel('finding');
+    else openMobilePanel('finding');
   }
   function inspectLiveClaim() {
     setMobileInspection({ claim: selected });
-    setMobilePanel('finding');
+    openMobilePanel('finding');
   }
   function navigateFinding(claim: Claim) {
     selectClaim(claim);
     if (isMobile) setMobileInspection({ claim });
   }
-  function toggleFollowing() {
-    if (isMobile && !following) setMobileInspection(null);
-    setFollowing(!following);
+  function toggleFollowing(next: boolean) {
+    if (isMobile && next) setMobileInspection(null);
+    setFollowing(next);
   }
   function synchronize(time: number) {
     setCurrentTime(time);
@@ -812,6 +869,11 @@ export default function App() {
       inlineFinding.current?.querySelector('h2')?.scrollIntoView({ block: 'nearest' });
     }
   }, [inlineCue]);
+  useLayoutEffect(() => {
+    if (!focusMobilePanel.current) return;
+    focusMobilePanel.current = false;
+    mobilePanelTitle.current?.focus({ preventScroll: true });
+  }, [mobilePanel]);
 
   const matchingClaims = data.claims.filter(
     (claim) =>
@@ -835,14 +897,6 @@ export default function App() {
       setCopied(false);
     }
   }
-  const correctionQuery = new URLSearchParams({
-    template: 'correction.yml',
-    title: `[Correction] ${displayed.id}: ${titles[displayed.id]}`,
-    claim: displayed.id,
-    timestamp: formatTime(displayed.start),
-  });
-  const correctionUrl = `${repository}/issues/new?${correctionQuery}`;
-
   function renderFinding(inline = false) {
     return (
       <section
@@ -891,21 +945,28 @@ export default function App() {
             <Badge claim={displayed} />
             <ConfidenceSignal claim={displayed} />
           </div>
-          <h2>{titles[displayed.id]}</h2>
+          <h2
+            ref={isMobile && mobilePanel === 'finding' ? mobilePanelTitle : undefined}
+            tabIndex={isMobile && !inline ? -1 : undefined}
+          >
+            {titles[displayed.id]}
+          </h2>
           <p className="finding-summary">{displayed.finding}</p>
           {isMobile && mobileInspection?.cue && mobileInspection.cue.claims.length > 1 && (
-            <details className="mobile-related-claims">
-              <summary>Other claims in this passage</summary>
-              {mobileInspection.cue.claims.filter((claim) => claim.id !== displayed.id).map((claim) => (
-                <Button
-                  key={claim.id}
-                  variant="ghost"
-                  onClick={() => setMobileInspection({ ...mobileInspection, claim })}
-                >
-                  {titles[claim.id]} <Badge claim={claim} small />
-                </Button>
-              ))}
-            </details>
+            <Collapsible className="mobile-related-claims">
+              <CollapsibleTrigger>Other claims in this passage</CollapsibleTrigger>
+              <CollapsiblePanel>
+                {mobileInspection.cue.claims.filter((claim) => claim.id !== displayed.id).map((claim) => (
+                  <Button
+                    key={claim.id}
+                    variant="ghost"
+                    onClick={() => setMobileInspection({ ...mobileInspection, claim })}
+                  >
+                    {titles[claim.id]} <Badge claim={claim} small />
+                  </Button>
+                ))}
+              </CollapsiblePanel>
+            </Collapsible>
           )}
           <div className="finding-scope">
             <span className="eyebrow">What we assessed</span>
@@ -921,27 +982,30 @@ export default function App() {
               <p>{displayed.counterevidence}</p>
             </div>
           </div>
-          <details className="finding-details">
-            <summary>
+          <Collapsible className="finding-details">
+            <CollapsibleTrigger>
               What evidence could change this finding?{' '}
-              <ChevronRight size={15} />
-            </summary>
-            <div>
+              <ChevronRight size={15} aria-hidden="true" />
+            </CollapsibleTrigger>
+            <CollapsiblePanel>
               <p>
                 <strong>Open question:</strong> {displayed.unresolved}
               </p>
               <p>
                 <strong>Next decisive check:</strong> {displayed.nextTest}
               </p>
-            </div>
-          </details>
+            </CollapsiblePanel>
+          </Collapsible>
         </div>
         <div className="finding-actions">
           {isMobile && activeSources.length > 0 && (
             <Button
               variant="ghost"
               className="mobile-finding-sources"
-              onClick={() => changeMobilePanel('evidence')}
+              onClick={() => {
+                setMobileInspection((inspection) => inspection ?? { claim: displayed });
+                openMobilePanel('evidence');
+              }}
             >
               View {activeSources.length} {activeSources.length === 1 ? 'source' : 'sources'}
               <ChevronRight size={15} />
@@ -951,7 +1015,7 @@ export default function App() {
             variant="ghost"
             className="correction-trigger"
             aria-haspopup="dialog"
-            onClick={() => setOverlay('correction')}
+            onClick={(event) => openDialog({ correction: displayed }, event.currentTarget)}
           >
             Did we make a mistake?
           </Button>
@@ -959,6 +1023,137 @@ export default function App() {
       </section>
     );
   }
+
+  const transcriptRows =
+  mode === 'transcript'
+    ? matchingCues.map((cue) => {
+        const active = activeCue?.id === cue.id;
+        const tones = new Set(cue.claims.map((claim) => claim.status));
+        const tone =
+          tones.size === 1
+            ? [...tones][0]
+            : cue.claims.length
+              ? 'orange'
+              : 'neutral';
+        const label =
+          cue.claims.length === 1
+            ? cue.claims[0].verdict
+            : cue.claims.length > 1
+              ? 'Multiple assessments'
+              : 'Transcript';
+        const inlineOpen = inlineCue?.id === cue.id;
+        const factCheckLabel = cue.claims.length > 0 && (
+          <>
+            {cue.claims.every((claim) => claim.verdict === cue.claims[0].verdict) && (
+              <Badge claim={cue.claims[0]} small />
+            )}
+            {inlineOpen
+              ? 'Close fact check'
+              : cue.claims.length > 1 ? `${cue.claims.length} fact checks` : 'Fact check'}
+            <ChevronRight size={14} aria-hidden="true" />
+          </>
+        );
+        return (
+          <div
+            key={cue.id}
+            data-row={cue.id}
+            className={`transcript-cue tone-${tone} ${active ? 'active' : ''}`}
+          >
+            <Button
+              variant="ghost"
+              className="cue-main"
+              aria-current={isMobile && active ? 'time' : undefined}
+              onClick={() => {
+                const claim = cue.claims[0];
+                seek(cue.start, claim);
+                if (claim)
+                  window.history.replaceState(null, '', `#${claim.id}`);
+              }}
+              aria-label={`${formatTime(cue.start)}. ${cue.text}. ${label}`}
+            >
+              <span className="cue-time">
+                {active ? (
+                  <span className="playing-bars">
+                    <i />
+                    <i />
+                    <i />
+                  </span>
+                ) : (
+                  formatTime(cue.start)
+                )}
+              </span>
+              <span className="cue-text">
+                {cue.words.map((word, wordIndex) => (
+                  <span
+                    className={
+                      active &&
+                      currentTime >= word.start &&
+                      currentTime < word.end
+                        ? 'spoken-word'
+                        : ''
+                    }
+                    key={wordIndex}
+                  >
+                    {word.text}{' '}
+                  </span>
+                ))}
+              </span>
+            </Button>
+            {isMobile && factCheckLabel && (
+              playerSize === 'compact' ? (
+                <Collapsible
+                  open={inlineOpen}
+                  onOpenChange={(open) => {
+                    if (open) inspectCue(cue);
+                    else setMobileInspection(null);
+                  }}
+                >
+                  <div className="mobile-claim-links">
+                    <CollapsibleTrigger render={<Button variant="ghost" />}>
+                      {factCheckLabel}
+                    </CollapsibleTrigger>
+                  </div>
+                  <CollapsiblePanel
+                    className="mobile-inline-finding"
+                    ref={inlineOpen ? inlineFinding : undefined}
+                  >
+                    {inlineOpen && renderFinding(true)}
+                  </CollapsiblePanel>
+                </Collapsible>
+              ) : (
+                <div className="mobile-claim-links">
+                  <Button variant="ghost" onClick={() => inspectCue(cue)}>
+                    {factCheckLabel}
+                  </Button>
+                </div>
+              )
+            )}
+          </div>
+        );
+      })
+    : matchingClaims.map((claim) => (
+        <Button
+          variant="ghost"
+          key={claim.id}
+          data-row={claim.id}
+          className={`claim-list-row ${selected.id === claim.id ? 'active' : ''}`}
+          onClick={() => {
+            selectClaim(claim);
+            if (isMobile) {
+              setMobileInspection({ claim });
+              openMobilePanel('finding');
+            }
+          }}
+        >
+          <div>
+            <span className="cue-time">{formatTime(claim.start)}</span>
+            <span className="claim-id">{claim.id}</span>
+          </div>
+          <strong>{titles[claim.id]}</strong>
+          <span className="claim-quote">“{claim.quote}”</span>
+          <Badge claim={claim} small />
+        </Button>
+      ));
 
   const panes = {
     video: (
@@ -1041,14 +1236,14 @@ export default function App() {
               {formatTime(currentTime)} <span>/ 02:59</span>
             </span>
             <div className="control-spacer" />
-            <Button
-              variant="ghost"
-              className="icon-button"
-              aria-label={muted ? 'Unmute video' : 'Mute video'}
-              onClick={() => setMuted(!muted)}
+            <Toggle
+              render={<Button variant="ghost" className="icon-button" />}
+              aria-label="Mute video"
+              pressed={muted}
+              onPressedChange={setMuted}
             >
               {muted ? <VolumeX size={17} /> : <Volume2 size={17} />}
-            </Button>
+            </Toggle>
             <Button
               variant="ghost"
               className="icon-button video-fullscreen"
@@ -1087,15 +1282,17 @@ export default function App() {
       </section>
     ),
     transcript: (
-      <section
+      <Tabs<'transcript' | 'claims'>
+        render={<section />}
         className="panel transcript-panel"
         aria-label="Transcript and claims"
+        value={mode}
+        onValueChange={(value) => {
+          if (value) setMode(value);
+        }}
       >
-        <div className="transcript-toolbar">
-          <Tabs
-            value={mode}
-            onValueChange={(value) => setMode(value as 'transcript' | 'claims')}
-          >
+        <Collapsible className="transcript-controls" open={searchOpen} onOpenChange={setSearchOpen}>
+          <div className="transcript-toolbar">
             <TabsList className="tabs" aria-label="Transcript view">
               <TabsTrigger value="transcript">
                 {isMobile ? 'All lines' : 'Transcript'}
@@ -1104,39 +1301,37 @@ export default function App() {
                 Claims <span>47</span>
               </TabsTrigger>
             </TabsList>
-          </Tabs>
-          <div className="transcript-actions">
-            <Button
-              variant="ghost"
-              className="icon-button"
-              onClick={() => setSearchOpen(!searchOpen)}
-              aria-label="Search transcript and claims"
-              aria-expanded={searchOpen}
-            >
-              <Search size={15} />
-            </Button>
-            <Button
-              variant="ghost"
-              className={`follow-button ${following ? 'on' : ''} ${isMobile ? 'mobile-resume' : ''}`}
-              onClick={toggleFollowing}
-              aria-pressed={following}
-            >
-              <span className="follow-dot" />
-              {following ? 'Following' : isMobile ? 'Jump to current time' : 'Follow video'}
-            </Button>
+            <div className="transcript-actions">
+              <CollapsibleTrigger
+                render={<Button variant="ghost" className="icon-button" />}
+                aria-label="Search transcript and claims"
+              >
+                <Search size={15} aria-hidden="true" />
+              </CollapsibleTrigger>
+              <Toggle
+                render={<Button variant="ghost" className={`follow-button ${following ? 'on' : ''} ${isMobile ? 'mobile-resume' : ''}`} />}
+                pressed={following}
+                onPressedChange={toggleFollowing}
+              >
+                <span className="follow-dot" />
+                {following ? 'Following' : isMobile ? 'Jump to current time' : 'Follow video'}
+              </Toggle>
+            </div>
           </div>
-        </div>
-        {searchOpen && (
-          <label className="search-field transcript-search">
-            <Search size={15} />
-            <Input
-              aria-label="Search statements"
-              placeholder="Find a word or claim…"
-              value={search}
-              onChange={(event) => setSearch(event.target.value)}
-            />
-          </label>
-        )}
+          <CollapsiblePanel>
+            <label className="search-field transcript-search">
+              <Search size={15} aria-hidden="true" />
+              <SdkInput
+                render={<Input />}
+                type="search"
+                aria-label="Search statements"
+                placeholder="Find a word or claim…"
+                value={search}
+                onValueChange={setSearch}
+              />
+            </label>
+          </CollapsiblePanel>
+        </Collapsible>
         {mode === 'claims' && (
           <div className="claim-filters">
             <select
@@ -1171,125 +1366,19 @@ export default function App() {
             mode === 'claims' ? 'Claim list' : 'Scrollable transcript'
           }
         >
-          {mode === 'transcript'
-            ? matchingCues.map((cue) => {
-                const active = activeCue?.id === cue.id;
-                const tones = new Set(cue.claims.map((claim) => claim.status));
-                const tone =
-                  tones.size === 1
-                    ? [...tones][0]
-                    : cue.claims.length
-                      ? 'orange'
-                      : 'neutral';
-                const label =
-                  cue.claims.length === 1
-                    ? cue.claims[0].verdict
-                    : cue.claims.length > 1
-                      ? 'Multiple assessments'
-                      : 'Transcript';
-                return (
-                  <div
-                    key={cue.id}
-                    data-row={cue.id}
-                    className={`transcript-cue tone-${tone} ${active ? 'active' : ''}`}
-                  >
-                    <Button
-                      variant="ghost"
-                      className="cue-main"
-                      aria-current={isMobile && active ? 'time' : undefined}
-                      onClick={() => {
-                        const claim = cue.claims[0];
-                        seek(cue.start, claim);
-                        if (claim)
-                          window.history.replaceState(null, '', `#${claim.id}`);
-                      }}
-                      aria-label={`${formatTime(cue.start)}. ${cue.text}. ${label}`}
-                    >
-                      <span className="cue-time">
-                        {active ? (
-                          <span className="playing-bars">
-                            <i />
-                            <i />
-                            <i />
-                          </span>
-                        ) : (
-                          formatTime(cue.start)
-                        )}
-                      </span>
-                      <span className="cue-text">
-                        {cue.words.map((word, wordIndex) => (
-                          <span
-                            className={
-                              active &&
-                              currentTime >= word.start &&
-                              currentTime < word.end
-                                ? 'spoken-word'
-                                : ''
-                            }
-                            key={wordIndex}
-                          >
-                            {word.text}{' '}
-                          </span>
-                        ))}
-                      </span>
-                    </Button>
-                    {isMobile && cue.claims.length > 0 && (
-                      <div className="mobile-claim-links">
-                        <Button
-                          variant="ghost"
-                          aria-expanded={playerSize === 'compact' ? inlineCue?.id === cue.id : undefined}
-                          onClick={() => inspectCue(cue)}
-                        >
-                          {cue.claims.every((claim) => claim.verdict === cue.claims[0].verdict) && (
-                            <Badge claim={cue.claims[0]} small />
-                          )}
-                          {inlineCue?.id === cue.id
-                            ? 'Close fact check'
-                            : cue.claims.length > 1 ? `${cue.claims.length} fact checks` : 'Fact check'}
-                          <ChevronRight size={14} aria-hidden="true" />
-                        </Button>
-                      </div>
-                    )}
-                    {inlineCue?.id === cue.id && (
-                      <div className="mobile-inline-finding" ref={inlineFinding}>
-                        {renderFinding(true)}
-                      </div>
-                    )}
-                  </div>
-                );
-              })
-            : matchingClaims.map((claim) => (
-                <Button
-                  variant="ghost"
-                  key={claim.id}
-                  data-row={claim.id}
-                  className={`claim-list-row ${selected.id === claim.id ? 'active' : ''}`}
-                  onClick={() => {
-                    selectClaim(claim);
-                    if (isMobile) {
-                      setMobileInspection({ claim });
-                      setMobilePanel('finding');
-                    }
-                  }}
-                >
-                  <div>
-                    <span className="cue-time">{formatTime(claim.start)}</span>
-                    <span className="claim-id">{claim.id}</span>
-                  </div>
-                  <strong>{titles[claim.id]}</strong>
-                  <span className="claim-quote">“{claim.quote}”</span>
-                  <Badge claim={claim} small />
-                </Button>
-              ))}
-          {(mode === 'claims'
-            ? !matchingClaims.length
-            : !matchingCues.length) && (
-            <p className="empty-state">
-              No matching statements. Try another search or filter.
-            </p>
-          )}
+          {(['transcript', 'claims'] as const).map((view) => (
+            <TabsContent key={view} value={view} keepMounted render={<div tabIndex={-1} />}>
+              {mode === view && (
+                transcriptRows.length ? transcriptRows : (
+                  <p className="empty-state">
+                    No matching statements. Try another search or filter.
+                  </p>
+                )
+              )}
+            </TabsContent>
+          ))}
         </div>
-      </section>
+      </Tabs>
     ),
     finding: inlineCue ? null : renderFinding(),
     evidence: (
@@ -1298,7 +1387,13 @@ export default function App() {
         aria-label="Evidence for selected claim"
       >
         {isMobile && (
-          <h2 className="mobile-evidence-title">{titles[displayed.id]}</h2>
+          <h2
+            className="mobile-evidence-title"
+            ref={mobilePanel === 'evidence' ? mobilePanelTitle : undefined}
+            tabIndex={-1}
+          >
+            {titles[displayed.id]}
+          </h2>
         )}
         <div className="evidence-scroll">
           {activeSources.map((source) => (
@@ -1306,7 +1401,8 @@ export default function App() {
               variant="ghost"
               key={source.id}
               className="evidence-row"
-              onClick={() => setOverlay({ source })}
+              aria-haspopup="dialog"
+              onClick={(event) => openDialog({ source }, event.currentTarget)}
             >
               <span
                 className={`source-thumbnail ${source.preview.src ? 'has-image' : ''}`}
@@ -1337,7 +1433,7 @@ export default function App() {
   };
 
   return (
-    <TooltipProvider delayDuration={200}>
+    <>
       <a className="skip-link" href="#explore">
         Skip to the fact check
       </a>
@@ -1351,23 +1447,20 @@ export default function App() {
         </a>
         <span className="case-context">Ilhan Omar video</span>
         <Tooltip>
-          <TooltipTrigger asChild>
-            <Button
-              variant="ghost"
-              className="overall-assessment"
-              aria-label={isMobile ? 'Contains factual errors' : undefined}
-              onClick={() => {
-                selectClaim(data.claims[0]);
-                if (isMobile) {
-                  setMobileInspection({ claim: data.claims[0] });
-                  setMobilePanel('finding');
-                }
-              }}
-            >
-              <CircleAlert size={15} />
-              <strong>Contains factual errors</strong>
-              <ChevronRight size={13} />
-            </Button>
+          <TooltipTrigger
+            render={<Button variant="ghost" className="overall-assessment" />}
+            aria-label={isMobile ? 'Contains factual errors' : undefined}
+            onClick={() => {
+              selectClaim(data.claims[0]);
+              if (isMobile) {
+                setMobileInspection({ claim: data.claims[0] });
+                openMobilePanel('finding');
+              }
+            }}
+          >
+            <CircleAlert size={15} />
+            <strong>Contains factual errors</strong>
+            <ChevronRight size={13} />
           </TooltipTrigger>
           <TooltipContent>
             Some statements are supported. Other allegations remain unproven.
@@ -1375,10 +1468,19 @@ export default function App() {
           </TooltipContent>
         </Tooltip>
         <nav aria-label="Main navigation">
-          <Button variant="ghost" onClick={() => setOverlay('registry')}>
+          <Button
+            variant="ghost"
+            ref={registryButton}
+            aria-haspopup="dialog"
+            onClick={(event) => openDialog('registry', event.currentTarget)}
+          >
             <BookOpen size={14} /> Sources
           </Button>
-          <Button variant="ghost" onClick={() => setOverlay('method')}>
+          <Button
+            variant="ghost"
+            aria-haspopup="dialog"
+            onClick={(event) => openDialog('method', event.currentTarget)}
+          >
             <CircleHelp size={14} /> Method
           </Button>
           <a
@@ -1440,18 +1542,20 @@ export default function App() {
           Unproven does not mean false.
         </span>
       </footer>
-      <Dialog
+      <ReviewDialog
         overlay={overlay}
         close={() => setOverlay(null)}
-        openSource={(source) => setOverlay({ source })}
-        claim={displayed}
-        correctionUrl={correctionUrl}
+        openSource={(source) => setOverlay({ source, fromRegistry: true })}
+        backToRegistry={() => setOverlay('registry')}
+        returnFocus={() => dialogOpener.current?.isConnected
+          ? dialogOpener.current
+          : registryButton.current}
         mobile={isMobile}
         resetLayout={() => {
           setResetToken((value) => value + 1);
           setOverlay(null);
         }}
       />
-    </TooltipProvider>
+    </>
   );
 }

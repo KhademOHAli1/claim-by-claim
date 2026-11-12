@@ -68,6 +68,20 @@ test('video playback and seeking select the relevant fact check', async ({
   await expect(page.locator('.finding-analysis-grid')).toContainText(
     'finite maximum terms',
   );
+  const finding = page.getByRole('region', { name: 'Selected claim fact check' });
+  const details = finding.getByRole('button', {
+    name: 'What evidence could change this finding?',
+  });
+  const openQuestion = finding.getByText('Open question:', { exact: true });
+  await expect(details).toHaveAttribute('aria-expanded', 'false');
+  await expect(openQuestion).toBeHidden();
+  await details.press('Space');
+  await expect(details).toHaveAttribute('aria-expanded', 'true');
+  await expect(openQuestion).toBeVisible();
+  await details.press('Enter');
+  await expect(details).toHaveAttribute('aria-expanded', 'false');
+  await expect(openQuestion).toBeHidden();
+
   await page.getByRole('tab', { name: /Claims/ }).click();
   await page.getByLabel('Filter claims by verdict color').selectOption('green');
   await expect(page.locator('.claim-list-row')).toHaveCount(6);
@@ -95,9 +109,16 @@ test('sources have type, preview, qualifications and original/versioned links', 
   await expect(page.locator('.finding-scope')).toContainText(
     'separated from fraud',
   );
-  await page.locator('.evidence-row').first().click();
-  await expect(page.getByRole('dialog')).toBeVisible();
-  const image = page.locator('.document-preview img');
+  const preview = page.locator('.evidence-row').first();
+  await preview.click();
+  const dialog = page.getByRole('dialog');
+  await expect(dialog).toBeVisible();
+  await expect
+    .poll(() =>
+      dialog.evaluate((element) => element.contains(document.activeElement)),
+    )
+    .toBe(true);
+  const image = dialog.locator('.document-preview img');
   await expect(image).toBeVisible();
   await expect
     .poll(() => image.evaluate((img: HTMLImageElement) => img.naturalWidth))
@@ -115,22 +136,40 @@ test('sources have type, preview, qualifications and original/versioned links', 
     /github.com\/KhademOHAli1\/claim-by-claim\/blob\/main\/evidence\/originals\/E015.pdf/,
   );
   await page.keyboard.press('Escape');
-  await expect(page.getByRole('dialog')).not.toBeVisible();
-  await page
+  await expect(dialog).toBeHidden();
+  await expect(preview).toBeFocused();
+  const sources = page
     .locator('.site-header')
-    .getByRole('button', { name: 'Sources', exact: true })
-    .click();
+    .getByRole('button', { name: 'Sources', exact: true });
+  await sources.click();
+  await expect(dialog).toHaveAccessibleName('Sources');
   await expect(page.locator('.result-count')).toHaveText(
     '40 of 40 source records',
   );
+  const registryDialog = await dialog.elementHandle();
   await page.getByLabel('Search evidence').fill('S010');
-  await expect(page.locator('.registry-row')).toHaveCount(1);
-  await page.locator('.registry-row').click();
+  const registryResult = dialog.locator('.registry-row');
+  await expect(registryResult).toHaveCount(1);
+  await registryResult.click();
   await expect(page.locator('.metadata-preview')).toContainText(
     'not a reproduction of the full page',
   );
   await expect(page.locator('.source-explainer')).toContainText('donor');
   await expect(page.locator('.document-preview')).toHaveCount(0);
+  await expect(dialog).toHaveCount(1);
+  expect(
+    await registryDialog!.evaluate(
+      (element) => element === document.querySelector('[role="dialog"]'),
+    ),
+  ).toBe(true);
+  await dialog.getByRole('button', { name: 'Back to sources' }).click();
+  await expect(dialog).toHaveAccessibleName('Sources');
+  await expect(dialog.getByLabel('Search evidence')).toHaveValue('S010');
+  await expect(registryResult).toHaveCount(1);
+  await expect(registryResult).toBeFocused();
+  await page.keyboard.press('Escape');
+  await expect(dialog).toBeHidden();
+  await expect(sources).toBeFocused();
 
   for (const [id, label, hash] of [
     [
@@ -145,13 +184,15 @@ test('sources have type, preview, qualifications and original/versioned links', 
       '#:~:text=reached%20a%20settlement%20with%20Mynett%20and%20Hailer',
     ],
   ] as const) {
-    await page.keyboard.press('Escape');
-    await page.getByRole('button', { name: 'Sources', exact: true }).click();
+    await sources.click();
     await page.getByLabel('Search evidence').fill(id);
     await page.locator('.registry-row').click();
     const link = page.getByRole('link', { name: label, exact: true });
     const href = await link.getAttribute('href');
     expect(new URL(href!).hash).toBe(hash);
+    await page.keyboard.press('Escape');
+    await expect(dialog).toBeHidden();
+    await expect(sources).toBeFocused();
   }
 });
 
