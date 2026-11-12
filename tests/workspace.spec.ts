@@ -1,5 +1,7 @@
 import { expect, test } from '@playwright/test';
 
+const dockLayoutKey = 'claim-by-claim:workspace:v1';
+
 test('the desktop workspace fits the viewport and keeps scroll inside panes', async ({
   page,
 }) => {
@@ -250,20 +252,51 @@ test('panes resize and dock without recreating the video, and layout survives re
   const videoPane = page.locator('.video-panel');
   await expect(videoPane).toBeVisible();
   const initial = (await videoPane.boundingBox())!;
-  const divider = (await page
+  const divider = page
     .locator('[role=separator][aria-orientation=vertical]')
-    .first()
-    .boundingBox())!;
-  const dividerX = divider.x + divider.width / 2;
-  const dividerY = divider.y + divider.height / 2;
-  await page.mouse.move(dividerX, dividerY);
-  await page.mouse.down();
-  await page.mouse.move(dividerX + 80, dividerY, { steps: 10 });
-  await page.mouse.up();
-  await expect
-    .poll(async () => (await videoPane.boundingBox())!.width)
-    .toBeGreaterThan(initial.width + 60);
+    .first();
+  const videoWidth = async () => (await videoPane.boundingBox())?.width ?? 0;
+  const savedLayout = () =>
+    page.evaluate((key) => localStorage.getItem(key), dockLayoutKey);
 
+  async function dragDivider(distance: number) {
+    const bounds = (await divider.boundingBox())!;
+    const x = bounds.x + bounds.width / 2;
+    const y = bounds.y + bounds.height / 2;
+    await page.mouse.move(x, y);
+    await page.mouse.down();
+    await page.mouse.move(x + distance, y, { steps: 10 });
+  }
+
+  const initialLayout = await savedLayout();
+  await dragDivider(80);
+  await expect
+    .poll(videoWidth)
+    .toBeGreaterThan(initial.width + 60);
+  await page.mouse.up();
+  const resizedWidth = await videoWidth();
+  await expect.poll(savedLayout).not.toBe(initialLayout);
+  const resizedLayout = await savedLayout();
+  expect(resizedLayout).not.toBeNull();
+
+  await dragDivider(-70);
+  await expect.poll(videoWidth).toBeLessThan(resizedWidth - 50);
+  expect(await savedLayout()).toBe(resizedLayout);
+  await page.keyboard.press('Escape');
+  await page.mouse.up();
+  await expect.poll(videoWidth).toBeCloseTo(resizedWidth, 0);
+  expect(await savedLayout()).toBe(resizedLayout);
+
+  await page.reload();
+  await expect.poll(videoWidth).toBeCloseTo(resizedWidth, 0);
+
+  await expect
+    .poll(() =>
+      page
+        .locator('video')
+        .evaluate((video: HTMLVideoElement) => video.readyState),
+    )
+    .toBeGreaterThan(0);
   const video = (await page.locator('video').elementHandle())!;
   await video.evaluate((element: HTMLVideoElement) => {
     element.currentTime = 27;
@@ -280,21 +313,25 @@ test('panes resize and dock without recreating the video, and layout survives re
     transcript.y + transcript.height / 2,
     { steps: 25 },
   );
+  await expect(page.locator('.dock-drop-preview')).toBeVisible();
   await page.mouse.up();
   await expect
     .poll(async () => (await videoPane.boundingBox())!.x)
     .toBeGreaterThan(200);
+  await expect(page.locator('.dock-drop-preview')).toBeHidden();
   expect(
     await video.evaluate((element: HTMLVideoElement) => ({
-      connected: element.isConnected,
+      sameNode: element === document.querySelector('.video-panel video'),
       time: element.currentTime,
     })),
-  ).toEqual({ connected: true, time: 27 });
+  ).toEqual({ sameNode: true, time: 27 });
+  const dockedPosition = (await videoPane.boundingBox())!;
 
   await page.reload();
   await expect
     .poll(async () => (await videoPane.boundingBox())?.x ?? 0)
-    .toBeGreaterThan(200);
+    .toBeCloseTo(dockedPosition.x, 0);
+  await expect.poll(videoWidth).toBeCloseTo(dockedPosition.width, 0);
   await expect(
     page.locator('.site-header').getByRole('button', { name: 'Reset layout' }),
   ).toHaveCount(0);
@@ -306,6 +343,73 @@ test('panes resize and dock without recreating the video, and layout survives re
   await expect
     .poll(async () => (await videoPane.boundingBox())?.x ?? 0)
     .toBeCloseTo(initial.x);
+  await expect.poll(videoWidth).toBeCloseTo(initial.width, 0);
+  await divider.press('ArrowRight');
+  await expect.poll(videoWidth).toBeGreaterThan(initial.width + 5);
+});
+
+test('restores a previously saved desktop layout with panels grouped in tabs', async ({
+  page,
+}) => {
+  const tab = (id: string, name: string) => ({
+    type: 'tab',
+    id,
+    name,
+    component: id,
+  });
+  const layout = {
+    type: 'row',
+    children: [
+      {
+        type: 'tabset',
+        id: 'review-group',
+        weight: 34,
+        selected: 1,
+        children: [tab('evidence', 'Evidence'), tab('finding', 'Fact check')],
+      },
+      {
+        type: 'row',
+        weight: 66,
+        children: [
+          {
+            type: 'tabset',
+            weight: 62,
+            children: [tab('video', 'Video')],
+          },
+          {
+            type: 'tabset',
+            weight: 38,
+            children: [tab('transcript', 'Transcript')],
+          },
+        ],
+      },
+    ],
+  };
+  await page.addInitScript(
+    ({ key, value }) => localStorage.setItem(key, value),
+    { key: dockLayoutKey, value: JSON.stringify({ layout }) },
+  );
+  await page.goto('/');
+
+  const factCheck = page.getByRole('tab', { name: 'Fact check', exact: true });
+  const reviewGroup = page.locator('.flexlayout__tabset').filter({ has: factCheck });
+  const evidence = reviewGroup.getByRole('tab', { name: 'Evidence', exact: true });
+  await expect(evidence).toBeVisible();
+  await expect(factCheck).toHaveAttribute('aria-selected', 'true');
+  await expect(page.locator('.finding-panel')).toBeVisible();
+  await expect(page.locator('.evidence-panel')).toBeHidden();
+
+  const video = (await page.locator('.video-panel').boundingBox())!;
+  const finding = (await page.locator('.finding-panel').boundingBox())!;
+  const transcript = (await page.locator('.transcript-panel').boundingBox())!;
+  expect(video.x).toBeGreaterThan(finding.x + finding.width);
+  expect(transcript.x).toBeCloseTo(video.x, 0);
+  expect(transcript.y).toBeGreaterThan(video.y + video.height);
+
+  await evidence.click();
+  await expect(evidence).toHaveAttribute('aria-selected', 'true');
+  await expect(page.locator('.evidence-panel')).toBeVisible();
+  await expect(page.locator('.finding-panel')).toBeHidden();
 });
 
 test('signal bars encode assessment confidence and support without changing the verdict label', async ({

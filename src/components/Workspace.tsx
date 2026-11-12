@@ -1,13 +1,23 @@
 'use client';
 
-import { useEffect, useState, type ReactNode } from 'react';
+import {
+  useEffect,
+  useRef,
+  useState,
+  type PointerEvent,
+  type ReactNode,
+} from 'react';
 import {
   Layout,
   Model,
+  TabNode,
+  TabSetNode,
   type IJsonModel,
   type IJsonTabSetNode,
 } from 'flexlayout-react';
 import { GripVertical } from 'lucide-react';
+import { startDockMove, type DockPreview } from './dock-move';
+import { startDockResize } from './dock-resize';
 import 'flexlayout-react/style/dark.css';
 import './workspace.css';
 
@@ -77,6 +87,34 @@ function restoreModel() {
   }
 }
 
+function saveModel(model: Model) {
+  try {
+    localStorage.setItem(storageKey, JSON.stringify(model.toJson()));
+  } catch {
+    /* Preferences are optional. */
+  }
+}
+
+function tabAtPointer(model: Model, target: Element) {
+  if (target.closest('button, a, input')) return;
+  const tabElement = target.closest<HTMLElement>('.flexlayout__tab_button');
+  if (tabElement) {
+    const title = tabElement.querySelector<HTMLElement>('[data-dock-pane]');
+    const tab = title?.dataset.dockPane && model.getNodeById(title.dataset.dockPane);
+    if (tab instanceof TabNode && tab.isEnableDrag()) return { tab, element: tabElement };
+    return;
+  }
+
+  const strip = target.closest<HTMLElement>('[data-layout-path$="/tabstrip"]');
+  if (!strip) return;
+  const path = strip.dataset.layoutPath?.slice(0, -'/tabstrip'.length);
+  let tabset: TabSetNode | undefined;
+  model.visitNodes((node) => {
+    if (node instanceof TabSetNode && node.getPath() === path) tabset = node;
+  });
+  if (tabset?.isEnableDrag()) return { tab: tabset, element: strip };
+}
+
 export default function Workspace({
   panes,
   resetToken,
@@ -85,6 +123,15 @@ export default function Workspace({
   resetToken: number;
 }) {
   const [model, setModel] = useState(() => Model.fromJson(defaults));
+  const layoutRef = useRef<React.ComponentRef<typeof Layout>>(null);
+  const gesture = useRef<{ kind: 'move' | 'resize'; stop: () => void } | null>(null);
+  const [dragging, setDragging] = useState(false);
+  const [dropPreview, setDropPreview] = useState<DockPreview | null>(null);
+
+  useEffect(() => () => {
+    gesture.current?.stop();
+    gesture.current = null;
+  }, [model]);
 
   useEffect(() => {
     if (resetToken === 0) {
@@ -97,12 +144,56 @@ export default function Workspace({
     } catch {
       /* Preferences are optional. */
     }
+    setDragging(false);
+    setDropPreview(null);
     setModel(Model.fromJson(defaults));
   }, [resetToken]);
 
+  function startGesture(event: PointerEvent<HTMLDivElement>) {
+    if (gesture.current || event.button !== 0 || !event.isPrimary) return;
+    const root = layoutRef.current?.getRootDiv();
+    const target = event.target;
+    if (!root || !(target instanceof Element) || !root.contains(target)) return;
+
+    const splitter = target.closest<HTMLElement>('.flexlayout__splitter[role="separator"]');
+    if (splitter) {
+      const stop = startDockResize(model, root, splitter, event.nativeEvent, (committed) => {
+        gesture.current = null;
+        if (committed) saveModel(model);
+      });
+      if (!stop) return;
+      gesture.current = { kind: 'resize', stop };
+      event.stopPropagation();
+      return;
+    }
+
+    const source = tabAtPointer(model, target);
+    if (!source) return;
+    const stop = startDockMove(model, root, source.tab, source.element, event.nativeEvent, {
+      onStart: () => setDragging(true),
+      onPreview: setDropPreview,
+      onFinish: () => {
+        gesture.current = null;
+        setDragging(false);
+        setDropPreview(null);
+      },
+    });
+    if (stop) gesture.current = { kind: 'move', stop };
+  }
+
   return (
-    <div className="dock-workspace">
+    <div
+      className="dock-workspace"
+      data-dragging={dragging || undefined}
+      onPointerDownCapture={startGesture}
+      onDragStartCapture={(event) => {
+        if (gesture.current?.kind !== 'move') return;
+        event.preventDefault();
+        event.stopPropagation();
+      }}
+    >
       <Layout
+        ref={layoutRef}
         model={model}
         factory={(node) => panes[node.getId() as Pane]}
         supportsPopout={false}
@@ -113,20 +204,34 @@ export default function Workspace({
           values.content = (
             <span
               className="dock-title"
+              data-dock-pane={node.getId()}
               title={`Drag ${paneTitles[node.getId() as Pane]} to move it`}
             >
               {paneTitles[node.getId() as Pane]}
             </span>
           );
         }}
-        onModelChange={(updated) => {
-          try {
-            localStorage.setItem(storageKey, JSON.stringify(updated.toJson()));
-          } catch {
-            /* Preferences are optional. */
-          }
+        onModelChange={(updated, action) => {
+          if (!action.isAdjusting() && gesture.current?.kind !== 'resize') saveModel(updated);
         }}
       />
+      {dragging && model.isEnableEdgeDock() && model.isEnableEdgeDockIndicators() && (
+        <div className="dock-edge-markers" aria-hidden="true">
+          <i /><i /><i /><i />
+        </div>
+      )}
+      {dropPreview && (
+        <div
+          className={`dock-drop-preview ${dropPreview.className}`}
+          style={{
+            left: dropPreview.x,
+            top: dropPreview.y,
+            width: dropPreview.width,
+            height: dropPreview.height,
+          }}
+          aria-hidden="true"
+        />
+      )}
     </div>
   );
 }

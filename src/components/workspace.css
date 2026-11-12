@@ -32,6 +32,7 @@
 .dock-workspace .flexlayout__tab_button {
   cursor: grab;
   gap: 4px;
+  touch-action: none;
 }
 .dock-workspace .flexlayout__tab_button:active {
   cursor: grabbing;
@@ -45,3 +46,46 @@
 .dock-workspace .flexlayout__tab {
   overflow: hidden;
 }
+
+.dock-workspace[data-dragging] {
+  cursor: grabbing;
+  user-select: none;
+}
+
+.dock-drop-preview {
+  position: absolute;
+  pointer-events: none;
+  z-index: 30;
+}
+
+.dock-edge-markers {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 29;
+}
+
+.dock-edge-markers i {
+  position: absolute;
+  border-radius: 2px;
+  background: var(--accent);
+}
+
+.dock-edge-markers i:nth-child(-n + 2) {
+  left: 50%;
+  width: 100px;
+  height: 4px;
+  translate: -50% 0;
+}
+
+.dock-edge-markers i:nth-child(n + 3) {
+  top: 50%;
+  width: 4px;
+  height: 100px;
+  translate: 0 -50%;
+}
+
+.dock-edge-markers i:nth-child(1) { top: 0; }
+.dock-edge-markers i:nth-child(2) { bottom: 0; }
+.dock-edge-markers i:nth-child(3) { left: 0; }
+.dock-edge-markers i:nth-child(4) { right: 0; }
