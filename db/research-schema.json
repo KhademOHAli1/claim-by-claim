@@ -1,0 +1,61 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["summary", "limitations", "claims", "sources"],
+  "properties": {
+    "summary": { "type": "string" },
+    "limitations": { "type": "array", "items": { "type": "string" } },
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "quote", "start", "end", "proposition", "verdict", "confidence", "confidenceReason", "finding", "counterevidence", "nextCheck", "citations"],
+        "properties": {
+          "id": { "type": "string" },
+          "quote": { "type": "string" },
+          "start": { "type": "number" },
+          "end": { "type": "number" },
+          "proposition": { "type": "string" },
+          "verdict": { "type": "string", "enum": ["Supported", "Contradicted", "Misleading", "Mixed", "Unsubstantiated", "Unresolved", "Not fact-checkable"] },
+          "confidence": { "type": "string", "enum": ["High", "Medium", "Low"] },
+          "confidenceReason": { "type": "string" },
+          "finding": { "type": "string" },
+          "counterevidence": { "type": "string" },
+          "nextCheck": { "type": "string" },
+          "citations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["sourceId", "relation", "locator", "relevance"],
+              "properties": {
+                "sourceId": { "type": "string" },
+                "relation": { "type": "string", "enum": ["supporting", "contradicting", "context"] },
+                "locator": { "type": "string" },
+                "relevance": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "title", "publisher", "url", "originGroup", "access", "accessNote"],
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "publisher": { "type": "string" },
+          "url": { "type": "string" },
+          "originGroup": { "type": "string" },
+          "access": { "type": "string", "enum": ["inspected", "inaccessible"] },
+          "accessNote": { "type": "string" }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+# Send only runner source and its dependency lock to the build.
+**
+!backend/
+backend/**
+!backend/Dockerfile
+!backend/Dockerfile.dockerignore
+!backend/requirements.lock
+!db/
+db/**
+!db/*.mjs
+!db/*.py
+!db/research-schema.json
+db/*.test.mjs

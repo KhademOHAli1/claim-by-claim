@@ -17,6 +17,8 @@ bun run dev
 
 Open [the local site](http://127.0.0.1:5173/). Run `bun run check:content` to validate the public review data, captions, and evidence preview manifest.
 
+The editorial CLI submits cases to D1, exports transcripts for review, and retrieves Codex drafts. See the [agentic workflow guide](docs/agentic-workflow.md) for video intake, model routing, engagement and the knowledge graph, the [research tool review](docs/research-tool-review.md) for repository findings, and the [deployment guide](docs/backend-deployment.md) for the private API and Linux runner.
+
 Drag a pane by its title to move it. Drag the divider between panes to resize them. The site saves the layout in your browser. Open **Method → Reset layout** to restore the original arrangement.
 
 ## Build and deploy
